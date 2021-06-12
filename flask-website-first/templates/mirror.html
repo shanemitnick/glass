@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+
+</head>
+<body>
+    <div>
+        <section class="ajax-section">
+            <div class="container">
+              <div class="weather-wrapper">
+                    <ul class="cities">
+                     <div class="weather-card current">
+                       <div class="loc-current"><img src="https://i.ibb.co/rvbDtdQ/pngaaa-com-203007.png" alt="You are here!"></img></div>
+                  <div class="cloud"> </div>
+                  {% if value['weather-type'][1] == 'rain' %}
+                    <div class="rain"> </div>
+                  {% endif %}
+                  <h1 class="city-temp">{{ value['weather-type'][0] }}<sup>ºF</sup></h1>
+                <p class="city-current-text"> {{ value['city-name'] }}</p>
+                <span class='date-current'></span>
+                </div>  
+                    </ul>
+          </div>
+            </div>
+          </section>
+          
+          <div class='digital-time'> 
+            <h1 class='digital-text'> {{ value["time-info"][0] }}</h1>
+            <h1 class='digital-text'> {{ value["time-info"][1] }}</h1>
+          </div>
+
+
+
+
+
+          <section class='main-message'>
+            <h1 class='message-text'> Have a Great Day, {{value['name']}}!</h1>
+          </section>
+    </div>
+</body>
+</html>
