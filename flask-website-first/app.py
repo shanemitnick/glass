@@ -1,6 +1,5 @@
 from flask import Flask, redirect, render_template
 from datetime import date, datetime
-import mirror
 from utils import get_weather
 from utils import get_stories_from_source
 from user_calendar import get_events
