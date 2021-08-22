@@ -10,7 +10,7 @@ p {
     color: red;
 }
 
-/* THE CSS FOR WEATHER THING */ 
+/* THE CSS FOR WEATHER THING */
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
 
 :root {
@@ -35,7 +35,7 @@ p {
     justify-content: center;
 }
 
-.weather-card { 
+.weather-card {
     margin:  20px 5px;
     border-radius: 20px;
     position: relative;
@@ -58,7 +58,7 @@ h1.city-temp {
     transform: translateX(150px);
     animation: title-appear 500ms ease-out 500ms forwards;
 }
-    
+
 p.city-current {
     position: absolute;
     left: 40px;
@@ -120,7 +120,7 @@ p.weather-card{
   float: left;
   width: 30px;
   height: 30px;
-  background: lighten(var(--color1), 10%);; 
+  background: lighten(var(--color1), 10%);;
 	border-radius: 100%;
   margin: 5px 5px 0 5px;
 
@@ -141,9 +141,9 @@ img{
   grid-template-columns: repeat(4, 1fr);
 }
 
-.clear { 
-    background: var(--color4); 
-	border-radius: 50%; 
+.clear {
+    background: var(--color4);
+	border-radius: 50%;
 	box-shadow: rgba(255,255,0,0.1) 0 0 0 4px;
     animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
 }
@@ -158,7 +158,7 @@ img{
 }
 
 
-.cloud{ 
+.cloud{
   position: absolute;
   top: -25px;
   right: 15px;
@@ -194,17 +194,17 @@ img{
 
 
  margin-right:60px;
-    background: darken(var(--color1), 5%); 
-	  border-radius: 20px; 
+    background: darken(var(--color1), 5%);
+	  border-radius: 20px;
     width: 25px;
     height: 25px;
-    box-shadow: 
-		darken(var(--color1), 5%) 24px -6px 0 2px, 
-		darken(var(--color1), 5%) 10px 5px 0 5px, 
-		darken(var(--color1), 5%) 30px 5px 0 2px, 
-        darken(var(--color1), 5%) 11px -8px 0 -3px, 
+    box-shadow:
+		darken(var(--color1), 5%) 24px -6px 0 2px,
+		darken(var(--color1), 5%) 10px 5px 0 5px,
+		darken(var(--color1), 5%) 30px 5px 0 2px,
+        darken(var(--color1), 5%) 11px -8px 0 -3px,
         darken(var(--color1), 5%) 25px 11px 0 -1px;
-    
+
 }
 .rain::after {
         content: "";
@@ -221,24 +221,24 @@ img{
 
 @keyframes rain {
     from {
-        box-shadow: 
+        box-shadow:
         var(--color5) 8px 0px,
-		var(--color5) 32px -6px, 
+		var(--color5) 32px -6px,
 		var(--color5) 20px 0px,
     var(--color5) 42px -15px;
     }
     to {
-        box-shadow: 
+        box-shadow:
         var(--color5) 8px 6px,
-		var(--color5) 32px 0px, 
+		var(--color5) 32px 0px,
 		var(--color5) 20px 6px,
     var(--color5) 42px -9px;
     }
 }
 
 @keyframes weather-icon-move {
-	50% { 
-        transform: translateY(-8px); 
+	50% {
+        transform: translateY(-8px);
     }
 }
 
@@ -271,7 +271,7 @@ img{
 input {
   -webkit-appearance: none;
 }
- 
+
 button,input {
   border: none;
   background: none;
@@ -299,7 +299,7 @@ button:hover{
 }
 
 .top-banner form input::placeholder {
-  color: currentColor; 
+  color: currentColor;
 }
 
 li{
@@ -330,7 +330,7 @@ p.city-current-text{
   top: -10px;
   font-size: 20px;
 }
-/* CLOCK SECTION */ 
+/* CLOCK SECTION */
 .time {
   width: 300px;
   display: flex;
@@ -417,7 +417,7 @@ p.city-current-text{
   z-index: 1;
 }
 
-.digital-time { 
+.digital-time {
   margin:  20px 5px;
   border-radius: 20px;
   position: relative;
@@ -433,7 +433,7 @@ p.city-current-text{
   font-size: 50px;
 }
 
-/* CSS FOR MAIN MESSAGE */ 
+/* CSS FOR MAIN MESSAGE */
 
 .message-text {
   font-family: 'Lato', sans-serif;
@@ -441,4 +441,87 @@ p.city-current-text{
   position: absolute;
   top: 50%;
   left: 40%;
+}
+
+/* NEWS INFORMATION */
+
+.news-container-text {
+  position: absolute;
+  background-color: white;
+  top: 80%;
+  left: 50%;
+}
+
+#cycle {
+  color:var(--color1);
+}
+
+/* CSS for Calendar Information */
+
+.calender {
+  position: absolute;
+  color: white;
+  top: 80%;
+}
+
+#date-divider {
+  position: relative;
+  top: -5px;
+  border: 2px solid white;
+  width: 700px;
+}
+
+.day-container {
+  position: absolute;
+  top: -50px;
+  width: 175px;
+  height: 250px;
+}
+
+#day-1-container {
+  left: 0px;
+}
+
+#day-2-container {
+  left: 175px;
+}
+
+#day-3-container {
+  position: absolute;
+  left: 350px;
+}
+
+#day-4-container {
+  position: absolute;
+  left: 525px;
+}
+
+.calendar-date {
+  color: white;
+  position: relative;
+  top: -35px;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 0px;
+}
+
+.event-time {
+  font-family: monospace;
+  position: relative;
+  color: white;
+  font-size: 20px;
+  top: -50px;
+  margin-bottom: 0px;
+}
+
+.event-title {
+  font-family: monospace;
+  position: relative;
+  font-size: 20px;
+  top: -50px;
+  color: white;
+  margin-bottom: 0px;
+  text-align: center;
+  margin-top: 0px;
+  color: white;
 }

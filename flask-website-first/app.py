@@ -2,6 +2,10 @@ from flask import Flask, redirect, render_template
 from datetime import date, datetime
 import mirror
 from utils import get_weather
+from utils import get_stories_from_source
+from user_calendar import get_events
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.ext.declarative import declarative_base
 
 shane_info = {'name': 'Shane',
             'lat' : 40.4406,
@@ -13,10 +17,13 @@ owen_info = {'name': 'Owen',
             'long': -74.4885,
             'city': 'Somerset'}
 
-user_info = owen_info
+user_info = shane_info
 print(user_info)
 
 app = Flask(__name__)
+db = SQLAlchemy(app)
+
+
 
 @app.route("/")
 def index():
@@ -33,6 +40,10 @@ def mirror():
     values['name'] = user_info['name']
 
     values['city-name'] = user_info['city']
+
+    print(get_stories_from_source('cnn', n=1))
+    values['events'] = get_events()
+
     return render_template("mirror.html", value=values)
 
 @app.route('/test')

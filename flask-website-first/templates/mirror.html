@@ -4,7 +4,9 @@
 <html>
 <head>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<script type='text/javascript' src="../static/javascript/weather.js"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+
 
 </head>
 <body>
@@ -22,13 +24,13 @@
                   <h1 class="city-temp">{{ value['weather-type'][0] }}<sup>ºF</sup></h1>
                 <p class="city-current-text"> {{ value['city-name'] }}</p>
                 <span class='date-current'></span>
-                </div>  
+                </div>
                     </ul>
           </div>
             </div>
           </section>
-          
-          <div class='digital-time'> 
+
+          <div class='digital-time'>
             <h1 class='digital-text'> {{ value["time-info"][0] }}</h1>
             <h1 class='digital-text'> {{ value["time-info"][1] }}</h1>
           </div>
@@ -40,6 +42,77 @@
           <section class='main-message'>
             <h1 class='message-text'> Have a Great Day, {{value['name']}}!</h1>
           </section>
+
+
+          <div class="calender">
+
+            <div class='day-container' id='day-1-container'>
+                <p class='calendar-date' id="day1">  </p>
+
+                <div class='calendar-data' id='calendar-day1-data'>
+                  {% for events in value['events'][0] %}
+                    <p class='event-time'> - {{ events[0] }} </p>
+                    <p class='event-title'> {{ events[1] }} </p>
+                  {% endfor %}
+                </div>
+            </div>
+
+            <div class='day-container' id='day-2-container'>
+                <p class='calendar-date' id="day2">  </p>
+
+                <div class='calendar-data' id='calendar-day2-data'>
+                  {% for events in value['events'][1] %}
+                    <p class='event-time'> - {{ events[0] }} </p>
+                    <p class='event-title'> {{ events[1] }} </p>
+                  {% endfor %}
+                </div>
+
+            </div>
+
+
+            <div class='day-container' id='day-3-container'>
+                <p class='calendar-date' id="day3">  </p>
+
+                <div class='calendar-data' id='calendar-day3-data'>
+                  {% for events in value['events'][2] %}
+                    <p class='event-time'> - {{ events[0] }} </p>
+                    <p class='event-title'> {{ events[1] }} </p>
+                  {% endfor %}
+                </div>
+            </div>
+
+
+            <div class='day-container' id='day-4-container'>
+                <p class='calendar-date' id="day4">  </p>
+
+                <div class='calendar-data' id='calendar-day4-data'>
+                  {% for events in value['events'][3] %}
+                    <p class='event-time'> - {{ events[0] }} </p>
+                    <p class='event-title'> {{ events[1] }} </p>
+                  {% endfor %}
+                </div>
+            </div>
+
+
+            <hr class='calendar-line' id='date-divider'>
+
+
+
+            <script>
+              const date = new Date();
+              const day = date.getDate();
+              document.getElementById("day1").innerHTML = day;
+              document.getElementById("day2").innerHTML = day + 1;
+              document.getElementById("day3").innerHTML = day + 2;
+              document.getElementById("day4").innerHTML = day + 3;
+            </script>
+
+          </div>
+
+
+
     </div>
+
+
 </body>
 </html>
