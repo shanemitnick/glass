@@ -18,7 +18,8 @@ def get_events():
                 ['11:30 AM','Edinno.lab internal weekly sync & planning ']],
             [['9:30 AM', 'All team checkin'],
                 ['11:00 AM', 'Shane/Turner 1:1'],
-                ['5:00 PM', 'edinno.lab Learning Session']]
+                ['5:00 PM', 'edinno.lab Learning Session']],
+            [['3:00 PM', 'test on TODYA'], ['10:00 AM', 'test 2']]
           ]
     return events
 
