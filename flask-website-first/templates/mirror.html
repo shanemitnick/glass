@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,109 +7,107 @@
 
 
 </head>
+
+
 <body>
-    <div>
-        <section class="ajax-section">
-            <div class="container">
-              <div class="weather-wrapper">
-                    <ul class="cities">
+
+
+        <section class="ajax-section"> <!-- This simply lets the code update without refreshing the page, not huge rn but good to have in -->
+
+            <div class="weather-wrapper"> <!-- Holds the weather widget -->
                      <div class="weather-card current">
-                       <div class="loc-current"><img src="https://i.ibb.co/rvbDtdQ/pngaaa-com-203007.png" alt="You are here!"></img></div>
-                  <div class="cloud"> </div>
-                  {% if value['weather-type'][1] == 'rain' %}
-                    <div class="rain"> </div>
-                  {% endif %}
-                  <h1 class="city-temp">{{ value['weather-type'][0] }}<sup>ºF</sup></h1>
-                <p class="city-current-text"> {{ value['city-name'] }}</p>
-                <span class='date-current'></span>
-                </div>
-                    </ul>
-          </div>
-            </div>
-          </section>
+                         <div class="loc-current"><img src="https://i.ibb.co/rvbDtdQ/pngaaa-com-203007.png" alt="You are here!"></div> <!-- This is the pin icon next to user city, very important -->
+                         <p class="city-current-text"> {{ value['city-name'] }}</p> <!-- this is the user's city, not nearly as important as the pin honestly -->
+                         <div class="cloud"> </div> <!-- Cloud Icon -->
+                            {% if value['weather-type'][1] == 'rain' %}
+                         <div class="rain"> </div> <!-- Rain Icon, not visible with current set data -->
+                            {% endif %}
+                         <h1 class="city-temp">{{ value['weather-type'][0] }}<sup>ºF</sup></h1> <!-- Text that states the temp of the user city in *F, *F is superscripted relative to the number, nice touch Shane my boy -->
+                         <!-- <span class='date-current'></span> --> <!-- Commenting this out until I know what it works with, after a quick test it doesn't seem super important -->
+                     </div> <!--weather-card current-->
+              </div> <!--weather-wrapper-->
 
-          <div class='digital-time'>
-            <h1 class='digital-text'> {{ value["time-info"][0] }}</h1>
-            <h1 class='digital-text'> {{ value["time-info"][1] }}</h1>
-          </div>
+              <div class='digital-time'> <!-- Was confused why this wasn't in the ajax wrapper if I understand it correctly so I moved it in lol. -->
+                  <h1 class='digital-text'> {{ value["time-info"][0] }}</h1> <!-- Displays the Day of the Week -->
+                  <h1 class='digital-text'> {{ value["time-info"][1] }}</h1> <!-- Displays the Time of Day -->
+              </div> <!--digital-time-->
 
+        </section> <!--ajax-section-->
 
 
+        <section class='main-message'> <!-- This is what displays the message to the user, uses their name -->
+
+            <h1 class='message-text'> Have a Great Day, {{value['name']}}!</h1> <!-- The message itself, not sure how I feel about this not having a div honestly, will see when working on design -->
+
+        </section> <!--main-message-->
 
 
-          <section class='main-message'>
-            <h1 class='message-text'> Have a Great Day, {{value['name']}}!</h1>
-          </section>
+        <section class="calendar-section"> <!-- Created this section to standardize how we divide the page and create a overarching calendar element -->
 
+            <div class="calendar"> <!-- Currently just a line, will try and make it the parent of the week day elements -->
 
-          <div class="calender">
+                <div class='day-container' id='day-1-container'>
+                    <p class='calendar-date' id="day1">  </p>
 
-            <div class='day-container' id='day-1-container'>
-                <p class='calendar-date' id="day1">  </p>
-
-                <div class='calendar-data' id='calendar-day1-data'>
-                  {% for events in value['events'][0] %}
-                    <p class='event-time'> - {{ events[0] }} </p>
-                    <p class='event-title'> {{ events[1] }} </p>
-                  {% endfor %}
-                </div>
-            </div>
-
-            <div class='day-container' id='day-2-container'>
-                <p class='calendar-date' id="day2">  </p>
-
-                <div class='calendar-data' id='calendar-day2-data'>
-                  {% for events in value['events'][1] %}
-                    <p class='event-time'> - {{ events[0] }} </p>
-                    <p class='event-title'> {{ events[1] }} </p>
-                  {% endfor %}
+                    <div class='calendar-data' id='calendar-day1-data'>
+                        {% for events in value['events'][0] %}
+                            <p class='event-time'> - {{ events[0] }} </p>
+                            <p class='event-title'> {{ events[1] }} </p>
+                        {% endfor %}
+                    </div>
                 </div>
 
-            </div>
+                <div class='day-container' id='day-2-container'>
+                    <p class='calendar-date' id="day2">  </p>
 
-
-            <div class='day-container' id='day-3-container'>
-                <p class='calendar-date' id="day3">  </p>
-
-                <div class='calendar-data' id='calendar-day3-data'>
-                  {% for events in value['events'][2] %}
-                    <p class='event-time'> - {{ events[0] }} </p>
-                    <p class='event-title'> {{ events[1] }} </p>
-                  {% endfor %}
+                    <div class='calendar-data' id='calendar-day2-data'>
+                        {% for events in value['events'][1] %}
+                            <p class='event-time'> - {{ events[0] }} </p>
+                            <p class='event-title'> {{ events[1] }} </p>
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
 
+                <div class='day-container' id='day-3-container'>
+                    <p class='calendar-date' id="day3">  </p>
 
-            <div class='day-container' id='day-4-container'>
-                <p class='calendar-date' id="day4">  </p>
-
-                <div class='calendar-data' id='calendar-day4-data'>
-                  {% for events in value['events'][3] %}
-                    <p class='event-time'> - {{ events[0] }} </p>
-                    <p class='event-title'> {{ events[1] }} </p>
-                  {% endfor %}
+                    <div class='calendar-data' id='calendar-day3-data'>
+                        {% for events in value['events'][2] %}
+                            <p class='event-time'> - {{ events[0] }} </p>
+                            <p class='event-title'> {{ events[1] }} </p>
+                        {% endfor %}
+                    </div>
                 </div>
+
+
+                <div class='day-container' id='day-4-container'>
+                    <p class='calendar-date' id="day4">  </p>
+
+                    <div class='calendar-data' id='calendar-day4-data'>
+                        {% for events in value['events'][3] %}
+                            <p class='event-time'> - {{ events[0] }} </p>
+                            <p class='event-title'> {{ events[1] }} </p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+                <hr class='calendar-line' id='date-divider'>
+
+                <script>
+                  const date = new Date();
+                  const day = date.getDate();
+                  document.getElementById("day1").innerHTML = day;
+                  document.getElementById("day2").innerHTML = day + 1;
+                  document.getElementById("day3").innerHTML = day + 2;
+                  document.getElementById("day4").innerHTML = day + 3;
+                </script>
             </div>
-
-
-            <hr class='calendar-line' id='date-divider'>
-
-
-
-            <script>
-              const date = new Date();
-              const day = date.getDate();
-              document.getElementById("day1").innerHTML = day;
-              document.getElementById("day2").innerHTML = day + 1;
-              document.getElementById("day3").innerHTML = day + 2;
-              document.getElementById("day4").innerHTML = day + 3;
-            </script>
-
-          </div>
+        </section>
 
 
 
-    </div>
+
 
 
 </body>

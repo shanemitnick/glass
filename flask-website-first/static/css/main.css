@@ -1,8 +1,9 @@
+/*
 * {
   margin: 0;
   padding: 0;
 }
-
+*/
 body {
     background-color: black;
 }
@@ -139,7 +140,7 @@ img{
   position: relative;
   margin: auto;
 }
-
+/* This was removed */
 .ajax-section .cities {
   display: grid;
   grid-gap: 20px 20px;
@@ -463,7 +464,7 @@ p.city-current-text{
 
 /* CSS for Calendar Information */
 
-.calender {
+.calendar {
   position: absolute;
   color: white;
   top: 80%;
