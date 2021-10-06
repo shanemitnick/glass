@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 <script type='text/javascript' src="../static/javascript/weather.js"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
@@ -15,7 +20,7 @@
         <section class="ajax-section"> <!-- This simply lets the code update without refreshing the page, not huge rn but good to have in -->
 
             <div class="weather-wrapper"> <!-- Holds the weather widget -->
-                     <div class="weather-card current">
+                     <div class="weather-card">
                          <div class="loc-current"><img src="https://i.ibb.co/rvbDtdQ/pngaaa-com-203007.png" alt="You are here!"></div> <!-- This is the pin icon next to user city, very important -->
                          <p class="city-current-text"> {{ value['city-name'] }}</p> <!-- this is the user's city, not nearly as important as the pin honestly -->
                          <div class="cloud"> </div> <!-- Cloud Icon -->

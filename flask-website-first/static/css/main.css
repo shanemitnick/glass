@@ -1,11 +1,8 @@
-/*
-* {
-  margin: 0;
-  padding: 0;
-}
-*/
+/* CSS FOR THE GENERAL ASPECTS */
+
 body {
-    background-color: black;
+    background-color: green;
+    font-family: Roboto;
 }
 
 h3.time-section {
@@ -16,12 +13,19 @@ p {
     color: red;
 }
 
-/* THE CSS FOR WEATHER THING */
-@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+/* THE CSS FOR WEATHER WIDGET */
+
+.weather-card {
+    background-color: rgba(224, 224, 224, 0.75); /*Creates the opaque background for the widget, will move this to a standardized version late */
+
+
+
+}
+
 
 :root {
     --color1: #C8DAE6;
-    --color2: white;
+    --color2: Red;
     --color3: #B8B8B8;
     --color4: #FFCD41;
     --color5: #2092A9;
@@ -48,13 +52,11 @@ p {
     overflow: hidden;
     width: 270px;
     height: 270px;
-    background-color: var(--color2);
     box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1);
     animation: appear 500ms ease-out forwards;
 }
 h1.city-temp {
     position: absolute;
-    font-family: 'Lato', sans-serif;
     font-weight:300;
     font-size:80px;
     color: black;
@@ -69,7 +71,6 @@ p.city-current {
     position: absolute;
     left: 40px;
     top: -10px;
-    font-family: 'Lato', sans-serif;
     font-weight:300;
     font-size:20px;
     color: red;
@@ -78,7 +79,6 @@ p.city-current {
 p.weather-card{
     display: flex;
     position: absolute;
-    font-family: 'Lato', sans-serif;
     font-weight:300;
     font-size:30px;
     color: lighten(var(--color3), 10%);
@@ -113,7 +113,6 @@ p.weather-card{
         position: absolute;
         left: 35px;
         bottom: 5px;
-        font-family: 'Lato', sans-serif;
         font-weight:300;
         font-size: 10px;
         color: var(--color3);
@@ -282,7 +281,7 @@ button,input {
   border: none;
   background: none;
   color: #949899;
-  font: 18px "Lato";
+  font: 18px;
   justify-content: center;
   position: relative;
   cursor: pointer;
@@ -320,7 +319,6 @@ sup{
 .cityname{
         display: flex;
         position: absolute;
-        font-family: 'Lato', sans-serif;
         font-weight:300;
         font-size:30px;
         color: lighten(var(--color3), 10%);
@@ -330,7 +328,6 @@ sup{
 }
 
 p.city-current-text{
-  font-family: 'Lato', sans-serif;
   color: black;
   position: relative;
   top: -10px;
@@ -352,7 +349,6 @@ p.city-current-text{
 .clock {
   border-radius: 100%;
   background: #ffffff;
-  font-family: "Montserrat";
   border: 5px solid white;
   box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
 }
@@ -434,7 +430,6 @@ p.city-current-text{
 }
 
 .digital-text {
-  font-family: 'Lato', sans-serif;
   text-align: center;
   font-size: 50px;
 }
@@ -442,7 +437,6 @@ p.city-current-text{
 /* CSS FOR MAIN MESSAGE */
 
 .message-text {
-  font-family: 'Lato', sans-serif;
   color: white;
   position: absolute;
   top: 50%;
@@ -512,7 +506,6 @@ p.city-current-text{
 }
 
 .event-time {
-  font-family: monospace;
   position: relative;
   color: white;
   font-size: 20px;
@@ -521,7 +514,6 @@ p.city-current-text{
 }
 
 .event-title {
-  font-family: monospace;
   position: relative;
   font-size: 20px;
   top: -50px;
