@@ -43,6 +43,7 @@ def mirror():
     print(get_stories_from_source('cnn', n=1))
     values['events'] = get_events()
 
+    print(values['events'])
     return render_template("mirror.html", value=values)
 
 @app.route('/test')
