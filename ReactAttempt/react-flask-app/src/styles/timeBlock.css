@@ -1,0 +1,31 @@
+.time-container{
+  position: absolute;
+  margin: 50px;
+  width: 250px;
+  height: 250px;
+  background-color: black;
+
+
+  border-style: solid;
+  border-size: .5px;
+  border-radius: 15px;
+  border-color: white;
+
+}
+
+.time-digits, .time-date{
+
+  font-family: monospace;
+  color: white;
+  margin: 25px 0px 50px 0px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+/* .time-date {
+
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  font-size: 25px;
+} */
