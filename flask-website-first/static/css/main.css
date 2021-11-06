@@ -115,7 +115,27 @@ left: calc(50% - 414.21px/2 + 452.1px);
 top: calc(50% - 256px/2 - 229px);
 }
 
-/*START HERE WHEN YOU RETURN OWEN, FROM OWEN */
+.weather-frame{
+    width: 414.2px;
+    height: 256px;
+    margin: 0 37.8px 27px 37.8px;
+    border-radius: 20px;
+    border: solid 2px #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* NEWS INFORMATION */
