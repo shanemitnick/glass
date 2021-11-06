@@ -24,16 +24,17 @@ db = SQLAlchemy(app)
 
 
 
-@app.route("/")
-def index():
-    return "Hello World!"
+# @app.route("/")
+# def index():
+#     return "Hello World!"
 
 
+@app.route('/')
 @app.route('/mirror')
 def mirror():
     values = {}
     dt = datetime.now()
-    values['time-info'] = [dt.strftime("%A"), dt.strftime("%l:%M")]
+    values['time-info'] = ['Sunday','2:35']
 
     values['weather-type'] = get_weather(user_info['lat'], user_info['long'])
     values['name'] = user_info['name']

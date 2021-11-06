@@ -1,447 +1,142 @@
-body {
-    background-color: black;
-}
+/* CSS FOR THE GENERAL ASPECTS */
 
-h3.time-section {
-  color: darkcyan;
-}
+body{
+    width: 1366px;
+    height: 768px;
+    background-color: #000;
+    font-family: Roboto;
+} /*Background - currently fixed in sizing for prototype MVP*/
 
-p {
-    color: red;
-}
-
-/* THE CSS FOR WEATHER THING */
-@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
-
-:root {
-    --color1: #C8DAE6;
-    --color2: white;
-    --color3: #B8B8B8;
-    --color4: #FFCD41;
-    --color5: #2092A9;
-}
-
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
-.weather-wrapper {
-  position: absolute;
-  top: 0%;
-  left: 80%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.weather-card {
-    margin:  20px 5px;
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    width: 270px;
-    height: 270px;
-    background-color: var(--color2);
-    box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1);
-    animation: appear 500ms ease-out forwards;
-}
-h1.city-temp {
-    position: absolute;
-    font-family: 'Lato', sans-serif;
-    font-weight:300;
-    font-size:80px;
-    color: black;
-    bottom: -50px;
-    left: 25px;
-    opacity: 0;
-    transform: translateX(150px);
-    animation: title-appear 500ms ease-out 500ms forwards;
-}
-
-p.city-current {
-    position: absolute;
-    left: 40px;
-    top: -10px;
-    font-family: 'Lato', sans-serif;
-    font-weight:300;
-    font-size:20px;
-    color: red;
-}
-
-p.weather-card{
-    display: flex;
-    position: absolute;
-    font-family: 'Lato', sans-serif;
-    font-weight:300;
-    font-size:30px;
-    color: lighten(var(--color3), 10%);
-    bottom: 0;
-    left: 35px;
-    animation: title-appear 1s ease-out 500ms forwards;
-}
-
-
-.weather-icon {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    top: 0;
-    float: right;
-    margin: 40px 40px 0 0;
-    animation: weather-icon-move 5s ease-in-out infinite;
-}
-
-.weather-icon-current {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    top: 0;
-    float: right;
-    margin: 40px 40px 0 0;
-    animation: weather-icon-move 5s ease-in-out infinite;
-}
-
-.date, .date-current{
-        display: flex;
-        position: absolute;
-        left: 35px;
-        bottom: 5px;
-        font-family: 'Lato', sans-serif;
-        font-weight:300;
-        font-size: 10px;
-        color: var(--color3);
-        opacity: 0;
-        transform: translateX(150px);
-        animation: title-appear 1s ease-out 500ms forwards;
-}
-
-.loc-current{
-  float: left;
-  width: 30px;
-  height: 30px;
-  background: lighten(var(--color1), 10%);;
-	border-radius: 100%;
-  margin: 5px 5px 0 5px;
-
-}
-
-img{
-  opacity: 75%;
-  float: left;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  margin: auto;
-}
-
-.ajax-section .cities {
-  display: grid;
-  grid-gap: 20px 20px;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.clear {
-    background: var(--color4);
-	border-radius: 50%;
-	box-shadow: rgba(255,255,0,0.1) 0 0 0 4px;
-    animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
-}
-
-@keyframes light {
-    from {
-        box-shadow: rgba(255,255,0,0.2) 0 0 0 10px;
-    }
-    to {
-        box-shadow: rgba(255,255,0,0.2) 0 0 0 17px;
-    }
-}
-
-
-.cloud{
-  position: absolute;
-  top: -25px;
-  right: 15px;
-  margin-top:70px;
-  width:100px;
-  height:50px;
-  background:#ECEFF1;
-  box-shadow: 5px 5px rgba(0,0,0,0.2);
-  border-radius:100px;
-}
-.cloud::after, .cloud::before{
-   content:"";
-   position:relative;
-   display:inline-block;
-   background:inherit;
-   border-radius:inherit;
-}
-.cloud::after{
-   width:50px;
-   height:50px;
-   top: -77px;
-   left:40px;
-}
-.cloud::before{
-   width:60px;
-   height: 60px;
-   top: -20px;
-   left:7px;
-}
-
-
-.rain{
-
-
- margin-right:60px;
-    background: darken(var(--color1), 5%);
-	  border-radius: 20px;
-    width: 25px;
-    height: 25px;
-    box-shadow:
-		darken(var(--color1), 5%) 24px -6px 0 2px,
-		darken(var(--color1), 5%) 10px 5px 0 5px,
-		darken(var(--color1), 5%) 30px 5px 0 2px,
-        darken(var(--color1), 5%) 11px -8px 0 -3px,
-        darken(var(--color1), 5%) 25px 11px 0 -1px;
-
-}
-.rain::after {
-        content: "";
-        position: absolute;
-        border-radius: 10px;
-        background-color: transparent;
-        width: 4px;
-        height: 15px;
-        right: 85px;
-        top: 95px;
-        transform: rotate(30deg);
- animation: rain 800ms ease-in-out infinite alternate;
-  }
-
-@keyframes rain {
-    from {
-        box-shadow:
-        var(--color5) 8px 0px,
-		var(--color5) 32px -6px,
-		var(--color5) 20px 0px,
-    var(--color5) 42px -15px;
-    }
-    to {
-        box-shadow:
-        var(--color5) 8px 6px,
-		var(--color5) 32px 0px,
-		var(--color5) 20px 6px,
-    var(--color5) 42px -9px;
-    }
-}
-
-@keyframes weather-icon-move {
-	50% {
-        transform: translateY(-8px);
-    }
-}
-
-@keyframes appear {
-  0% {
-    transform:scale(0);
-  }
-  50% {
-    transform:scale(1.05)
-  }
-  75% {
-    transform:scale(0.95)
-  }
-  100% {
-   transform:scale(1)
-  }
-}
-
-@keyframes title-appear {
-    from {
-        opacity: 0;
-        transform: translateX(150px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-    }
-}
-
-input {
-  -webkit-appearance: none;
-}
-
-button,input {
-  border: none;
-  background: none;
-  color: #949899;
-  font: 18px "Lato";
-  justify-content: center;
-  position: relative;
-  cursor: pointer;
-  border-radius: 5px;
-
-}
-
-button:hover{
-  background: var(--color3);
-  color: var(--color2);
-  transition: 0.3s ease;
-
-}
-
-.top-banner form input {
-  height: 40px;
-  padding: 5px 10px 10px;
-  border-bottom: 1px solid;
-
-}
-
-.top-banner form input::placeholder {
-  color: currentColor;
-}
-
-li{
-  -webkit-appearance: none;
-}
-
-sup{
-  font-size: 0.49em;
-  margin: 0.15em;
-}
-
-.cityname{
-        display: flex;
-        position: absolute;
-        font-family: 'Lato', sans-serif;
-        font-weight:300;
-        font-size:30px;
-        color: lighten(var(--color3), 10%);
-        bottom: 0;
-        left: 35px;
-        animation: title-appear 1s ease-out 500ms forwards;
-}
-
-p.city-current-text{
-  font-family: 'Lato', sans-serif;
-  color: black;
-  position: relative;
-  top: -10px;
-  font-size: 20px;
-}
-/* CLOCK SECTION */
-.time {
-  width: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-
-  position: absolute;
-  top: -30%;
-  left: 0%;
-}
-
-.clock {
-  border-radius: 100%;
-  background: #ffffff;
-  font-family: "Montserrat";
-  border: 5px solid white;
-  box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
-}
-
-.wrap {
-  overflow: hidden;
-  position: relative;
-  width: 275px;
-  height: 275px;
-  border-radius: 100%;
-}
-
-.minute,
-.hour {
-  position: absolute;
-  height: 100px;
-  width: 6px;
-  margin: auto;
-  top: -27%;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: black;
-  transform-origin: bottom center;
-  transform: rotate(0deg);
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
-.minute {
-  position: absolute;
-  height: 130px;
-  width: 4px;
-  top: -38%;
-  left: 0;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-  transform: rotate(90deg);
-}
-
-.second {
-  position: absolute;
-  height: 90px;
-  width: 2px;
-  margin: auto;
-  top: -26%;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  border-radius: 4px;
-  background: #FF4B3E;
-  transform-origin: bottom center;
-  transform: rotate(180deg);
-  z-index: 1;
-}
-
-.dot {
-  position: absolute;
-  top: 142px;
-  left: 0;
-  right: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 100px;
-  background: white;
-  border: 2px solid #1b1b1b;
-  border-radius: 100px;
-  margin: auto;
-  z-index: 1;
-}
-
-.digital-time {
-  margin:  20px 5px;
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  width: 270px;
-  height: 270px;
-  background-color: white;
-}
-
-.digital-text {
-  font-family: 'Lato', sans-serif;
-  text-align: center;
-  font-size: 50px;
-}
+/*Should make H1 universal rules here*/
+/*Should make class="frame" and class="section" universal rules here*/
 
 /* CSS FOR MAIN MESSAGE */
 
-.message-text {
-  font-family: 'Lato', sans-serif;
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 40%;
+.message-section{
+     position: absolute;
+     width: 414.21px;
+     height: 256px;
+     left: 476px;
+     top: 27px;
 }
+
+.message-frame{
+    width: 414.2px;
+    height: 256px;
+    margin: 0 37.8px 27px 37.8px;
+    border-radius: 20px;
+    border: solid 2px #fff;
+}
+
+.message-greeting{
+    width: 414.2px;
+    height: 128px;
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+}
+
+.message-user{
+    position: absolute;
+    width: 414.21px;
+    height: 128px;
+    left: calc(50% - 414.21px/2 + 0px);
+    top: calc(50% - 128px/2 + 64px);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;
+    color: #FFF;
+}
+
+
+/* CLOCK SECTION */
+
+.time-section{
+    position: absolute;
+    width: 414.21px;
+    height: 256px;
+    left: 24px;
+    top: 27px;
+}
+
+.time-frame{
+    width: 414.2px;
+    height: 256px;
+    margin: 0 37.8px 27px 37.8px;
+    border-radius: 20px;
+    border: solid 2px #fff;
+}
+
+.digital-day{
+    width: 414.2px;
+    height: 128px;
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+}
+
+.digital-time{
+    position: absolute;
+    width: 414.21px;
+    height: 128px;
+    left: calc(50% - 414.21px/2 + 0px);
+    top: calc(50% - 128px/2 + 64px);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;
+   color: #FFF;
+}
+
+/* THE CSS FOR WEATHER WIDGET */
+
+.weather-section{
+position: absolute;
+width: 414.21px;
+height: 256px;
+left: calc(50% - 414.21px/2 + 452.1px);
+top: calc(50% - 256px/2 - 229px);
+}
+
+.weather-frame{
+    width: 414.2px;
+    height: 256px;
+    margin: 0 37.8px 27px 37.8px;
+    border-radius: 20px;
+    border: solid 2px #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* NEWS INFORMATION */
 
@@ -458,7 +153,7 @@ p.city-current-text{
 
 /* CSS for Calendar Information */
 
-.calender {
+.calendar {
   position: absolute;
   color: white;
   top: 80%;
@@ -506,7 +201,6 @@ p.city-current-text{
 }
 
 .event-time {
-  font-family: monospace;
   position: relative;
   color: white;
   font-size: 20px;
@@ -515,7 +209,6 @@ p.city-current-text{
 }
 
 .event-title {
-  font-family: monospace;
   position: relative;
   font-size: 20px;
   top: -50px;
