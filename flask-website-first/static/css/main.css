@@ -110,11 +110,12 @@ body{
 /* THE CSS FOR WEATHER WIDGET */
 
 .weather-section{
-position: absolute;
-width: 414.21px;
-height: 256px;
-left: calc(50% - 414.21px/2 + 452.1px);
-top: calc(50% - 256px/2 - 229px);
+    position: absolute;
+    width: 414.21px;
+    height: 256px;
+    left: 928px;
+    top: 27px;
+
 }
 
 .weather-frame{
@@ -125,7 +126,7 @@ top: calc(50% - 256px/2 - 229px);
     border: solid 2px #fff;
 }
 
-.mini-shaded-frame{
+.pin-frame{
     position: absolute;
     width: 103.55px;
     height: 103.55px;
@@ -174,12 +175,23 @@ top: calc(50% - 256px/2 - 229px);
     color: #FFFFFF;
 }
 
-.weather-symbol-box{
+.weathersymbol-box{
     position: absolute;
     width: 138.07px;
     height: 128px;
     left: calc(50% - 138.07px/2 - 138.07px);
     top: calc(50% - 128px/2 - 64px);
+}
+
+.weathersymbol-fram{
+    position: absolute;
+    width: 103.55px;
+    height: 103.55px;
+    left: calc(50% - 103.55px/2 - 0.26px);
+    top: calc(50% - 103.55px/2 - 0.22px);
+    background: #FFFFFF;
+    border-radius: 30px;
+
 }
 
 .weather-image{
