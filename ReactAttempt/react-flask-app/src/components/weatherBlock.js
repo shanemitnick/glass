@@ -6,7 +6,7 @@ class WeatherBlock extends React.Component {
   componentDidMount() {
 
     console.log("HI");
-    fetch('/time').then(res => res.json()).then(data => {
+    fetch('/weather').then(res => res.json()).then(data => {
         console.log(data);
 });
   }
