@@ -1,0 +1,18 @@
+.mirror-contatiner {
+  background-color: black;
+}
+
+.top-left-element {
+  position: absolute;
+}
+
+.top-right-element {
+  position: absolute;
+  right: 0px;
+}
+
+
+.bottom-left-element {
+
+}
+ 
