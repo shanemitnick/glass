@@ -6,15 +6,15 @@ class WeatherBlock extends React.Component {
   componentDidMount() {
 
     console.log("HI");
-    fetch('/weather').then(res => res.json()).then(data => {
-        console.log(data);
-});
+//     fetch('/weather').then(res => res.json()).then(data => {
+//         console.log(data);
+// });
   }
 
   render() {
     return (
         <div className='weather-container'>
-            <h1 className='weather-temp'> HI </h1>
+            <h1 className='weather-temp'> 40 </h1>
         </div>
     );
    }

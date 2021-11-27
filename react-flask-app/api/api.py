@@ -11,4 +11,5 @@ def get_current_time():
 @app.route('/weather')
 def getWeatherInformation():
 
-    return {'temp': 76}
+    return {'temp': 76,
+            'word-desc': 'Cloudy'}
