@@ -3,6 +3,8 @@ import './styles/App.css';
 import TimeBlock from './components/timeBlock.js';
 import WeatherBlock from './components/weatherBlock.js';
 import CalendarBlock from './components/calendarBlock.js';
+import EmailBlock from './components/emailBlock.js';
+import GreetingBlock from './components/greetingBlock.js';
 
 class Mirror extends React.Component {
 
@@ -21,6 +23,12 @@ class Mirror extends React.Component {
                 <div className="bottom-left-element">
                   <CalendarBlock />
                 </div>
+
+                <div className = 'center-element'>
+                    <GreetingBlock/>
+                </div>
+
+
 
               </div>
             );
