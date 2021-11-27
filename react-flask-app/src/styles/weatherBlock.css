@@ -15,4 +15,18 @@
 
 .weather-temp {
   color: white;
+  position: absolute;
+  top: 125px;
+  margin-left: 30px;
+  font-size: 100px;
+
+}
+
+.weather-icon {
+  position: absolute;
+  align-items: right;
+  right: 0px;
+  margin-right: 75px;
+  width: 100px;
+  height: 100px;
 }
