@@ -3,13 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Mirror from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Mirror />
-  </React.StrictMode>,
-  document.getElementById('root')
+
+ReactDOM.render((
+  <BrowserRouter>
+  <Mirror /> {/* The various pages will be displayed by the `Main` component. */}
+</BrowserRouter>
+),  document.getElementById('root')
 );
+  // <React.StrictMode>
+  //   <Mirror />
+  // </React.StrictMode>,
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
