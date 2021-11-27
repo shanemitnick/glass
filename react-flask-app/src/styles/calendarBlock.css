@@ -1,0 +1,11 @@
+.calendar-container {
+  background-color: black;
+  width: 250px;
+  height: 350px;
+  margin: 50px;
+
+  border-style: solid;
+  border-size: .5px;
+  border-radius: 15px;
+  border-color: white;
+}

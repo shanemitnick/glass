@@ -1,8 +1,8 @@
 import React from "react";
-import logo from './logo.svg';
 import './styles/App.css';
 import TimeBlock from './components/timeBlock.js';
 import WeatherBlock from './components/weatherBlock.js';
+import CalendarBlock from './components/calendarBlock.js';
 import EmailBlock from './components/emailBlock.js';
 import GreetingBlock from './components/greetingBlock.js';
 
@@ -21,7 +21,7 @@ class Mirror extends React.Component {
                 </div>
 
                 <div className="bottom-left-element">
-                  <EmailBlock />
+                  <CalendarBlock />
                 </div>
 
                 <div className = 'center-element'>

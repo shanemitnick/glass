@@ -13,6 +13,6 @@
 
 
 .bottom-left-element {
-
+  position: absolute;
+  bottom: 0px;
 }
- 
