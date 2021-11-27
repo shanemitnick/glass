@@ -1,6 +1,12 @@
 import time
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+import os.path
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
 
 app = Flask(__name__)
 
@@ -23,6 +29,7 @@ class Users(db.Model):
     email = db.Column(db.String(100), nullable=False, unique=True)
     zipcode = db.Column(db.String(10), nullable=False, unique=False)
     date_joined = db.Column(db.DateTime, nullable=False, unique=False, default=datetime.utcnow())
+    # google_key = db.Column()
 
     def __repr__(self):
         return f"{self.first_name} {self.last_name}"
@@ -50,6 +57,9 @@ def register():
         if user == None:
             flash('This email already belongs to an account.')
         else:
+
+            # TODO Use the validated email to retrieve their gmail account/ google calendar, store token in db
+
             user = Users(first_name=first_name, last_name=last_name, email=email, zipcode=zipcode)
             db.session.add(user)
             db.session.commit()
@@ -74,7 +84,37 @@ def getWeatherInformation(zipcode='02118'):
     r = requests.get(url)
     data = r.json()
 
-    weather_data = {'temp': data['main']['temp'],
+    weather_data = {'temp': round(data['main']['temp'], 1),
                     'description': data['weather'][0]['main']}
 
     return weather_data
+
+
+SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+
+@app.route('/calendar')
+def get_google_calendar():
+
+    creds = None
+    # The file token.json stores the user's access and refresh tokens, and is created
+    # automatically when the authorization flow completes for the first time.
+    if os.path.exists('token.json'):
+        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
+            creds = flow.run_local_server(port=0)
+        # Store the credentials for the next request
+        with open('token.json', 'w') as token:
+            token.write(creds.to_json())
+
+    service = build('calendar', 'v3', credentials=creds)
+
+    now = datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
+    events_result = service.events().list(calendarId='primary', timeMin=now,
+                                          maxResults=10, singleEvents=True,
+                                          orderBy='startTime').execute()
+
+    return events_result
