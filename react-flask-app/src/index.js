@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Mirror from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Test from './Test';
+import Mirror from './Mirror';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Mirror />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={ <App /> }/>
+      <Route path="/Test" element={ <Test /> }/>
+      <Route path="/Mirror" element={ <Mirror /> }/>
+
+
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
