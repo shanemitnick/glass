@@ -1,38 +1,21 @@
 import React from "react";
-import './styles/App.css';
-import TimeBlock from './components/timeBlock.js';
-import WeatherBlock from './components/weatherBlock.js';
-import CalendarBlock from './components/calendarBlock.js';
-import EmailBlock from './components/emailBlock.js';
-import GreetingBlock from './components/greetingBlock.js';
 
-class Mirror extends React.Component {
-
-  render() {
-      return (
-              <div className="mirror-contatiner">
-
-                <div className="top-left-element">
-                    <TimeBlock />
-                </div>
-
-                <div className="top-right-element">
-                    <WeatherBlock />
-                </div>
-
-                <div className="bottom-left-element">
-                  <CalendarBlock />
-                </div>
-
-                <div className = 'center-element'>
-                    <GreetingBlock/>
-                </div>
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 
-
-              </div>
-            );
-    }
+export default function App() {
+  return (
+    <div>
+      <h1>Bookkeeper</h1>
+      <nav
+        style={{
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem"
+        }}
+      >
+        <Link to="/Mirror">Mirror</Link> |{" "}
+        <Link to="/Test">Test</Link>
+      </nav>
+    </div>
+  );
 }
-
-export default Mirror;

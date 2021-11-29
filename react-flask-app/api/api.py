@@ -40,7 +40,6 @@ class Users(db.Model):
 # db.session.commit()
 
 import requests
-from register import RegistrationForm
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

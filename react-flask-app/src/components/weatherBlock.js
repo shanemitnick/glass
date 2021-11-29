@@ -17,7 +17,7 @@ class WeatherBlock extends React.Component {
 
     fetch('/weather').then(res => res.json()).then(data => {
         this.setState({weather: data.description});
-        this.setState({temp: data.temp});
+        this.setState({temp: Math.round(data.temp)});
         console.log(data);
     });
 
