@@ -13,8 +13,8 @@ export default function App() {
           paddingBottom: "1rem"
         }}
       >
-        <Link to="/Mirror">Invoices</Link> |{" "}
-        <Link to="/Test">Expenses</Link>
+        <Link to="/Mirror">Mirror</Link> |{" "}
+        <Link to="/Test">Test</Link>
       </nav>
     </div>
   );

@@ -10,9 +10,9 @@ import Mirror from './Mirror';
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={ <App /> }/>
+      <Route path="/" element={ <Mirror /> }/>
       <Route path="/Test" element={ <Test /> }/>
-      <Route path="/Mirror" element={ <Mirror /> }/>
+      <Route path="/App" element={ <App /> }/>
 
 
     </Routes>
