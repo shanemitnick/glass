@@ -9,6 +9,10 @@
     "boxicons": "^2.0.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-native": "^0.66.3",
+    "react-native-auth0": "^2.10.0",
+    "react-native-web": "^0.17.5",
+    "react-native-webview": "^11.14.4",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
