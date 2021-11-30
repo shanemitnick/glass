@@ -9,6 +9,7 @@ def create_app():
     app = Flask(__name__)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+    app.config['SECRET_KEY'] = 'Secret Key'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     with app.app_context():
@@ -33,6 +34,7 @@ def create_app():
         #     return user 
 
     return app
+
 
 if __name__ == "__main__":
     app = create_app()
