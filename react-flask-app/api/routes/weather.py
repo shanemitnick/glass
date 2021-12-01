@@ -1,11 +1,14 @@
 
 import requests
 # from api import app
+from flask import jsonify
 from flask import current_app as app
+from geopy.geocoders import Nominatim
+# from geopy.extra.rate_limiter import RateLimiter
 
 
-@app.route('/weather')
-def getWeatherInformation(zipcode='02118'):
+@app.route('/weather/current', methods=['GET', 'POST'])
+def get_current_weather(zipcode='02118'):
     """ Sends a request to the OpenWeatherMap Api for the current weather in a current zip code
         Returns a dictionary with the temperature and a description of the weather
     """
@@ -21,3 +24,21 @@ def getWeatherInformation(zipcode='02118'):
                     'description': data['weather'][0]['main']}
 
     return weather_data
+
+@app.route('/weather/forecast', methods=['GET', 'POST'])
+def get_five_day_forecast(zipcode='02118'):
+
+    api = '1919d00de9f9a872d7bb9e85a63a94ec'
+    units = 'imperial'
+
+    geolocator = Nominatim(user_agent="glass_user")
+    location = geolocator.geocode(zipcode)
+    lat = location.latitude
+    lon = location.longitude
+
+    url= f'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={api}&units={units}'
+
+    r = requests.get(url)
+    data = r.json()
+
+    return jsonify(data['daily']) #, data['alerts'])
