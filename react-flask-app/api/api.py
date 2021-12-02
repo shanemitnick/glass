@@ -19,6 +19,7 @@ def create_app():
         from login import UserRegistration, UserLogin
         from routes.weather import get_current_weather, get_five_day_forecast
         from routes.google_calendar import get_google_calendar
+        from routes.news import get_top_stories_by_category
 
         api.add_resource(UserRegistration, '/register')
         api.add_resource(UserLogin, '/login')
