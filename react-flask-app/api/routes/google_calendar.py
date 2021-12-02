@@ -5,12 +5,17 @@ from google.oauth2.credentials import Credentials
 import os.path
 from datetime import datetime
 from flask import current_app as app
- 
+from flask import jsonify
+import os
 
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
 @app.route('/calendar')
 def get_google_calendar():
+    try:
+        os.chdir(os.getcwd() + '/routes')
+    except FileNotFoundError:
+        pass
 
     creds = None
     # The file token.json stores the user's access and refresh tokens, and is created
