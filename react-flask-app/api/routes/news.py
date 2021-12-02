@@ -36,16 +36,5 @@ def get_top_stories_by_category(topic='world'):
     return jsonify(response)
 
 
-def get_newest_stories_by_topic(topic='all'):
-
-
-    source = 'nyt'  # 'all', 'nyt', 'inyt'
-    topic = 'world'
-
-
-    api = 'krCXaBDHYgOrJUo5Io37ISIMcz8rj1DU'
-    url = 'https://api.nytimes.com/svc/news/v3/content/'
-
-
 if __name__ == '__main__':
     get_top_stories_by_category('world')
