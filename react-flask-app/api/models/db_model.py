@@ -5,6 +5,8 @@ from flask import current_app as app
 
 db = SQLAlchemy(app)
 
+
+
 # Initialize the Users table
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -19,3 +21,6 @@ class Users(db.Model):
 
     def __repr__(self):
         return f"{self.first_name} {self.last_name}"
+
+
+db.create_all()
