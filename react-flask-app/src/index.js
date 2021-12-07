@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Test from './Test';
 import Mirror from './Mirror';
+import Login from './Login';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -13,6 +14,7 @@ ReactDOM.render(
       <Route path="/" element={ <Mirror /> }/>
       <Route path="/Test" element={ <Test /> }/>
       <Route path="/App" element={ <App /> }/>
+      <Route path="/Login" element={ <Login />} />
 
 
     </Routes>
