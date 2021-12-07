@@ -60,8 +60,10 @@ class WeatherBlock extends React.Component {
             <div className='weather-icon'>
                 <box-icon size='100px' color='white' name={icon} ></box-icon>
             </div>
-            <h1 className='weather-temp'> {this.state.temp} </h1>
-
+            <h1 className='weather-temp'> {this.state.temp}° </h1>
+            <h1 className= 'weather-description'> {this.state.weather} </h1>
+            <div className='break'></div>
+            <h1 className= 'wind'> Wind 28% </h1>
         </div>
     );
    }
