@@ -1,32 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 .message-container{
-     position: absolute;
-     width: 414.21px;
-     height: 256px;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
+    position: absolute;
+    width: 204.17px;
+    height: 31.44px;
+    left: 45%;
+    top: 15%;
 }
 
-.message-frame{
-    width: 414.2px;
-    height: 256px;
-    border-radius: 20px;
-    border: solid 2px #fff;
-}
+
 
 .message-greeting{
-    width: 414px;
-    height: 256px;
-    font-family: Roboto;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 40px;
+    font-size: 24px;
+    line-height: 31px;
     display: flex;
+    align-items: center;
     text-align: center;
-    vertical-align: middle;
-    line-height: 256px;
     color: #FFFFFF;
 }
 

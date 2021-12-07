@@ -1,32 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 .weather-container{
-  margin: 50px;
-  width: 250px;
-  height: 250px;
-  background-color: black;
-
-
-  border-style: solid;
-  border-size: .5px;
-  border-radius: 15px;
-  border-color: white;
-
+    position: absolute;
+    width: 223px;
+    height: 147px;
+    left: 39px;
+    top: 29px;
 }
 
 
 .weather-temp {
-  color: white;
-  position: absolute;
-  top: 125px;
-  margin-left: 30px;
-  font-size: 100px;
+    position: absolute;
+    left: 54.57%;
+    right: 12.05%;
+    top: 0%;
+    bottom: 17.39%;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 62.475px;
+    line-height: 94px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
 
+.weather-description {
+    position: absolute;
+    left: 19.31%;
+    right: 45.27%;
+    top: 81.64%;
+    bottom: 0.67%;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+
+.break {
+    position: absolute;
+    left: 47.56%;
+    right: 45.12%;
+    top: 100%;
+    bottom: 0%;
+    border: 0.408333px solid #FFFFFF;
+    transform: rotate(90deg);
+}
+
+.wind {
+    position: absolute;
+    left: 50.25%;
+    right: 14.32%;
+    top: 82.32%;
+    bottom: -0.01%;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 25px;
+    text-align: right;
+    color: #FFFFFF;
 }
 
 .weather-icon {
-  position: absolute;
-  align-items: right;
-  right: 0px;
-  margin-right: 75px;
-  width: 100px;
-  height: 100px;
+    position: absolute;
+    left: 2.01%;
+    right: 52.47%;
+    top: 6.46%;
+    bottom: 37.51%;
 }

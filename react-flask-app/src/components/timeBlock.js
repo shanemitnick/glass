@@ -23,7 +23,7 @@ class TimeBlock extends React.Component {
     const seconds = ((time.getSeconds() < 10)? '0' + time.getSeconds() : time.getSeconds());
     const meridium = ((time.getHours() < 12)? 'AM' : 'PM');
 
-    return hours + ":" + minutes + ' ' + seconds + ' ' + meridium;
+    return hours + ":" + minutes; //+ ':' + seconds +  ' ' + meridium; //commented out to be more similar to the Figma design, comment in whenever we want to
   }
 
   getDate() {

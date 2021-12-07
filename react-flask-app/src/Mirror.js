@@ -12,11 +12,11 @@ class Mirror extends React.Component {
               <div className="mirror-contatiner">
 
                 <div className="top-left-element">
-                    <TimeBlock />
+                    <WeatherBlock />
                 </div>
 
                 <div className="top-right-element">
-                    <WeatherBlock />
+                    <TimeBlock />
                 </div>
 
                 <div className="bottom-left-element">
