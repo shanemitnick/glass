@@ -5,7 +5,7 @@ from flask_jwt_extended import JWTManager
 
 
 def create_app():
-        
+
     app = Flask(__name__)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///glass.db'
@@ -33,7 +33,7 @@ def create_app():
         # @app.route('/userinfo/<username>')
         # def get_user_info(username):
         #     user = Users.query.filter(Users.username==username).first()
-        #     return user 
+        #     return user
 
     return app
 

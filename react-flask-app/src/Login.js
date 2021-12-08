@@ -5,45 +5,40 @@ class Login extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    const [username, setUserName] = useState();
+    const [password, setPassword] = useState();
   }
 
-  submitLogin(e) {}
+  handleSubmit(event) {
+    const target = event.target;
+
+
+    this.setState({
+      username: target.username, password: target.password
+    });
+  }
 
   render() {
     return (
-      <div className="inner-container">
-        <div className="header">
-          Login
-        </div>
-        <div className="box">
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          username
+          <input
+            name="username"
+            type="text"
+            onChange={this.handleInputChange} />
+        </label>
+        <br />
+        <label>
+          password
+          <input
+            name="password"
+            type="text"
+            onChange={this.handleInputChange} />
+        </label>
 
-          <div className="input-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              name="username"
-              className="login-input"
-              placeholder="Username"/>
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              className="login-input"
-              placeholder="Password"/>
-          </div>
-
-          <button
-            type="button"
-            className="login-btn"
-            onClick={this
-            .submitLogin
-            .bind(this)}>Login</button>
-        </div>
-      </div>
+        <input type="submit" value="Submit" />
+      </form>
     );
   }
 
