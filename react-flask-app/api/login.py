@@ -1,8 +1,9 @@
 from lib2to3.refactor import _identity
+from flask import request
 from flask_restful import Resource, reqparse
 from flask_jwt_extended import create_access_token, create_refresh_token, jwt_required, get_jwt_identity
 import hashlib
-from db_model import Users, db
+from models.db_model import Users, db
 
 parser = reqparse.RequestParser()
 parser.add_argument('username', help = 'Username cannot be blank', required = True)
@@ -32,7 +33,8 @@ class UserRegistration(Resource):
 class UserLogin(Resource):
     def post(self):
         try:
-            data = parser.parse_args()
+            data = request.get_json()
+            print(data)
             current_user = Users.query.filter(Users.username==data['username']).first()
 
             if not current_user:

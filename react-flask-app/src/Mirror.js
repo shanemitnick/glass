@@ -4,6 +4,7 @@ import TimeBlock from './components/timeBlock.js';
 import WeatherBlock from './components/weatherBlock.js';
 import CalendarBlock from './components/calendarBlock.js';
 import GreetingBlock from './components/greetingBlock.js';
+import Login from './Login.js';
 
 class Mirror extends React.Component {
 
@@ -27,7 +28,9 @@ class Mirror extends React.Component {
                     <GreetingBlock/>
                 </div>
 
-
+                <div className='login'>
+                  <Login />
+                </div>
 
               </div>
             );
