@@ -1,60 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 .weather-container{
-    position: absolute;
-    width: 223px;
-    height: 147px;
-    left: 39px;
-    top: 29px;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    margin-bottom: 0px;
 }
 
+
+
+.weather-icon-container {
+  order: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.icon-contianer {
+  order: 1;
+  margin-left: 100px;
+  font-size: 200px;
+}
 
 .weather-temp {
-    position: absolute;
-    left: 54.57%;
-    right: 12.05%;
-    top: 0%;
-    bottom: 17.39%;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 62.475px;
-    line-height: 94px;
-    display: flex;
-    align-items: center;
-    color: #FFFFFF;
+  order: 2;
+  position: relative;
+  font-size: 125px;
+  color: #FFFFFF;
+  font-family: Poppins;
+  margin-left: 20px;
+
 }
 
+
+
 .weather-description {
-    position: absolute;
-    left: 19.31%;
-    right: 45.27%;
-    top: 81.64%;
-    bottom: 0.67%;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 24px;
-    line-height: 25px;
-    color: #FFFFFF;
+  color: #FFFFFF;
+  font-family: Poppins;
+  margin-left: 10px;
+  font-size: 25px;
+  font-weight: lighter;
+  margin-left: 15px;
+}
+
+
+.weather-detail-container {
+  order: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.description-container {
+  flex-grow: 2;
+  order: 1;
+  align-items: center;
+  margin-left: 20px;
 }
 
 .break {
-    position: absolute;
-    left: 47.56%;
-    right: 45.12%;
-    top: 100%;
-    bottom: 0%;
-    border: 0.408333px solid #FFFFFF;
-    transform: rotate(90deg);
+  margin-left: 9px;
+  font-size: 50px;
+  flex-grow: 1;
+  order: 2;
+  color: white;
+}
+
+.wind-container {
+  flex-grow: 2;
+  align-items: center;
+  margin-right: 20px;
+  order: 3;
 }
 
 .wind {
-    position: absolute;
-    left: 50.25%;
-    right: 14.32%;
-    top: 82.32%;
-    bottom: -0.01%;
     font-family: Poppins;
     font-style: normal;
     font-weight: 300;
@@ -62,12 +82,4 @@
     line-height: 25px;
     text-align: right;
     color: #FFFFFF;
-}
-
-.weather-icon {
-    position: absolute;
-    left: 2.01%;
-    right: 52.47%;
-    top: 6.46%;
-    bottom: 37.51%;
 }

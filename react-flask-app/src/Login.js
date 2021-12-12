@@ -1,74 +1,92 @@
 import React from "react";
+import LoginButton from "./components/login-button.js";
+import LogoutButton from "./components/logout-button.js";
 
-//Login Box
-class Login extends React.Component {
+import { useAuth0 } from "@auth0/auth0-react";
 
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.state = {isLoggedIn: false, username: "", password: ""};
-  }
+const Login = () => {
 
-  handleInputChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
+  const { isAuthenticated } = useAuth0();
 
-    this.setState({[name]: value});
-  }
-
-  handleSubmit(event) {
-    fetch('/login', {method: 'POST',
-                     headers: {"Content-Type": "application/json"},
-                     // , "Content-Type": "application/x-www-form-urlencoded"}
-                     body: JSON.stringify({'username': this.state.username,
-                                          'password': this.state.password})}
-
-    ).then(res => res.json()).then(data => {
-        console.log(data);
-        this.setState({weather: data.description});
-        this.setState({temp: Math.round(data.temp)});
-        console.log(data);
-    });
-
-  }
-
-  render() {
-
-
-    return (
-      <div>
-      {this.state.isLoggedIn ?
-        <h1> LOGGED IN </h1>
-        : <h1> NOT LOGGED IN </h1>
-      }
-
-
-
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          username
-          <input
-            name="username"
-            type="text"
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-        <label>
-          password
-          <input
-            name="password"
-            type="text"
-            onChange={this.handleInputChange} />
-        </label>
-
-        <input type="submit"/>
-      </form>
-
-      </div>
-    );
-  }
-
+  return (
+    isAuthenticated ? <LogoutButton /> : <LoginButton />
+  )
 }
 
+
 export default Login;
+
+// import React from "react";
+//
+// //Login Box
+// class Login extends React.Component {
+//
+//   constructor(props) {
+//     super(props);
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//     this.handleInputChange = this.handleInputChange.bind(this);
+//     this.state = {isLoggedIn: false, username: "", password: ""};
+//   }
+//
+//   handleInputChange(event) {
+//     const name = event.target.name;
+//     const value = event.target.value;
+//
+//     this.setState({[name]: value});
+//   }
+//
+//   handleSubmit(event) {
+//     fetch('/login', {method: 'POST',
+//                      headers: {"Content-Type": "application/json"},
+//                      // , "Content-Type": "application/x-www-form-urlencoded"}
+//                      body: JSON.stringify({'username': this.state.username,
+//                                           'password': this.state.password})}
+//
+//     ).then(res => res.json()).then(data => {
+//         console.log(data);
+//         this.setState({weather: data.description});
+//         this.setState({temp: Math.round(data.temp)});
+//         console.log(data);
+//     });
+//
+//   }
+//
+//   render() {
+//
+//
+//     return (
+//       <div>
+//       {this.state.isLoggedIn ?
+//         <h1> LOGGED IN </h1>
+//         : <h1> NOT LOGGED IN </h1>
+//       }
+//
+//
+//
+//       <form onSubmit={this.handleSubmit}>
+//         <label>
+//           username
+//           <input
+//             name="username"
+//             type="text"
+//             onChange={this.handleInputChange} />
+//         </label>
+//         <br />
+//         <label>
+//           password
+//           <input
+//             name="password"
+//             type="text"
+//             onChange={this.handleInputChange} />
+//         </label>
+//
+//         <input type="submit"/>
+//       </form>
+//
+//       </div>
+//     );
+//   }
+//
+// }
+//
+// export default Login;
