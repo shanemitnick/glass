@@ -36,11 +36,13 @@ class UserLogin(Resource):
             data = request.get_json()
             print(data)
             current_user = Users.query.filter(Users.username==data['username']).first()
-
+            print(current_user)
             if not current_user:
                 return {"error":"User not in DB. Register as a new user"}
 
-            password = hashlib.md5(data['password'].encode()).hexdigest()
+            #password = hashlib.md5(data['password'].encode()).hexdigest()
+            password = data['password']
+
             if current_user.password == password :
                 access_token = create_access_token(identity=data['username'])
                 refresh_token = create_refresh_token(identity=data['username'])

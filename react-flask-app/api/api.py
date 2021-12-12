@@ -29,7 +29,7 @@ def create_app():
         # user1 = Users(username='User', password='Password', first_name='First', last_name='Last', email='user@email.com', zipcode='55555')
         # db.session.add(user1)
         # db.session.commit()
-        #
+
         # @app.route('/userinfo/<username>')
         # def get_user_info(username):
         #     user = Users.query.filter(Users.username==username).first()

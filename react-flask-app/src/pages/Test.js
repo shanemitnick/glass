@@ -1,5 +1,4 @@
 import React from "react";
-import './styles/loginPage.css';
 
 class Test extends React.Component {
 

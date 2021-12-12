@@ -13,7 +13,7 @@ class WeatherBlock extends React.Component {
 
   componentDidMount() {
 
-    fetch('/weather/current', {method: 'POST', 
+    fetch('/weather/current', {method: 'POST',
                                headers: {"Content-Type": "application/json"},
                                       // , "Content-Type": "application/x-www-form-urlencoded"}
                               body: JSON.stringify({'username': 'User'})}
@@ -57,13 +57,31 @@ class WeatherBlock extends React.Component {
     return (
 
         <div className='weather-container'>
-            <div className='weather-icon'>
-                <box-icon size='100px' color='white' name={icon} ></box-icon>
+            <div className='weather-icon-container'>
+
+                <div className='icon-container'>
+                  <box-icon size='150px' color='white' name={icon} ></box-icon>
+                </div>
+
+                <div className='weather-temp'>
+                  <span> {this.state.temp}° </span>
+                </div>
+
             </div>
-            <h1 className='weather-temp'> {this.state.temp}° </h1>
-            <h1 className= 'weather-description'> {this.state.weather} </h1>
-            <div className='break'></div>
-            <h1 className= 'wind'> Wind 28% </h1>
+
+            <div className='weather-detail-container'>
+              <div className='description-container'>
+                <h1 className= 'weather-description'> {this.state.weather} </h1>
+              </div>
+
+              <div className='break'>|</div>
+
+              <div className='wind-container'>
+                <h1 className= 'wind'> Wind 28% </h1>
+              </div>
+            </div>
+
+
         </div>
     );
    }
