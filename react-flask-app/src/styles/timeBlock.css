@@ -1,19 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 .time-container{
-    position: absolute;
-width: 229.48px;
-height: 202.94px;
-right: 54.52px;
-top: 28.99px;
+
 }
 
 .time-digits{
-    position: absolute;
-    left: -0.44%;
-    right: 0.21%;
-    top: 0%;
-    bottom: 31.01%;
+    position: relative;
+
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
@@ -24,11 +17,7 @@ top: 28.99px;
 }
 
 .time-date{
-    position: absolute;
-    left: 5.52%;
-    right: 5.59%;
-    top: 69.01%;
-    bottom: 15.71%;
+    position: relative;
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
