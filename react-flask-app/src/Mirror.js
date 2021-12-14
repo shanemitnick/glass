@@ -15,8 +15,14 @@ const Mirror = () => {
   return(
               <div className="mirror-contatiner">
 
-                  <div className="top-left-element">
-                      <WeatherBlock />
+                  <div className="top-row">
+                    <div className="top-left-element">
+                        <WeatherBlock />
+                    </div>
+
+                    <div className="top-right-element">
+                         <TimeBlock />
+                    </div>
                   </div>
 
               </div>
@@ -27,9 +33,7 @@ const Mirror = () => {
 export default withRouter(Mirror);
 
 
-// <div className="top-right-element">
-//     <TimeBlock />
-// </div>
+
 //
 // <div className="bottom-left-element">
 //   <CalendarBlock />
