@@ -14,26 +14,29 @@ def create_app():
 
     with app.app_context():
         api = Api(app)
-        jwt = JWTManager(app)
 
         from models.db_model import Users, db
         db.init_app(app)
         from login import UserRegistration, UserLogin
-        from routes.weather import get_current_weather, get_all_forecast_data
+        from routes.weather import get_all_forecast_data
         from routes.google_calendar import get_google_calendar
         from routes.news import get_top_stories_by_category
 
         api.add_resource(UserRegistration, '/register')
         api.add_resource(UserLogin, '/login')
 
-        # user1 = Users(username='User', password='Password', first_name='First', last_name='Last', email='user@email.com', zipcode='55555')
+        # user1 = Users(
+        #     username='User',
+        #     password='Password', 
+        #     first_name='First', 
+        #     last_name='Last', 
+        #     email='user@email.com', 
+        #     zipcode='02118',
+        #     auth0_id='xxxxxxxx')
+
         # db.session.add(user1)
         # db.session.commit()
 
-        # @app.route('/userinfo/<username>')
-        # def get_user_info(username):
-        #     user = Users.query.filter(Users.username==username).first()
-        #     return user
 
     return app
 
