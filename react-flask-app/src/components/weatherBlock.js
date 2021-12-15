@@ -13,15 +13,15 @@ class WeatherBlock extends React.Component {
 
   componentDidMount() {
 
-    fetch('/weather/current', {method: 'POST',
+    fetch('/weather/forecast', {method: 'POST',
                                headers: {"Content-Type": "application/json"},
                                       // , "Content-Type": "application/x-www-form-urlencoded"}
-                              body: JSON.stringify({'username': 'User'})}
+                              body: JSON.stringify({'user_id': 1})}
 
     ).then(res => res.json()).then(data => {
         console.log(data);
-        this.setState({weather: data.description});
-        this.setState({temp: Math.round(data.temp)});
+        this.setState({weather: data.current.description});
+        this.setState({temp: Math.round(data.current.temp)});
         console.log(data);
     });
 

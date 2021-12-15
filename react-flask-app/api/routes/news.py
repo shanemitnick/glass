@@ -2,14 +2,17 @@
 import requests
 from flask import jsonify
 from flask import current_app as app
-
+from models.db_model import NewsPreferences
 
 @app.route('/news/top_stories/<topic>')
-def get_top_stories_by_category(topic='world'):
+def get_top_stories_by_category(section='world'):
     """ Gets the top 5 news stories by category from the NY Times. """
 
+    # section = 
+    
+
     api = 'krCXaBDHYgOrJUo5Io37ISIMcz8rj1DU'
-    url = f'https://api.nytimes.com/svc/topstories/v2/{topic}.json?api-key={api}'
+    url = f'https://api.nytimes.com/svc/topstories/v3/{section}.json?api-key={api}'
 
     r = requests.get(url)
     r = r.json()
