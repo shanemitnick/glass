@@ -11,11 +11,13 @@ const Test = () =>  {
   const { user } = useAuth0();
   const { name, email } = user;
   useEffect(() => {
-    fetch('/login', {method: 'POST',
-                               headers: {"Content-Type": "application/json"},
-                                      // , "Content-Type": "application/x-www-form-urlencoded"}
-                              body: JSON.stringify({'username': 'User', 'password': 'Password'})}
-
+    fetch('/profile/settings', {method: 'POST',
+                                headers: {"Content-Type": "application/json"},
+                                // , "Content-Type": "application/x-www-form-urlencoded"}
+                                body: JSON.stringify({'user_id': 1,
+                                                      'first_name': 'Jacob',
+                                                      'section': 'sports'
+                                                    })}
     ).then(res => res.json()).then(data => {
         console.log(data);
         console.log(data);
