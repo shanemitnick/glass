@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import {withRouter} from 'react-router-dom';
-import './styles/Mirror.css';
-import NewsBlock from './components/newsBlock.js';
-import TimeBlock from './components/timeBlock.js';
-import WeatherBlock from './components/weatherBlock.js';
-import CalendarBlock from './components/calendarBlock.js';
-import GreetingBlock from './components/greetingBlock.js';
+import '../styles/Mirror.css';
+import NewsBlock from '../components/mirror-components/newsBlock.js';
+import TimeBlock from '../components/mirror-components/timeBlock.js';
+import WeatherBlock from '../components/mirror-components/weatherBlock.js';
+import GreetingBlock from '../components/mirror-components/greetingBlock.js';
 
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import './../styles/weatherBlock.css';
+import '../../styles/weatherBlock.css';
 import 'boxicons';
 
 

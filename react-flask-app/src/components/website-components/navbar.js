@@ -1,15 +1,13 @@
 import { React } from "react";
-import "../styles/navbar.css";
-import { Route, Switch, Link } from "react-router-dom"
-import Mirror from '../Mirror';
-import Test from "../pages/Test.js";
+import "../../styles/navbar.css";
+import { Link } from "react-router-dom"
 import AuthenticationButton from "./authentication-button.js";
 const NavBar = () => {
 
   return (
     <div className='navbar-container'>
       <Link to="/" className='navbar-title'> glass </Link>
-      
+
       <div className='navbar-links'>
 
         <div className='linkone'>

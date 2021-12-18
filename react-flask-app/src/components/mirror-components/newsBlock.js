@@ -1,5 +1,5 @@
 import React from "react";
-import './../styles/newsBlock.css';
+import '../../styles/newsBlock.css';
 
 class NewsBlock extends React.Component {
 
@@ -8,24 +8,24 @@ class NewsBlock extends React.Component {
     this.state = {
         story1: {abstract: '',
                  created_date: '',
-                 multimedia: [{caption: '', 
+                 multimedia: [{caption: '',
                                copyright: '',
                                format: '',
                                height: '',
                                subtype: '',
-                               type: '', 
+                               type: '',
                                url: '',
                                width: ''}],
                 title: '',
                 url: ''},
         story2: {abstract: '',
                  created_date: '',
-                 multimedia: [{caption: '', 
+                 multimedia: [{caption: '',
                                copyright: '',
                                format: '',
                                height: '',
                                subtype: '',
-                               type: '', 
+                               type: '',
                                url: '',
                                width: ''}],
                  title: '',
@@ -69,7 +69,7 @@ class NewsBlock extends React.Component {
               <div className='information-container'>
                   <h1 className='title-container'> {this.state.story1.title} </h1>
                   <p1 className='abstract-container'> {this.state.story1.abstract} </p1>
-              </div>           
+              </div>
             </div>
 
             <div className="news-item">
@@ -81,9 +81,9 @@ class NewsBlock extends React.Component {
               <div className='information-container'>
                   <h1 className='title-container'> {this.state.story2.title} </h1>
                   <p className='abstract-container'> {this.state.story2.abstract} </p>
-              </div>           
+              </div>
             </div>
-            
+
 
 
         </div>

@@ -1,18 +1,18 @@
 import React from 'react';
-import './../styles/greetingBlock.css';
+import '../../styles/greetingBlock.css';
 
 class GreetingBlock extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {date: new Date(), 
+    this.state = {date: new Date(),
                   greeting: 'Greetings',
                   first_name: 'User'};
   }
 
   componentDidMount() {
-   
-    
+
+
     console.log(this.state.first);
 
     fetch('/user/greeting', {method: 'POST',
@@ -25,9 +25,9 @@ class GreetingBlock extends React.Component {
       this.interval = setInterval(() => this.setState({ date: new Date(),
                                                         greeting: this.getTimeOfDay()}), 1000);
     });
-    
+
   }
- 
+
   componentWillUnmount() {
     clearInterval(this.interval);
   }
@@ -40,7 +40,7 @@ class GreetingBlock extends React.Component {
 
     switch (meridium) {
     case 'AM': return 'Good Morning';
-    case 'PM': 
+    case 'PM':
       switch (true) {
         case hours <= 4: return 'Good Afternoon';
         case hours > 4: return 'Good Evening';

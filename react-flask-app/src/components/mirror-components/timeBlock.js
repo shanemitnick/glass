@@ -1,5 +1,5 @@
 import React from "react";
-import './../styles/timeBlock.css';
+import '../../styles/timeBlock.css';
 
 class TimeBlock extends React.Component {
 
@@ -19,9 +19,9 @@ class TimeBlock extends React.Component {
     // Returns the Time in the correct Format
     const time = this.state.date;
     let hours = time.getHours() % 12;
-    
+
     if (hours === 0 ) {hours = 12};
-    
+
     const minutes = ((time.getMinutes() < 10)? '0' + time.getMinutes() : time.getMinutes());
     const seconds = ((time.getSeconds() < 10)? '0' + time.getSeconds() : time.getSeconds());
     const meridium = ((time.getHours() < 12)? 'AM' : 'PM');

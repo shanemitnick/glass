@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Button, Input } from "antd";
 import "../styles/profile-page.css";
-import Profile from "../components/profile";
-
-import NavBar from "../components/navbar.js";
+import { Button, Input } from "antd";
+import Profile from "../components/website-components/profile";
+import NavBar from "../components/website-components/navbar.js";
 
 
 const Test = () =>  {
