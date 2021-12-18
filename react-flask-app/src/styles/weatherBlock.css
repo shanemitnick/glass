@@ -7,8 +7,6 @@
     margin-bottom: 0px;
 }
 
-
-
 .weather-icon-container {
   order: 1;
   display: flex;
@@ -32,8 +30,6 @@
   margin-left: 20px;
 
 }
-
-
 
 .weather-description {
   color: #FFFFFF;

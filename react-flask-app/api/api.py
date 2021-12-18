@@ -20,6 +20,8 @@ def create_app():
         from routes.weather import get_all_forecast_data
         from routes.google_calendar import get_google_calendar
         from routes.news import get_top_stories_by_category
+        from routes.greeting import greet_user
+        from routes.settings import show_and_update_settings
 
         api.add_resource(UserRegistration, '/register')
         api.add_resource(UserLogin, '/login')

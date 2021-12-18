@@ -3,16 +3,31 @@ import './../styles/greetingBlock.css';
 
 class GreetingBlock extends React.Component {
 
-    //Apologies for just copying the code, I understand JS pretty well now but still getting used to React and this was my easiest work around
-
-    constructor(props) {
+  constructor(props) {
     super(props);
-    this.state = {date: new Date()};
+    this.state = {date: new Date(), 
+                  greeting: 'Greetings',
+                  first_name: 'User'};
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.setState({ date: new Date() }), 1000);
+   
+    
+    console.log(this.state.first);
+
+    fetch('/user/greeting', {method: 'POST',
+                             headers: {'Content-Type': 'application/json'},
+                             body: JSON.stringify({'user_id': 1})}
+    ).then(res => res.json()).then(data => {
+      console.log(data);
+      this.setState({first_name: data.first_name});
+
+      this.interval = setInterval(() => this.setState({ date: new Date(),
+                                                        greeting: this.getTimeOfDay()}), 1000);
+    });
+    
   }
+ 
   componentWillUnmount() {
     clearInterval(this.interval);
   }
@@ -25,19 +40,20 @@ class GreetingBlock extends React.Component {
 
     switch (meridium) {
     case 'AM': return 'Good Morning';
-    break;
-    case 'PM': return 'Good Evening';
-    break;
-    default: return 'Greetings';
-    break;
-    };
+    case 'PM': 
+      switch (true) {
+        case hours <= 4: return 'Good Afternoon';
+        case hours > 4: return 'Good Evening';
+      }
+    }
 };
+
 
     render() {
         return (
           <section class='message-container'>
             <div class="message-frame">
-                <h1 class='message-greeting'> { this.getTimeOfDay() }, User </h1>
+                <h1 class='message-greeting'> { this.state.greeting }, {this.state.first_name} </h1>
             </div>
           </section>
         );

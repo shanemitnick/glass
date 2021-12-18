@@ -51,24 +51,8 @@ class NewsBlock extends React.Component {
         this.setState({story3: data[2]});
         this.setState({story4: data[3]});
         this.setState({story5: data[4]});
-        // console.log(this.state.story1.multimedia['0'].url);
     });
-
   }
-
-//   getNewsImage() {
-//     const url = this.state.story1.multimedia['0'].url;
-
-//     return (
-//     <img 
-//       src= url
-//       alt="new"
-//       />
-//     )
-
-// }
-
-
 
   render() {
 
@@ -96,7 +80,7 @@ class NewsBlock extends React.Component {
 
               <div className='information-container'>
                   <h1 className='title-container'> {this.state.story2.title} </h1>
-                  <p1 className='abstract-container'> {this.state.story2.abstract} </p1>
+                  <p className='abstract-container'> {this.state.story2.abstract} </p>
               </div>           
             </div>
             

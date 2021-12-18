@@ -1,16 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 .message-container{
-    position: absolute;
-    width: 204.17px;
+    position: relative;
+    /* width: 204.17px;
     height: 31.44px;
     left: 45%;
-    top: 15%;
+    top: 15%; */
+}
+
+.message-greeting{
+    position: relative;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: #FFFFFF;
+    justify-self: center;
+    margin-top: 15%;
 }
 
 
 
-.message-greeting{
+/* .message-greeting{
     position: absolute;
     left: 0%;
     right: 0%;
@@ -27,4 +38,4 @@
     color: #FFFFFF;
 }
 
-
+ */
