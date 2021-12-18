@@ -1,18 +1,19 @@
 
 import requests
-from flask import jsonify
+from flask import jsonify, request
 from flask import current_app as app
-from models.db_model import NewsPreferences
+from models.db_model import Users
 
-@app.route('/news/top_stories/<topic>')
+@app.route('/news/top_stories', methods=['GET', 'POST'])
 def get_top_stories_by_category(section='world'):
     """ Gets the top 5 news stories by category from the NY Times. """
 
-    # section = 
+    response = request.get_json()
     
+    section = Users.get_user_favorite_section(response['user_id'])
 
     api = 'krCXaBDHYgOrJUo5Io37ISIMcz8rj1DU'
-    url = f'https://api.nytimes.com/svc/topstories/v3/{section}.json?api-key={api}'
+    url = f'https://api.nytimes.com/svc/topstories/v2/{section}.json?api-key={api}'
 
     r = requests.get(url)
     r = r.json()
@@ -22,9 +23,9 @@ def get_top_stories_by_category(section='world'):
     # response = [ {k: v for k, v in news_item.items() if k in keys_to_keep} for news_item in  r['results'] ][:5]
     
     results = r['results']
-    response = []
+    response = {}
     count = 0
-    while len(response) < 5:
+    while len(response.keys()) < 5:
         # There can be blank reposonse that are just images on the popular page, we want to skip these
         if results[count]['abstract'] == '':
             pass
@@ -33,11 +34,25 @@ def get_top_stories_by_category(section='world'):
             for k, v in results[count].items():
                 if k in keys_to_keep:
                     article_info[k] = v
-            response.append(article_info)
+            response[count] = article_info
         count += 1
 
-    return jsonify(response)
+    return response
 
 
 if __name__ == '__main__':
     get_top_stories_by_category('world')
+
+    # {abstract: '',
+    #  created_date: '',
+    #  multimedia: [{'caption': '', 
+    #                 copyright: '',
+    #                 format: '',
+    #                 height: '',
+    #                 subtype: '',
+    #                 type: '', 
+    #                 url: '',
+    #                 width: ''},
+    # title': '',
+    # url: ''
+    # }

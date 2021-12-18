@@ -7,17 +7,27 @@
 
 .top-left-element {
   position: relative;
+  left: 0px;
+  top: 0px
 }
 
 .top-right-element {
   position: relative;
   right: 0px;
+  top: 0px;
 }
 
 
 .bottom-left-element {
   position: relative;
   bottom: 0px;
+  left: 0px;
+}
+
+.bottom-right-element {
+  position: relative;
+  bottom: 0px;
+  right: 0px;
 }
 
 
