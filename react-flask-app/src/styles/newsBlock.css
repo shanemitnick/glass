@@ -4,7 +4,9 @@
     display: flex;
     flex-direction: column;
     background-color: black;
-    margin-bottom: 0px;
+    position: relative;
+    margin-bottom: 0%;
+    min-width: 0;
 
 }
 
@@ -26,13 +28,14 @@
     margin-bottom: 0px;
     display: flex;
     max-width: 250px;
-    max_height: 250px;
+    max-height: 250px;
 }
 
 .information-container {
     order: 2;
     display: flex;
     flex-direction: column;
+    /* flex-wrap: wrap; */
     top: 0px;
     margin-left: 10px;
 
