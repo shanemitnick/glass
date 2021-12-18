@@ -41,7 +41,6 @@ def get_all_forecast_data():
     user = Users.find_by_user_id(r['user_id'])
     
     zipcode = user.zipcode
-    print(zipcode)
 
     geolocator = Nominatim(user_agent="glass_user")
     location = geolocator.geocode(zipcode)
@@ -56,4 +55,5 @@ def get_all_forecast_data():
     return {'current': data['current'],
             'hourly': data['hourly'],
             'daily': data['daily'], 
-            'alerts': data['alerts']}
+            # 'alerts': data['alerts']
+            }
