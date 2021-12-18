@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import './styles/Mirror.css';
-import TimeBlock from './components/timeBlock.js';
-import WeatherBlock from './components/weatherBlock.js';
-import CalendarBlock from './components/calendarBlock.js';
-import GreetingBlock from './components/greetingBlock.js';
-import LoginButton from './components/login-button.js';
-import LogoutButton from './components/logout-button.js';
-import Profile from './components/profile.js';
 import {withRouter} from 'react-router-dom';
+import './styles/Mirror.css';
+import TimeBlock from './components/mirror-components/timeBlock.js';
+import WeatherBlock from './components/mirror-components/weatherBlock.js';
+import CalendarBlock from './components/mirror-components/calendarBlock.js';
+import GreetingBlock from './components/mirror-components/greetingBlock.js';
+
+
 
 
 const Mirror = () => {

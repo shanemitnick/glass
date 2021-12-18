@@ -7,6 +7,7 @@ import Mirror from './Mirror';
 import Login from './Login';
 import Test from "./pages/Test.js";
 import ProtectedRoute from './protected-route';
+import  NavBar  from "./components/navbar.js";
 
 
 
@@ -14,25 +15,9 @@ const App = () => {
 
   return (
 
-    <div>
+    <div className="app-container">
 
-
-      <div id="app" className="d-flex flex-column h-100">
-        <div className="container flex-grow-1">
-
-            <ul>
-                  <li> <Link to="/profile"> PROFILE </Link> </li>
-                  <li> <Link to="/Mirror" > Fire Up Mirror> </Link> </li>
-
-            </ul>
-             <Switch>
-               <Route path="/" exact component={Login} />
-               <ProtectedRoute path="/profile" component={Test} />
-               <Route path="/Mirror"> <Mirror /> </Route>
-             </Switch>
-          </div>
-
-        </div>
+      <NavBar />
 
       }
   </div>

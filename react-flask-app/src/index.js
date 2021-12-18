@@ -1,12 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App.js";
+import "./index.css";
+import "antd/dist/antd.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
+
+import App from "./App.js";
 import Mirror from './Mirror';
 import Test from "./pages/Test.js";
+
 import ProtectedRoute from './protected-route';
-import "./index.css";
+
 
 ReactDOM.render(
   <Router>
