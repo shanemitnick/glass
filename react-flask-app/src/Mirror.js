@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import {withRouter} from 'react-router-dom';
 import './styles/Mirror.css';
-import TimeBlock from './components/mirror-components/timeBlock.js';
-import WeatherBlock from './components/mirror-components/weatherBlock.js';
-import CalendarBlock from './components/mirror-components/calendarBlock.js';
-import GreetingBlock from './components/mirror-components/greetingBlock.js';
+import TimeBlock from './components/timeBlock.js';
+import WeatherBlock from './components/weatherBlock.js';
+import CalendarBlock from './components/calendarBlock.js';
+import GreetingBlock from './components/greetingBlock.js';
+import NewsBlock from './components/newsBlock.js';
 
 
 
@@ -22,6 +23,13 @@ const Mirror = () => {
                     <div className="top-right-element">
                          <TimeBlock />
                     </div>
+                  </div>
+
+                  <div className="bottom-row">
+                    <div className="bottom-left-element">
+                        <NewsBlock />
+                    </div>
+
                   </div>
 
               </div>
