@@ -38,8 +38,19 @@ const Test = () =>  {
 
 
   const handleFormSubmit = (values: any) => {
-    console.log("SUBMTT");
+    values['user_id'] = 1;
+
+    console.log("FORM SUBMIT");
     console.log(values);
+    fetch('/profile/settings', {method: 'POST',
+                               headers: {"Content-Type": "application/json"},
+                                      // , "Content-Type": "application/x-www-form-urlencoded"}
+                              body: JSON.stringify(values)}
+
+    ).then(res => res.json()).then(returnedData => {
+        setData(returnedData);
+        setGotData(true);
+    });
   };
 
 
@@ -56,22 +67,21 @@ const Test = () =>  {
 
                     <Form {...layout} onFinish={handleFormSubmit}>
                       <Form.Item label="First Name"name="first_name" >
-                        <Input placeholder={data.first_name}/>
+                        <Input placeholder={data.user.first_name}/>
                       </Form.Item>
 
                       <Form.Item label="Last Name"name="last_name" >
-                        <Input placeholder={data.last_name}/>
+                        <Input placeholder={data.user.last_name}/>
                       </Form.Item>
 
 
                       <Form.Item label="Zipcode"name="zipcode" >
-                        <Input placeholder={data.zipcode}/>
+                        <Input placeholder={data.user.zipcode}/>
                       </Form.Item>
 
-                      <Form.Item name="gender" label="Gender" rules={[{ required: true }]}>
+                      <Form.Item name="section" label="News">
                         <Select
-                          placeholder={data.news_section}
-
+                          placeholder={data.other.news_section}
                           allowClear
                         >
                           <Option value="sports">sports</Option>
@@ -80,6 +90,11 @@ const Test = () =>  {
                         </Select>
                       </Form.Item>
 
+                      <Form.Item label=" " name="gmail_login" >
+                        <Button >
+                          Log Into Google
+                        </Button>
+                      </Form.Item>
 
                       <Form.Item>
                         <Button type="primary" htmlType="submit">
