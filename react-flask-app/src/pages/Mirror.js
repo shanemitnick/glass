@@ -5,7 +5,7 @@ import NewsBlock from '../components/mirror-components/newsBlock.js';
 import TimeBlock from '../components/mirror-components/timeBlock.js';
 import WeatherBlock from '../components/mirror-components/weatherBlock.js';
 import GreetingBlock from '../components/mirror-components/greetingBlock.js';
-
+import ForecastBlock from '../components/mirror-components/forecastBlock.js';
 
 
 
@@ -16,7 +16,7 @@ const Mirror = () => {
 
                   <div className="top-row">
                     <div className="top-left-element">
-                        <WeatherBlock />
+                        <ForecastBlock />
                     </div>
 
                     <div className="top-center-element">
@@ -24,7 +24,7 @@ const Mirror = () => {
                     </div>
 
                     <div className="top-right-element">
-                         <TimeBlock />
+                         <WeatherBlock />
                     </div>
 
                   </div>

@@ -20,7 +20,7 @@ class WeatherBlock extends React.Component {
 
     ).then(res => res.json()).then(data => {
         console.log(data);
-        this.setState({weather: data.current.description});
+        this.setState({weather: data.current.weather[0].main});
         this.setState({temp: Math.round(data.current.temp)});
         console.log(data);
     });
@@ -44,7 +44,7 @@ class WeatherBlock extends React.Component {
       case "Snow":
         return "cloud-snow";
       default:
-        return "cloud";
+        return "sun"; //set to sun, as default instead of cloudy
 
     }
 
@@ -71,13 +71,13 @@ class WeatherBlock extends React.Component {
 
             <div className='weather-detail-container'>
               <div className='description-container'>
-                <h1 className= 'weather-description'> {this.state.weather} </h1>
+                <h1 className= 'weather-description'> {this.state.weather} </h1> //not working
               </div>
 
               <div className='break'>|</div>
 
               <div className='wind-container'>
-                <h1 className= 'wind'> Wind 28% </h1>
+                <h1 className= 'wind'> Wind </h1>
               </div>
             </div>
 
