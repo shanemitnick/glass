@@ -30,11 +30,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="054398a1-b2ba-43cc-b2aa-a3e9bf9a33cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Mirror.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/mirror.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/timeBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/timeBlock.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/weatherBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/weatherBlock.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/mirror-components/forecastBlock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/forecastBlock.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/glass.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/glass.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/weather.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/weather.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/weatherBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/weatherBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Mirror.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Mirror.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +45,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="217pTPvG4ONxc7D0iHViAfAcUz2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -53,6 +56,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -60,6 +64,7 @@
       <recent name="$PROJECT_DIR$/src/styles" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
