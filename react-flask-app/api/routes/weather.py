@@ -5,6 +5,7 @@ from flask import jsonify, request
 from flask import current_app as app
 from geopy.geocoders import Nominatim
 from models.db_model import Users, db
+from datetime import date, timedelta
 
 @app.route('/weather/forecast', methods=['GET', 'POST'])
 def get_all_forecast_data():
@@ -26,6 +27,9 @@ def get_all_forecast_data():
 
     r = requests.get(url)
     data = r.json()
+
+    for day, info in enumerate(data['daily']):
+        info['day_of_week'] = (date.today() + timedelta(days=day)).strftime("%A")
 
     return {'current': data['current'],
             'hourly': data['hourly'],
