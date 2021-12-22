@@ -22,6 +22,7 @@ def create_app():
         from routes.news import get_top_stories_by_category
         from routes.greeting import greet_user
         from routes.settings import show_and_update_settings
+        from routes.stocks import get_stock_prices
 
         api.add_resource(UserRegistration, '/register')
         api.add_resource(UserLogin, '/login')

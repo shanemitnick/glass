@@ -1,0 +1,28 @@
+@keyframes scroll-left {
+    0% { transform: translate(100%); }
+    100% { transform: translate(-1000%); }
+}
+
+.stock-container {
+    overflow: hidden;
+    background: black;
+    height: 50px;
+}
+
+.ticker-bar {
+    display: flex;
+    width: 100%;
+    animation: scroll-left 60s linear infinite;
+}
+
+.ticker-item {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: justify;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    /* font-size: 20px;*/
+    font-weight: bold; 
+}
