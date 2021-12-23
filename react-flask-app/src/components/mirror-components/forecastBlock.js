@@ -9,7 +9,7 @@ class ForecastBlock extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { tempOne: 0, weatherOne: 'Snow', tempTwo: 0, weatherTwo: 'Snow', tempThree: 0, weatherThree: 'Snow'};
+    this.state = { tempOne: 0, weatherOne: 'Snow', dayOne: 'Last', tempTwo: 0, weatherTwo: 'Snow', dayTwo: 'Last', tempThree: 0, weatherThree: 'Snow', dayThree: 'Last'};
   }
 
   componentDidMount() {
@@ -21,12 +21,15 @@ class ForecastBlock extends React.Component {
 
     ).then(res => res.json()).then(data => {
         console.log(data);
-        this.setState({tempOne: Math.round(data.daily[0].temp.day)});
-        this.setState({tempTwo: Math.round(data.daily[1].temp.day)});
-        this.setState({tempThree: Math.round(data.daily[2].temp.day)});
-        this.setState({weatherOne: data.daily[0].weather[0].main});
-        this.setState({weatherTwo: data.daily[1].weather[0].main});
-        this.setState({weatherThree: data.daily[2].weather[0].main});
+        this.setState({tempOne: Math.round(data.daily[1].temp.day)});
+        this.setState({tempTwo: Math.round(data.daily[2].temp.day)});
+        this.setState({tempThree: Math.round(data.daily[3].temp.day)});
+        this.setState({weatherOne: data.daily[1].weather[0].main});
+        this.setState({weatherTwo: data.daily[2].weather[0].main});
+        this.setState({weatherThree: data.daily[3].weather[0].main});
+        this.setState({dayOne: data.daily[1].day_of_week});
+        this.setState({dayTwo: data.daily[2].day_of_week});
+        this.setState({dayThree: data.daily[3].day_of_week});
         console.log(data);
     });
 
@@ -49,8 +52,10 @@ class ForecastBlock extends React.Component {
         return "cloud-rain";
       case "Snow":
         return "cloud-snow";
-      default:
+      case 'Clear':
         return "sun";
+      default:
+        return "invader";
 
     }
   }
@@ -68,8 +73,10 @@ class ForecastBlock extends React.Component {
         return "cloud-rain";
       case "Snow":
         return "cloud-snow";
-      default:
+      case 'Clear':
         return "sun";
+      default:
+        return "invader";
 
     }
   }
@@ -87,8 +94,10 @@ class ForecastBlock extends React.Component {
         return "cloud-rain";
       case "Snow":
         return "cloud-snow";
-      default:
+      case 'Clear':
         return "sun";
+      default:
+        return "invader";
 
     }
   }
@@ -111,7 +120,7 @@ class ForecastBlock extends React.Component {
                   <span> {this.state.tempOne}° </span>
                 </div>
                 <div className='date'>
-                  <span> Sunday </span>
+                  <span> {this.state.dayOne} </span>
                 </div>
             </div>
             <div className='forecast-two'>
@@ -122,7 +131,7 @@ class ForecastBlock extends React.Component {
                   <span> {this.state.tempTwo}° </span>
                 </div>
                 <div className='date'>
-                  <span> Sunday </span>
+                  <span> {this.state.dayTwo} </span>
                 </div>
             </div>
             <div className='forecast-three'>
@@ -133,7 +142,7 @@ class ForecastBlock extends React.Component {
                   <span> {this.state.tempThree}° </span>
                 </div>
                 <div className='date'>
-                  <span> Sunday </span>
+                  <span> {this.state.dayThree} </span>
                 </div>
             </div>
         </div>
