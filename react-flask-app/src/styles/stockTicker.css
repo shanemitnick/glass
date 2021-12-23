@@ -1,6 +1,6 @@
 @keyframes scroll-left {
     0% { transform: translate(100%); }
-    100% { transform: translate(-1000%); }
+    100% { transform: translate(-500%); }
 }
 
 .stock-container {
@@ -11,14 +11,15 @@
 
 .ticker-bar {
     display: flex;
+    align-content: space-between;
     width: 100%;
-    animation: scroll-left 60s linear infinite;
+    animation: scroll-left 50s linear infinite;
 }
 
 .ticker-item {
     position: relative;
     flex-shrink: 0;
-    width: 100%;
+    width: 25%;
     box-sizing: border-box;
     text-align: justify;
     color: white;

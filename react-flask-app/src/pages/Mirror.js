@@ -17,8 +17,9 @@ const Mirror = () => {
               <div className="mirror-contatiner">
 
                   <div className="top-row">
+
                     <div className="top-left-element">
-                        <ForecastBlock />
+                        <TimeBlock />
                     </div>
 
                     <div className="top-center-element">
@@ -27,8 +28,8 @@ const Mirror = () => {
 
                     <div className="top-right-element">
                          <WeatherBlock />
+                         <ForecastBlock />
                     </div>
-
                   </div>
 
                   <div className='bottom-row'>
@@ -36,19 +37,17 @@ const Mirror = () => {
                       <div>
                         <NewsBlock />
                         <StockTicker />
-                        
-
-                      </div>
-
-                    <div className="bottom-right-element">
-                      <div> 
                       </div>
                     </div>
 
+                    <div className="bottom-right-element">
+                      <div>
+
+                      </div>
+                    </div>
                   </div>
 
 
-                  </div>
 
               </div>
             );

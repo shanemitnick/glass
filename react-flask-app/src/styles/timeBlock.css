@@ -6,7 +6,6 @@
 
 .time-digits{
     position: relative;
-
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
@@ -22,7 +21,6 @@
     font-style: normal;
     font-weight: normal;
     font-size: 36px;
-    line-height: 31px;
     display: flex;
     align-items: center;
     text-align: center;
