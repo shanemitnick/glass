@@ -1,5 +1,5 @@
 from pysbr import CurrentLines, EventsByDate, MLB, NBA, NFL, NHL, Sportsbook
-from datetime import datetime
+from datetime import datetime, time, timedelta
 import numpy as np
 import pandas as pd
 from flask import current_app as app, jsonify
@@ -23,8 +23,9 @@ def get_sports_games():
                     games_desc = games_desc.replace('@', ' @ ')
 
                     game_unixtime = pd.to_datetime(g['dt'], unit='ms')
-                    game_date = datetime.strftime(game_unixtime, "%#m/%#d")
-                    game_time = datetime.strftime(game_unixtime, "%#I:%M")
+                    game_est = game_unixtime - timedelta(hours=5)
+                    game_date = datetime.strftime(game_est, "%#m/%#d")
+                    game_time = datetime.strftime(game_est, "%#I:%M")
 
                     for team in g['participants']:
                         if team['ih'] is True:
