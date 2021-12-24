@@ -23,6 +23,7 @@ def create_app():
         from routes.greeting import greet_user
         from routes.settings import show_and_update_settings
         from routes.stocks import get_stock_prices
+        from routes.sports import get_sports_games
 
         api.add_resource(UserRegistration, '/register')
         api.add_resource(UserLogin, '/login')

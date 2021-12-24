@@ -7,6 +7,7 @@ import WeatherBlock from '../components/mirror-components/weatherBlock.js';
 import GreetingBlock from '../components/mirror-components/greetingBlock.js';
 import ForecastBlock from '../components/mirror-components/forecastBlock.js';
 import StockTicker from '../components/mirror-components/stockTicker.js';
+import SportsBlock from '../components/mirror-components/sportsBlock.js';
 
 
 
@@ -42,7 +43,7 @@ const Mirror = () => {
 
                     <div className="bottom-right-element">
                       <div>
-
+                        <SportsBlock />
                       </div>
                     </div>
                   </div>
