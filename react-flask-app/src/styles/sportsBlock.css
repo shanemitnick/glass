@@ -1,0 +1,77 @@
+
+
+.sports-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    background: black;
+    color: white;
+}
+
+.league-containers {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: hidden;
+    width: 100%;
+
+}
+
+.league-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+
+.league-abbr {
+    display: flex;
+}
+
+.league-games {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+}
+
+.league-game {
+    position: relative;
+    text-indent: 25px;
+    padding: 5px;
+    
+}
+
+.line-1 {
+    position: relative;
+    width: 100%;
+    height: 20px;
+}
+
+.line-2 {
+    position: relative;
+    width: 100%;
+    height: 20px;
+
+}
+
+.team {
+    float: left;
+}
+
+.event-date {
+    float: right;
+    font: 12px;
+}
+
+.time {
+    float: right;
+}
