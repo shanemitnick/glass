@@ -60,9 +60,10 @@ class WeatherBlock extends React.Component {
 
     return (
 
-        <div className='weather-container'>
-            <div className='weather-icon-container'>
+        <div className='current-weather'>
 
+
+            <div className='weather-icon'>
                 <div className='icon-container'>
                   <box-icon size='150px' color='white' name={icon} ></box-icon>
                 </div>
@@ -70,20 +71,22 @@ class WeatherBlock extends React.Component {
                 <div className='weather-temp'>
                   <span> {this.state.temp}°</span>
                 </div>
-
             </div>
 
-            <div className='weather-detail-container'>
+            <div className='weather-description'>
               <div className='description-container'>
-                <h1 className= 'weather-description'> {this.state.description} </h1>
+                <h1 className= 'description'> {this.state.description} </h1>
               </div>
 
-              <div className='break'>|</div>
+              <div className='break'>
+                <h1> | </h1>
+              </div>
 
-              <div className='wind-container'>
-                <h1 className= 'wind'> {this.state.wind} MPH </h1>
+              <div className='weather-wind'>
+                <h1 className= 'wind'> Wind: {this.state.wind} mph </h1>
               </div>
             </div>
+
 
         </div>
     );

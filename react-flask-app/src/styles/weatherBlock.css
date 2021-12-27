@@ -1,44 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-.weather-container{
+.current-weather{ /* parent */
     display: flex;
     flex-direction: column;
-    background-color: black;
-    margin-bottom: 0px;
+    flex-wrap: nowrap;
+    justify-context: space-evenly;
+    align-items: center;
+    margin: 0px 12.5px 0px 12.5px;
 }
 
-.weather-icon-container {
+.weather-icon{ /* top row */
   order: 1;
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+
+.weather-description{ /* bottom row */
+  order: 2;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-context: space-evenly;
+  align-text: center;
   align-items: center;
 
 }
 
-.icon-contianer {
+.icon-contianer{ /*top left*/
   order: 1;
-  margin-left: 100px;
-  font-size: 200px;
+  font-size: 1vmax;
 }
 
-.weather-temp {
+.weather-temp { /*top right*/
   order: 2;
   position: relative;
-  font-size: 125px;
+  font-size: 1vwmax;
   color: #FFFFFF;
   font-family: Poppins;
-  margin-left: 20px;
 
-}
-
-.weather-detail-container {
-  order: 2;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-context: space-evenly;
-  align-items: center;
-  margin-bottom: 0px;
 }
 
 .description-container {
@@ -46,35 +48,23 @@
   flex-grow: 1;
 }
 
-.weather-description {
-  font-size: 25px;
+h1{
+  font-size: 1.5vmax;
   color: #FFFFFF;
   font-family: Poppins;
-  margin-left: 0px;
   text-align: center;
   text-transform: capitalize;
+  vertical-align: middle;
 }
 
-
-.break {
-  order: 2;
-  flex-grow: 1;
-  font-size: 50px;
-  color: #FFFFFF;
-  font-family: Poppins;
-  margin-left: 0px;
-  text-align: center;
-}
-
-.wind-container {
+.weather-wind{
   order: 3;
   flex-grow: 1;
 }
 
-.wind {
-    font-size: 25px;
-    color: #FFFFFF;
-    font-family: Poppins;
-    margin-left: 0px;
-    text-align: center;
+.break{
+    order: 2;
+    flex-grow: 1;
+    margin-left: 10px;
+    margin-right: 10px;
 }

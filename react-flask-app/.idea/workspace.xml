@@ -32,11 +32,9 @@
     <list default="true" id="054398a1-b2ba-43cc-b2aa-a3e9bf9a33cf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/glass.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/glass.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/forecastBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/forecastBlock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/stockTicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/stockTicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/timeBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/timeBlock.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/mirror-components/weatherBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/weatherBlock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Mirror.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Mirror.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/stockTicker.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/stockTicker.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/forecastBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/forecastBlock.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/timeBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/timeBlock.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/weatherBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/weatherBlock.css" afterDir="false" />
     </list>
