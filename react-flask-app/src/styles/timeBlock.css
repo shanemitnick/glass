@@ -1,27 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 .time-container{
-
+    margin: 0px 12.5px 0px 12.5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-context: space-evenly;
+    align-items: center;
 }
 
 .time-digits{
-    position: relative;
+    order: 1;
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 108.617px;
+    font-size: 120px;
     line-height: 163px;
     text-align: center;
     color: #FFFFFF;
 }
 
 .time-date{
-    position: relative;
+    order: 2;
+    font-size: 35px;
+    color: #FFFFFF;
     font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    display: flex;
     align-items: center;
     text-align: center;
     color: #FFFFFF;

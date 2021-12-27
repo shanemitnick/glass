@@ -23,10 +23,10 @@ class TimeBlock extends React.Component {
     if (hours === 0 ) {hours = 12};
 
     const minutes = ((time.getMinutes() < 10)? '0' + time.getMinutes() : time.getMinutes());
-    const seconds = ((time.getSeconds() < 10)? '0' + time.getSeconds() : time.getSeconds());
-    const meridium = ((time.getHours() < 12)? 'AM' : 'PM');
+    //const seconds = ((time.getSeconds() < 10)? '0' + time.getSeconds() : time.getSeconds());
+    //const meridium = ((time.getHours() < 12)? 'AM' : 'PM');
 
-    return hours + ":" + minutes; //+ ':' + seconds +  ' ' + meridium; //commented out to be more similar to the Figma design, comment in whenever we want to
+    return hours + ":" + minutes;
   }
 
   getDate() {
@@ -36,8 +36,36 @@ class TimeBlock extends React.Component {
 
     const month = monthNames[time.getMonth()];
     const date = time.getDate();
+    const dayOfWeek = time.getDay();
+    var day = '';
 
-    return month + " " + date;
+    switch( dayOfWeek ) {
+        case 0:
+            day = 'Sunday';
+            break;
+        case 1:
+            day = 'Monday';
+            break;
+        case 2:
+            day = 'Tuesday';
+            break;
+        case 3:
+            day = 'Wednesday';
+            break;
+        case 4:
+            day = 'Thursday';
+            break;
+        case 5:
+            day = 'Friday';
+            break;
+        case 6:
+            day = 'Saturday';
+            break;
+        default:
+            return 'Funday'
+    }
+
+    return day + ", " + month + " " + date;
   }
 
   render() {
