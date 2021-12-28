@@ -1,33 +1,33 @@
-import React from "react";
-import './../styles/calendarBlock.css';
-import CalendarItem from "./calendarItem.js"
+import React, { useEffect, useState } from "react";
+import '../../styles/calendarBlock.css';
+// import CalendarItem from "./calendarItem.js"
 
-class CalendarBlock extends React.Component {
+function CalendarBlock() {
+  let [calendar, getCalendar] = useState({});
+  let [gotData,  setGotData] = useState(false);
 
-  componentDidMount() {
+  useEffect(() => {
+      if (!gotData) {
+      fetch('/calendar', {method: 'GET',
+                        headers: {"Content-Type": "application/json"},
+                        // , "Content-Type": "application/x-www-form-urlencoded"}
+                      }
+          ).then(res => res.json()
+          ).then(data => {
+              getCalendar(data);
+              console.log(calendar);
+              setGotData(true);
+          });
+      }
+  });
 
-    fetch('/calendar').then(res => res.json()).then(data => {
-        this.setState({events: data.items[0]});
-        this.setState({reminders: data.defaultReminders});
-        console.log(data);
-    });
-  }
+  return (<div className="calendar-container"> 
+              {!gotData ?
+                  <div> Loading </div> : 
+                  <div> Loaded </div>
+                  }
+              </div>)
+              }
 
-  render() {
+export default CalendarBlock
 
-    const data = {
-      summary: "Doctor Appointment",
-      startTime: "2:00PM",
-      endTime: "4:00PM"};
-
-
-    return (
-      <div className='calendar-container'>
-        <h1> {data.summary}</h1>
-        <CalendarItem />
-      </div>
-
-  )}
-}
-
-export default CalendarBlock;

@@ -30,6 +30,8 @@ def get_all_forecast_data():
 
     for day, info in enumerate(data['daily']):
         info['day_of_week'] = (date.today() + timedelta(days=day)).strftime("%A")
+        info['day_abbr'] = (date.today() + timedelta(days=day)).strftime("%a")
+        info['month_day'] = (date.today() + timedelta(days=day)).strftime("%#m/#d")
 
     return {'current': data['current'],
             'hourly': data['hourly'],
