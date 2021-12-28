@@ -8,8 +8,7 @@ import GreetingBlock from '../components/mirror-components/greetingBlock.js';
 import ForecastBlock from '../components/mirror-components/forecastBlock.js';
 import StockTicker from '../components/mirror-components/stockTicker.js';
 import SportsBlock from '../components/mirror-components/sportsBlock.js';
-
-
+import CalendarBlock from '../components/mirror-components/calendarBlock.js';
 
 
 const Mirror = () => {
@@ -25,6 +24,7 @@ const Mirror = () => {
 
                     <div className="top-center-element">
                         <GreetingBlock />
+                        <CalendarBlock />
                     </div>
 
                     <div className="top-right-element">
