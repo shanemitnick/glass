@@ -19,17 +19,15 @@ const Mirror = () => {
                   <div className="top-row">
 
                     <div className="top-left-element">
-                        <TimeBlock />
+
                     </div>
 
                     <div className="top-center-element">
                         <GreetingBlock />
-                        <CalendarBlock />
                     </div>
 
                     <div className="top-right-element">
-                         <WeatherBlock />
-                         <ForecastBlock />
+                         <TimeBlock />
                     </div>
                   </div>
 
@@ -37,9 +35,10 @@ const Mirror = () => {
                     <div className="bottom-left-element">
                       <div>
                         <NewsBlock />
-                        <StockTicker />
                       </div>
                     </div>
+
+
 
                     <div className="bottom-right-element">
                       <div>

@@ -1,39 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
-.sports-container {
+.sports{
     display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    padding: 10px;
-    background: black;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-context: space-evenly;
+    align-items: center;
+    font: Poppins;
     color: white;
+    overflow: hidden;
+    margin: 10px; /*take this out*/
 }
 
-.league-containers {
+.league-containers{
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     max-height: 100%;
     overflow: hidden;
     width: 100%;
-
 }
 
-.league-container {
+.league-container{
     display: flex;
     flex-direction: column;
-    position: relative;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    max-height: 200px;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    vertical-align: baseline;
     overflow: hidden;
 }
 
-
 .league-abbr {
-    display: flex;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
 }
 
 .league-games {
@@ -41,37 +43,95 @@
     position: relative;
     flex-direction: column;
     width: 100%;
+    overflow: hidden;
 }
 
 .league-game {
     position: relative;
     text-indent: 25px;
     padding: 5px;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+    overflow: hidden;
 }
 
-.line-1 {
+.game-details {
     position: relative;
     width: 100%;
-    height: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 }
 
-.line-2 {
+.teams{ /*THIS NEEDS TO BE CENTERED BETTER*/
     position: relative;
-    width: 100%;
-    height: 20px;
-
+    display: inline-box;
+    align-items: center;
+    order: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
-.team {
-    float: left;
+.teams-list{
+    list-style-type: none;
 }
 
-.event-date {
-    float: right;
-    font: 12px;
+.team{
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
-.time {
-    float: right;
+.logo{
+    order: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: inline-box;
+    text-align: left;
 }
+
+svg{
+    display: block;
+    margin: auto;
+}
+
+.name{
+    order: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: inline-box;
+    text-align: left;
+    overflow-inline: scroll;
+}
+
+.record-score{
+    order: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: inline-box;
+    text-align: right;
+}
+
+.play-time{
+    position: relative;
+    order: 2;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.time{
+    display: inline-box;
+    text-align: right;
+    font-size: 100%;
+}
+
+.gamedate{
+    display: inline-box;
+    text-align: right;
+    font-size: 100%;
+}
+

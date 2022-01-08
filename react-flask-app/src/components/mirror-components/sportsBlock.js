@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import * as NBAIcons from 'react-nba-logos';
 import '../../styles/sportsBlock.css'
 
 
@@ -22,26 +23,37 @@ function SportsBlock() {
         }
     });
 
-
-    return (<div className="sports-container"> 
+    return (<div className="sports">
                 {!gotData ?
                     <div> Loading </div> : 
                     <div className="league-containers">
                         {Object.keys(sportsGames).map((league) => (
                             <div className="league_container">
-                                <div className='league-abbr' key={league}> 
+                                <div className='league-abbr' key={league}>
                                     { league }
                                 </div>
                                 <div className='league-games'>
                                     {Object.keys(sportsGames[league]).map((game) => (
-                                    <div className='league-game' key={game}> 
-                                        <div className="'line-1"> 
-                                            <p className='team'> {sportsGames[league][game].away_team} </p>
-                                            <p className='event-date'> {sportsGames[league][game].date} </p>
-                                        </div>
-                                        <div className="line-2"> 
-                                            <p className='team'> {sportsGames[league][game].home_team} </p>
-                                            <p className='time'> {sportsGames[league][game].time} </p>
+                                    <div className='league-game' key={game}>
+                                        <div className='game-details'>
+                                            <div className="teams">
+                                                <ul className='teams-list'>
+                                                    <li className='team'>
+                                                        <div className='logo>'> <NBAIcons.SAS size={20} /> </div>
+                                                        <div className='name'> {sportsGames[league][game].away_team} </div>
+                                                        <div className='record-score'> {sportsGames[league][game].away_score} </div>
+                                                    </li>
+                                                    <li className='team'>
+                                                        <div className='logo>'> <NBAIcons.PHI size={20} /> </div>
+                                                        <div className='name'> {sportsGames[league][game].home_team} </div>
+                                                        <div className='record-score'> {sportsGames[league][game].home_score} </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div className="play-time">
+                                                <div className='time'> {sportsGames[league][game].time} </div>
+                                                <div className='gamedate'> {sportsGames[league][game].date} </div>
+                                            </div>
                                         </div>
                                     </div>
                                     ))}
@@ -51,23 +63,9 @@ function SportsBlock() {
                         </div>
                         }
                     </div>)
+
+
  }
-
-
-    // return (<div className="sports-ticker"> 
-    //             {/* <div className="sports-game"> */}
-    //             {!gotData ?
-    //                 <div> Loading </div> : 
-    //                 <div className="sports-game">
-    //                     {Object.keys(sportsGames).map((game) => 
-    //                     <div className='game-desc' key={game}> { game } </div>
-                        
-    //                     )}
-    //                 </div>
-    //             }
-    //         {/* </div>   */}
-    //     </div>)
-    // }
 
 export default SportsBlock
 
