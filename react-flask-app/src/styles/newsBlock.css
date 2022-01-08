@@ -3,11 +3,10 @@
 .news-container {
     display: flex;
     flex-direction: column;
-    background-color: black;
-    position: relative;
-    margin-bottom: 0%;
-    min-width: 0;
-
+    flex-wrap: nowrap;
+    justify-context: space-evenly;
+    align-items: center;
+    margin-bottom: 0px;
 }
 
 .news-item {
@@ -35,11 +34,9 @@
     order: 2;
     display: flex;
     flex-direction: column;
-    /* flex-wrap: wrap; */
     color: black;
     top: 0px;
     margin-left: 10px;
-
 }
 
 .title-container {
@@ -48,27 +45,14 @@
     color: #FFFFFF;
     background-color: black;
     font-size: 7;
-    /* text-decoration-thickness: 2; */
     margin-top: 0px;
-
 }
 
 .abstract-container {
     order: 2;
     font-size: 5;
-    /* margin-top: 5px; */
     color: #FFFFFF;
 }
-
-
-/* /* 
-.weather-icon-container {
-  order: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-} */
 
 .icon-contianer {
   order: 1;
@@ -83,10 +67,7 @@
   color: #FFFFFF;
   font-family: Poppins;
   margin-left: 20px;
-
 }
- */
-
 
 .news-title {
   color: #FFFFFF;
@@ -96,44 +77,3 @@
   font-weight: lighter;
   margin-left: 15px;
 }
-
-/* 
-.weather-detail-container {
-  order: 2;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.description-container {
-  flex-grow: 2;
-  order: 1;
-  align-items: center;
-  margin-left: 20px;
-} */
-
-/* 
-.break {
-  margin-left: 9px;
-  font-size: 50px;
-  flex-grow: 1;
-  order: 2;
-  color: white;
-}
-
-.wind-container {
-  flex-grow: 2;
-  align-items: center;
-  margin-right: 20px;
-  order: 3;
-}
-
-.wind {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 24px;
-    line-height: 25px;
-    text-align: right;
-    color: #FFFFFF;
-} */

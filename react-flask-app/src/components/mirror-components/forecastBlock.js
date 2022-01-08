@@ -54,8 +54,10 @@ class ForecastBlock extends React.Component {
         return "cloud-snow";
       case 'Clear':
         return "sun";
+      case 'Mist': case 'Smoke': case 'Haze': case 'Dust': case 'Fog': case 'Sand': case 'Ash': case 'Squall': case 'Tornado':
+        return 'error-alt';
       default:
-        return "invader";
+        return "ghost";
 
     }
   }
@@ -75,8 +77,10 @@ class ForecastBlock extends React.Component {
         return "cloud-snow";
       case 'Clear':
         return "sun";
+      case 'Mist': case 'Smoke': case 'Haze': case 'Dust': case 'Fog': case 'Sand': case 'Ash': case 'Squall': case 'Tornado':
+        return 'error-alt';
       default:
-        return "invader";
+        return "ghost";
 
     }
   }
@@ -96,8 +100,10 @@ class ForecastBlock extends React.Component {
         return "cloud-snow";
       case 'Clear':
         return "sun";
+      case 'Mist': case 'Smoke': case 'Haze': case 'Dust': case 'Fog': case 'Sand': case 'Ash': case 'Squall': case 'Tornado':
+        return 'error-alt';
       default:
-        return "invader";
+        return "ghost";
 
     }
   }
