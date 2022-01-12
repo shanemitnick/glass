@@ -31,9 +31,11 @@
   <component name="ChangeListManager">
     <list default="true" id="054398a1-b2ba-43cc-b2aa-a3e9bf9a33cf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Mirror.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Mirror.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Mirror.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Mirror.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/forecastBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/forecastBlock.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/newsBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/newsBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/sportsBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/sportsBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/newsBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/newsBlock.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/sportsBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/sportsBlock.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/stockTicker.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/stockTicker.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-.news-container {
+.news {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

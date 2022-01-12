@@ -58,7 +58,7 @@ class NewsBlock extends React.Component {
 
     return (
 
-        <div className='news-container'>
+        <div className='news'>
 
             <div className="news-item">
               <div className='image-container'>
@@ -67,8 +67,8 @@ class NewsBlock extends React.Component {
               </div>
 
               <div className='information-container'>
-                  <h1 className='title-container'> {this.state.story1.title} </h1>
-                  <p1 className='abstract-container'> {this.state.story1.abstract} </p1>
+                  <div className='title-container'> {this.state.story1.title} </div>
+                  <div className='abstract-container'> {this.state.story1.abstract} </div>
               </div>
             </div>
 
@@ -79,8 +79,8 @@ class NewsBlock extends React.Component {
               </div>
 
               <div className='information-container'>
-                  <h1 className='title-container'> {this.state.story2.title} </h1>
-                  <p className='abstract-container'> {this.state.story2.abstract} </p>
+                  <div className='title-container'> {this.state.story2.title} </div>
+                  <div className='abstract-container'> {this.state.story2.abstract} </div>
               </div>
             </div>
 
