@@ -1,5 +1,6 @@
 import React from "react";
 import {withRouter} from 'react-router-dom';
+import { Row, Col } from 'antd';
 import '../styles/Mirror.css';
 import NewsBlock from '../components/mirror-components/newsBlock.js';
 import TimeBlock from '../components/mirror-components/timeBlock.js';
@@ -16,37 +17,46 @@ const Mirror = () => {
   return(
               <div className="mirror-contatiner">
 
-                  <div className="top-row">
 
-                    <div className="top-left-element">
+                  <Row className='top-row'>
+                    <Col span={7} className='left-col'>
+                        <TimeBlock />
+                    </Col>
+                    <Col span={10} className='middle-col'>
 
-                    </div>
+                    </Col>
+                    <Col span={7} className='right-col'>
+                        <WeatherBlock />
+                    </Col>
+                  </Row>
 
-                    <div className="top-center-element">
-                        <GreetingBlock />
-                    </div>
-
-                    <div className="top-right-element">
-                         <TimeBlock />
-                    </div>
-                  </div>
-
-                  <div className='bottom-row'>
-                    <div className="bottom-left-element">
-                      <div>
-                        <NewsBlock />
-                      </div>
-                    </div>
-
-
-
-                    <div className="bottom-right-element">
-                      <div>
+                  <Row className='middle-row'>
+                    <Col span={7} className='left-col'>
                         <SportsBlock />
-                      </div>
-                    </div>
-                  </div>
+                    </Col>
+                    <Col span={10} className='middle-col'>
+                    </Col>
+                    <Col span={7} className='right-col'>
+                        <ForecastBlock />
+                    </Col>
+                  </Row>
 
+                  <Row className='bottom-row'>
+                    <Col span={7} className='left-col'>
+                        <NewsBlock />
+                    </Col>
+                    <Col span={10} className='middle-col'>
+                    </Col>
+                    <Col span={7} className='right-col'>
+                        <CalendarBlock />
+                    </Col>
+                  </Row>
+
+                  <Row className='ticker-row'>
+                    <Col className='ticker-col' span={24}>
+                        <StockTicker />
+                    </Col>
+                  </Row>
 
 
               </div>
@@ -56,13 +66,3 @@ const Mirror = () => {
 
 export default withRouter(Mirror);
 
-
-
-//
-// <div className="bottom-left-element">
-//   <CalendarBlock />
-// </div>
-//
-// <div className = 'center-element'>
-//     <GreetingBlock/>
-// </div>
