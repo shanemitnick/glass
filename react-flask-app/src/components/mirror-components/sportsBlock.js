@@ -40,12 +40,12 @@ function SportsBlock() {
                                                 <ul className='teams-list'>
                                                     <li className='team'>
                                                         <div className='logo>'> <NBAIcons.SAS size={20} /> </div>
-                                                        <div className='name'> {sportsGames[league][game].away_team} </div>
+                                                        <div className='name'> {sportsGames[league][game].away_abbr} </div>
                                                         <div className='record-score'> {sportsGames[league][game].away_score} </div>
                                                     </li>
                                                     <li className='team'>
                                                         <div className='logo>'> <NBAIcons.PHI size={20} /> </div>
-                                                        <div className='name'> {sportsGames[league][game].home_team} </div>
+                                                        <div className='name'> {sportsGames[league][game].home_abbr} </div>
                                                         <div className='record-score'> {sportsGames[league][game].home_score} </div>
                                                     </li>
                                                 </ul>

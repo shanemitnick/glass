@@ -13,7 +13,7 @@
     display: flex;
     align-content: space-between;
     width: 100%;
-    animation: scroll-left 50s linear infinite;
+    animation: scroll-left 70s linear infinite;
 }
 
 .ticker-item {
