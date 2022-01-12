@@ -1,8 +1,9 @@
-from pysbr import CurrentLines, EventsByDate, MLB, NBA, NFL, NHL, Sportsbook
+from pysbr import CurrentLines, EventsByDate, MLB, NBA, NFL, NHL
 from datetime import datetime, time, timedelta
 import numpy as np
 import pandas as pd
 from flask import current_app as app, jsonify
+from routes.sports_records import get_mlb_records, get_nba_records, get_nfl_records, get_nhl_records
 
 
 @app.route('/sports', methods=['GET', 'POST'])
@@ -11,25 +12,36 @@ def get_sports_games():
     today = datetime.today()
     today = today.replace(hour=0, minute=0, second=0)
 
-    print(today)
-    # sb = Sportsbook()
+    year = today.year
 
     leagues = [
-               NBA(),
-               NFL(),
-               MLB(),
-               NHL()
+               (NBA(), 'NBA'),
+               (NFL(), 'NFL'),
+               (MLB(), 'MLB'),
+               (NHL(), 'NHL'),
                ]
 
     master_games = {}
-    for league in leagues:
+    for league, league_abbr in leagues:
 
         events = EventsByDate(league.league_id, today)
         events_json = events.raw()
         if len(events_json['eventsByDateNew']['events']) > 0:
             master_games[league.abbr] = {}
             games = events_json['eventsByDateNew']['events']
+            
+            if league_abbr == 'NBA':
+                teams = get_nba_records()
+            elif league_abbr == 'NFL':
+                teams = get_nfl_records()
+            elif league_abbr == 'NHL':
+                teams = get_nhl_records()
+            elif league_abbr == 'MLB':
+                teams = get_mlb_records()
+            
+            
             for idx, g in enumerate(games):
+
                 if g['es'] != 'postponed':
                     game_unixtime = pd.to_datetime(g['dt'], unit='ms')
                     game_est = game_unixtime - timedelta(hours=5)
@@ -41,13 +53,22 @@ def get_sports_games():
                         if team['source']['cit'] == 'LA':
                             team['source']['cit'] = 'Los Angeles'
                             
+                        if league_abbr == 'NHL':
+                            if team['source']['nn'] == 'Krakenn':
+                                team['source']['nn'] = 'Kraken'
+                            
                         if team['ih'] is True:
                             home_team = team['source']['cit'] + ' ' + team['source']['nn']
                             home_abbr = team['source']['abbr'].upper()
                             _home_id = team['partid']
+                            home_wins = int(teams.at[home_team, 'W'])
+                            home_losses = int(teams.at[home_team, 'L'])
+
                         else:
                             away_team = team['source']['cit'] + ' ' + team['source']['nn']
-                            away_abbr = team['source']['abbr'].upper()
+                            away_abbr = team['source']['abbr'].upper()               
+                            away_wins = int(teams.at[away_team, 'W'])
+                            away_losses = int(teams.at[away_team, 'L'])
 
                     games_desc = away_team + ' @ ' + home_team
 
@@ -73,8 +94,12 @@ def get_sports_games():
                                                       'date': game_date,
                                                       'home_team': home_team,
                                                       'home_abbr': home_abbr,
+                                                      'home_wins': home_wins,
+                                                      'home_losses': home_losses,
                                                       'away_team': away_team,
                                                       'away_abbr': away_abbr,
+                                                      'away_wins': away_wins,
+                                                      'away_losses': away_losses,
                                                       'isLive': isLive,
                                                       'home_score': home_score,
                                                       'away_score': away_score,
