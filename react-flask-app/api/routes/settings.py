@@ -40,7 +40,8 @@ def show_and_update_settings():
                    'bottom_left': user.bottom_left,
                    'bottom_center': user.bottom_center,
                    'bottom_right': user.bottom_right},
-        'other': {'section': str(user.section)}
+        'other': {'news_section': str(user.news_section).title(),
+                  'favorite_teams': user.favorite_teams}
     }
 
     return USER_SETTINGS

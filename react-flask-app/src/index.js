@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import "antd/dist/antd.css";
+import "antd/dist/antd.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
 

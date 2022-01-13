@@ -2,16 +2,20 @@ from pysbr import CurrentLines, EventsByDate, MLB, NBA, NFL, NHL
 from datetime import datetime, time, timedelta
 import numpy as np
 import pandas as pd
-from flask import current_app as app, jsonify
+from flask import current_app as app, request
 from routes.sports_records import get_mlb_records, get_nba_records, get_nfl_records, get_nhl_records
-
+from models.db_model import Users
 
 @app.route('/sports', methods=['GET', 'POST'])
 def get_sports_games():
     
+    response = request.get_json()
+    user_id = response['user_id']
+    user = Users.find_by_user_id(user_id)
+    favorite_teams = user.favorite_teams
+
     today = datetime.today()
     today = today.replace(hour=0, minute=0, second=0)
-
     year = today.year
 
     leagues = [
@@ -39,7 +43,7 @@ def get_sports_games():
             elif league_abbr == 'MLB':
                 teams = get_mlb_records()
             
-            
+            # Loop through the games and record info about the game and the home and away participants
             for idx, g in enumerate(games):
 
                 if g['es'] != 'postponed':
@@ -77,7 +81,7 @@ def get_sports_games():
                     home_score = 0
                     away_score = 0
                     period = 0
-                    # If the game has started
+                    # If the game has started, get the score
                     if len(g['scores']) > 0:
                         for score_info in g['scores']:
                             if score_info['partid'] == _home_id:
@@ -88,6 +92,8 @@ def get_sports_games():
 
                     # The game is over if the game is not in progress and a team has recorded a score
                     isOver = 'True' if (g['es'] != 'in-progress') and (away_score + home_score > 0) else 'False'
+                    isFavorite = 'True' if (home_team in favorite_teams) or (away_team in favorite_teams) else 'False'
+
 
                     master_games[league.abbr][idx] = {'desc': games_desc,
                                                       'time': game_time,
@@ -104,7 +110,8 @@ def get_sports_games():
                                                       'home_score': home_score,
                                                       'away_score': away_score,
                                                       'period': period,
-                                                      'isOver': isOver
+                                                      'isOver': isOver,
+                                                      'isFavorite': isFavorite
                                                       }
             # if all the games are postponed, we need to delete the league as an index
             if len(master_games[league.abbr].keys()) == 0:

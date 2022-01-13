@@ -66,29 +66,70 @@ const Test = () =>  {
                   <div className='loginContainer'>
 
                     <Form {...layout} onFinish={handleFormSubmit}>
-                      <Form.Item label="First Name"name="first_name" >
+                      <Form.Item label="First Name" name="first_name" >
                         <Input placeholder={data.user.first_name}/>
                       </Form.Item>
 
-                      <Form.Item label="Last Name"name="last_name" >
+                      <Form.Item label="Last Name" name="last_name" >
                         <Input placeholder={data.user.last_name}/>
                       </Form.Item>
 
 
-                      <Form.Item label="Zipcode"name="zipcode" >
+                      <Form.Item label="Zipcode" name="zipcode" >
                         <Input placeholder={data.user.zipcode}/>
                       </Form.Item>
 
-                      <Form.Item name="section" label="News">
+                      <Form.Item label="News" name="news_section">
                         <Select
                           placeholder={data.other.news_section}
                           allowClear
+                          showSearch
                         >
-                          <Option value="sports">sports</Option>
-                          <Option value="politics">politics</Option>
-                          <Option value="other">other</Option>
+                          <Option value="all topics">All Topics</Option>
+                          <Option value="arts">Arts</Option>
+                          <Option value="automobiles">Automobiles</Option>
+                          <Option value="books">Books</Option>
+                          <Option value="business">Business</Option>
+                          <Option value="fashion">Fashion</Option>
+                          <Option value="food">Food</Option>
+                          <Option value="health">Health</Option>
+                          <Option value="home">Home</Option>
+                          <Option value="insider">Insider</Option>
+                          <Option value="magazine">Magazine</Option>
+                          <Option value="movies">Movies</Option>
+                          <Option value="nyregion">NYRegion</Option>
+                          <Option value="obituaries">Obituaries</Option>
+                          <Option value="opinion">Opinion</Option>
+                          <Option value="politics">Politics</Option>
+                          <Option value="realestate">Realestate</Option>
+                          <Option value="science">Science</Option>
+                          <Option value="sports">Sports</Option>
+                          <Option value="sundayreview">Sunday Review</Option>
+                          <Option value="technology">Technology</Option>
+                          <Option value="theater">Theater</Option>
+                          <Option value="t-magazine">Times Magazine</Option>
+                          <Option value="travel">Travel</Option>
+                          <Option value="upshot">Upshot</Option>
+                          <Option value="us">U.S.</Option>
+                          <Option value="world">World</Option>
+
                         </Select>
                       </Form.Item>
+
+                      <Form.Item label="Favorite Teams" name="favorite_teams">
+                        <Select mode='multiple' allowClear={true} defaultValue={data.other.favorite_teams}>
+                          {Object.keys(teams).map((league) => (
+                            <OptGroup label={league}>
+                            {Object.keys(teams[league]).map((team) => (
+                              <Option value={teams[league][team]}> {renderLogo(league, teams[league][team], 10)} {teams[league][team]} </Option>
+                            ))}
+                            </OptGroup>
+                          ))}
+                          
+                        </Select>
+
+                      </Form.Item>
+
 
                       <Form.Item label=" " name="gmail_login" >
                         <Button >
