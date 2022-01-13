@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import * as NBAIcons from 'react-nba-logos';
 import '../../styles/sportsBlock.css'
-
+import renderLogo from "./logoIconReference";
 
 function SportsBlock() {
     let [sportsGames, setSportsGames] = useState({});
@@ -39,12 +38,13 @@ function SportsBlock() {
                                             <div className="teams">
                                                 <ul className='teams-list'>
                                                     <li className='team'>
-                                                        <div className='logo>'> <NBAIcons.SAS size={20} /> </div>
+                                                        {/* <div className='logo>'> <NBAIcons.SAS size={20} /> </div> */}
+                                                        <div className='logo>'> {renderLogo(league, sportsGames[league][game].away_abbr, 20)} </div>
                                                         <div className='name'> {sportsGames[league][game].away_abbr} </div>
                                                         <div className='record-score'> {sportsGames[league][game].away_score} </div>
                                                     </li>
                                                     <li className='team'>
-                                                        <div className='logo>'> <NBAIcons.PHI size={20} /> </div>
+                                                        <div className='logo>'> {renderLogo(league, sportsGames[league][game].home_abbr, 20)} </div>
                                                         <div className='name'> {sportsGames[league][game].home_abbr} </div>
                                                         <div className='record-score'> {sportsGames[league][game].home_score} </div>
                                                     </li>
