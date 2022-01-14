@@ -4,10 +4,12 @@ import "../styles/profile-page.css";
 import { Form, Button, Input, Select } from "antd";
 import Profile from "../components/website-components/profile";
 import NavBar from "../components/website-components/navbar.js";
-
+import renderLogo from "../components/mirror-components/logoIconReference";
 
 const Test = () =>  {
-  const { Option } = Select;
+  const { OptGroup, Option } = Select;
+  const teams = require("./../reference/sports_teams.json")
+  console.log(teams)
 
   const layout = {
   labelCol: { span: 8 },

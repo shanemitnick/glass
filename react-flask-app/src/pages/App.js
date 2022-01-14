@@ -13,7 +13,6 @@ const App = () => {
 
       <NavBar />
 
-      }
   </div>
   );
 }
