@@ -24,9 +24,10 @@ def create_app():
         from routes.settings import show_and_update_settings
         from routes.stocks import get_stock_prices
         from routes.sports_games import get_sports_games
+        from routes.distance_calculator import calculate_distance
 
-        api.add_resource(UserRegistration, '/register')
-        api.add_resource(UserLogin, '/login')
+        # api.add_resource(UserRegistration, '/register')
+        # api.add_resource(UserLogin, '/login')
 
         # user1 = Users(
         #     username='User',

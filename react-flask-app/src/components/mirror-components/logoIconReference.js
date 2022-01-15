@@ -1,6 +1,6 @@
 import { React } from "react";
 import * as NBAIcon from "react-nba-logos";
-// import * as NHLIcon from "react-nhl-logos";
+import * as NFLIcon from "react-nfl-logos";
 
 const renderLogo = (league, abbreviation, size) => {
     switch(league) {
@@ -100,6 +100,113 @@ const renderLogo = (league, abbreviation, size) => {
                 break;
             }
 
+        case 'NFL':
+            switch (abbreviation) {
+
+                case "CRD":
+                    return <NFLIcon.ARI size={size} />;
+
+                case "ATL":
+                    return <NFLIcon.ATL size={size} />;
+                
+                case "RAV":
+                    return <NFLIcon.BAL size={size} />;
+            
+                case "BUF":
+                    return <NFLIcon.BUF size={size} />;
+
+                case "CAR":
+                    return <NFLIcon.CAR size={size} />;
+
+                case "CHI":
+                    return <NFLIcon.CHI size={size} />;
+                
+                case "CIN":
+                    return <NFLIcon.CIN size={size} />;
+
+                case "CLE":
+                    return <NFLIcon.CLE size={size} />;
+
+                case "DAL":
+                    return <NFLIcon.DAL size={size} />;
+                    
+                case "DEN":
+                    return <NFLIcon.DEN size={size} />;
+
+                case "DET":
+                    return <NFLIcon.DET size={size} />;
+
+                case "GNB":
+                    return <NFLIcon.GB size={size} />;
+
+                case "HTX":
+                    return <NFLIcon.HOU size={size} />;
+
+                case "CLT":
+                    return <NFLIcon.IND size={size} />;
+
+                case "JAX":
+                    return <NFLIcon.JAX size={size} />;
+
+                case "KAN":
+                    return <NFLIcon.KC size={size} />;
+
+                case "LV":
+                    return <NFLIcon.LV size={size} />;
+
+                case "LAC":
+                    return <NFLIcon.LAC size={size} />;
+
+                case "RAM":
+                    return <NFLIcon.LAR size={size} />;
+                
+                case "MIA":
+                    return <NFLIcon.MIA size={size} />;
+
+                case "MIN":
+                    return <NFLIcon.MIN size={size} />;
+
+                case "NE":
+                    return <NFLIcon.NE size={size} />;
+
+                case "NOR":
+                    return <NFLIcon.NO size={size} />;
+
+                case "NYG":
+                    return <NFLIcon.NYG size={size} />;
+
+                case "NYJ":
+                    return <NFLIcon.NYJ size={size} />;
+
+                case "PHI":
+                    return <NFLIcon.PHI size={size} />;
+
+                case "PIT":
+                    return <NFLIcon.PIT size={size} />;
+
+                case "SFo":
+                    return <NFLIcon.SF size={size} />;
+                
+                case "SEA":
+                    return <NFLIcon.SEA size={size} />;
+
+                case "TAM":
+                    return <NFLIcon.TB size={size} />;
+
+                case "WSH":
+                    return <NFLIcon.WAS size={size} />;
+        
+                case "OTI":
+                    return <NFLIcon.OTI size={size} />;
+
+                case "WAS":
+                    return <NFLIcon.WAS size={size} />;
+
+
+                default:
+                break;
+            }
+
         // case 'NHL':
         //     switch (abbreviation) {
         //         case "ANA":
@@ -192,14 +299,14 @@ const renderLogo = (league, abbreviation, size) => {
         //         case "WSH":
         //             return <NHLIcon.WSH size={size} />;
 
-        //         default:
-        //         break;
-        //     }
+            //     default:
+            //     break;
+            // }
 
 
-            default:
+        default:
             break;
-            }
+        }
 };
 
 export default renderLogo;
