@@ -10,6 +10,7 @@ import ForecastBlock from '../components/mirror-components/forecastBlock.js';
 import StockTicker from '../components/mirror-components/stockTicker.js';
 import SportsBlock from '../components/mirror-components/sportsBlock.js';
 import CalendarBlock from '../components/mirror-components/calendarBlock.js';
+import DistanceBlock from '../components/mirror-components/distanceBlock';
 
 
 const Mirror = () => {
