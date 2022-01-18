@@ -1,5 +1,6 @@
 nytimes_params = {
     "section": [
+        ("all topics", "all topics"),
         ("arts", "arts"),
         ("automobiles", "automobiles"), 
         ("books", "books"),

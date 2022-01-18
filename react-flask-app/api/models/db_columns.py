@@ -9,4 +9,6 @@ Users_columns = ['first_name',
                  'bottom_left',
                  'bottom_center',
                  'bottom_right',
-                 'section']
+                 'news_section',
+                 'favorite_teams'
+                 ]
