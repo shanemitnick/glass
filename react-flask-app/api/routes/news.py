@@ -28,14 +28,14 @@ def get_top_stories_by_category(section='world'):
     while len(response.keys()) < 5:
         # There can be blank reposonse that are just images on the popular page, we want to skip these
         if results[count]['abstract'] == '':
-            pass
+            del results[count]
         else:
             article_info = {}
             for k, v in results[count].items():
                 if k in keys_to_keep:
                     article_info[k] = v
             response[count] = article_info
-        count += 1
+            count += 1
 
     return response
 

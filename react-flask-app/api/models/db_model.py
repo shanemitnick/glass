@@ -34,8 +34,11 @@ class Users(db.Model):
     bottom_left = db.Column(db.String(100), nullable=True, default=None)
 
     # Favorite News Section
-    section = db.Column(ChoiceType(nytimes_params['section']), nullable=False, default='world')
+    news_section = db.Column(ChoiceType(nytimes_params['section']), nullable=False, default='world')
     
+    # Favorite Sports Teams
+    favorite_teams = db.Column(db.PickleType(), nullable=True, default=None)
+
     # google_key = db.Column()
     # user = db.relationship("NewsPreferences", back_populates='newspreferences', lazy=True)
 
@@ -61,7 +64,7 @@ class Users(db.Model):
     @classmethod
     def get_user_favorite_section(self, user_id):
         user = self.query.filter_by(user_id=user_id).first()
-        return user.section
+        return user.news_section
 
 # class MirrorLayout(db.Model):
     
