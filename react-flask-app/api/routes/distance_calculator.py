@@ -10,10 +10,10 @@ import pandas as pd
 
 @app.route('/calculate-distance', methods=['POST'])
 def calculate_distance():
+    
     API_KEY = 'AtxA6KEnVG17CbHXlwyi-Dhm7mNETSRObsz-kjPrGpNx94LEVF_DbtQ7NWW-vyl9'
 
     res = request.get_json()
-    print(res)
     origin = res['origin']
     destination = res['destination']
 
@@ -71,7 +71,6 @@ def calculate_distance():
 
     response = requests.get(url)
     result = response.json()['resourceSets'][0]['resources'][0]['results'][0]
-    print(result)
     travel_duration = round(result['travelDuration'], 1)
 
     if travel_duration >= 60:
@@ -88,7 +87,7 @@ def calculate_distance():
     return {"travelDuration": travel_duration,
             "travelDistance": travel_distance,
             "distanceUnit": distance_unit,
-            "origin": origin.address,
+            "origin": origin_location.address,
             "destination": dest_location.address
             }
         
