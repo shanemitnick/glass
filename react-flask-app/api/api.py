@@ -16,7 +16,7 @@ def create_app():
 
         from models.db_model import db, Users #, NewsPreferences, MirrorLayout
         db.init_app(app)
-        from login import UserRegistration, UserLogin
+
         from routes.weather import get_all_forecast_data
         from routes.google_calendar import get_google_calendar
         from routes.news import get_top_stories_by_category
@@ -25,9 +25,6 @@ def create_app():
         from routes.stocks import get_stock_prices
         from routes.sports_games import get_sports_games
         from routes.distance_calculator import calculate_distance
-
-        # api.add_resource(UserRegistration, '/register')
-        # api.add_resource(UserLogin, '/login')
 
         # user1 = Users(
         #     username='User',
@@ -39,13 +36,7 @@ def create_app():
         #     auth0_id='xxxxxxxx')
         # user1 = Users.find_by_username('User')
 
-        # user1_news_preferences = NewsPreferences(user_id=user1.user_id)
-        # user1_mirror_layout = MirrorLayout(user_id=user1.user_id)
-
-
         # db.session.add(user1)
-        # # db.session.add(user1_news_preferences)
-        # # db.session.add(user1_mirror_layout)
         # db.session.commit()
 
 
