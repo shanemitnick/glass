@@ -1,6 +1,7 @@
 import { React } from "react";
 import * as NBAIcon from "react-nba-logos";
 import * as NFLIcon from "react-nfl-logos";
+// import * as NHLIcon from "react-nhl-logos";
 
 const renderLogo = (league, abbreviation, size) => {
     switch(league) {
