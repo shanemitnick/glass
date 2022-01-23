@@ -1,16 +1,17 @@
 
+from configparser import SectionProxy
 import requests
 from flask import jsonify, request
 from flask import current_app as app
 from models.db_model import Users
 
-@app.route('/news/top_stories', methods=['GET', 'POST'])
+@app.route('/api/news', methods=['GET', 'POST'])
 def get_top_stories_by_category(section='world'):
     """ Gets the top 5 news stories by category from the NY Times. """
 
     response = request.get_json()
-    
     section = Users.get_user_favorite_section(response['user_id'])
+    section = 'home' if section == 'all topics' else section
 
     api = 'krCXaBDHYgOrJUo5Io37ISIMcz8rj1DU'
     url = f'https://api.nytimes.com/svc/topstories/v2/{section}.json?api-key={api}'
@@ -42,17 +43,3 @@ def get_top_stories_by_category(section='world'):
 
 if __name__ == '__main__':
     get_top_stories_by_category('world')
-
-    # {abstract: '',
-    #  created_date: '',
-    #  multimedia: [{'caption': '', 
-    #                 copyright: '',
-    #                 format: '',
-    #                 height: '',
-    #                 subtype: '',
-    #                 type: '', 
-    #                 url: '',
-    #                 width: ''},
-    # title': '',
-    # url: ''
-    # }
