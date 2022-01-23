@@ -149,7 +149,7 @@ const renderLogo = (league, abbreviation, size) => {
                 case "JAX":
                     return <NFLIcon.JAX size={size} />;
 
-                case "KAN":
+                case "KC":
                     return <NFLIcon.KC size={size} />;
 
                 case "LV":
@@ -158,7 +158,7 @@ const renderLogo = (league, abbreviation, size) => {
                 case "LAC":
                     return <NFLIcon.LAC size={size} />;
 
-                case "RAM":
+                case "LA":
                     return <NFLIcon.LAR size={size} />;
                 
                 case "MIA":
@@ -185,13 +185,13 @@ const renderLogo = (league, abbreviation, size) => {
                 case "PIT":
                     return <NFLIcon.PIT size={size} />;
 
-                case "SFo":
+                case "SFO":
                     return <NFLIcon.SF size={size} />;
                 
                 case "SEA":
                     return <NFLIcon.SEA size={size} />;
 
-                case "TAM":
+                case "TB":
                     return <NFLIcon.TB size={size} />;
 
                 case "WSH":

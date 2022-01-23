@@ -8,7 +8,7 @@ function CalendarBlock() {
 
   useEffect(() => {
       if (!gotData) {
-      fetch('/calendar', {method: 'GET',
+      fetch('/api/calendar', {method: 'GET',
                         headers: {"Content-Type": "application/json"},
                         // , "Content-Type": "application/x-www-form-urlencoded"}
                       }

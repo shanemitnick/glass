@@ -6,7 +6,7 @@ from models.db_columns import Users_columns
 from sqlalchemy import update
 
 
-@app.route('/profile/settings', methods=["GET", "POST"])
+@app.route('/api/settings', methods=["GET", "POST"])
 def show_and_update_settings():
     response = request.get_json()
     user_id = response['user_id']

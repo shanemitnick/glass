@@ -8,8 +8,9 @@ import pandas as pd
 
 
 
-@app.route('/calculate-distance', methods=['POST'])
+@app.route('/api/distance', methods=['POST'])
 def calculate_distance():
+    """ Calculates the travel distance between two locations for a given mode of transportation."""
     
     API_KEY = 'AtxA6KEnVG17CbHXlwyi-Dhm7mNETSRObsz-kjPrGpNx94LEVF_DbtQ7NWW-vyl9'
 

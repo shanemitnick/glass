@@ -2,6 +2,8 @@ import pandas as pd
 from datetime import datetime
 from urllib.error import HTTPError
 
+### Set of functions to scrape the home page of each league's sports reference page and retrieve current records
+
 def get_nba_records(year=None):
 
     if year is None:

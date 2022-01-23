@@ -14,10 +14,10 @@ class ForecastBlock extends React.Component {
 
   componentDidMount() {
 
-    fetch('/weather/forecast', {method: 'POST',
-                               headers: {"Content-Type": "application/json"},
-                                      // , "Content-Type": "application/x-www-form-urlencoded"}
-                              body: JSON.stringify({'user_id': 1})}
+    fetch('api/weather', {method: 'POST',
+                          headers: {"Content-Type": "application/json"},
+                          // , "Content-Type": "application/x-www-form-urlencoded"}
+                          body: JSON.stringify({'user_id': 1})}
 
     ).then(res => res.json()).then(data => {
         console.log(data);
