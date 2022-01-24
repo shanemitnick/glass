@@ -10,7 +10,7 @@ import os
 
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
-@app.route('/calendar')
+@app.route('/api/calendar')
 def get_google_calendar():
     try:
         os.chdir(os.getcwd() + '/routes')

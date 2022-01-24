@@ -8,7 +8,7 @@ function SportsBlock() {
 
     useEffect(() => {
         if (!gotData) {
-        fetch('/sports', {method: 'POST',
+        fetch('/api/sports', {method: 'POST',
                           headers: {"Content-Type": "application/json"},
                           // , "Content-Type": "application/x-www-form-urlencoded"}
                           body: JSON.stringify({'user_id': 1})}

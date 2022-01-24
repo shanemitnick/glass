@@ -24,11 +24,10 @@ const Test = () =>  {
 
   useEffect(() => {
     if (!gotData) {
-        fetch('/profile/settings', {method: 'POST',
-                                   headers: {"Content-Type": "application/json"},
-                                          // , "Content-Type": "application/x-www-form-urlencoded"}
-                                  body: JSON.stringify({'user_id': 1})}
-
+        fetch('/api/settings', {method: 'POST',
+                              headers: {"Content-Type": "application/json"},
+                              // , "Content-Type": "application/x-www-form-urlencoded"}
+                              body: JSON.stringify({'user_id': 1})}
         ).then(res => res.json()).then(returnedData => {
             setData(returnedData);
             setGotData(true);
@@ -38,13 +37,12 @@ const Test = () =>  {
   });
 
 
-
   const handleFormSubmit = (values: any) => {
     values['user_id'] = 1;
 
     console.log("FORM SUBMIT");
     console.log(values);
-    fetch('/profile/settings', {method: 'POST',
+    fetch('/api/settings', {method: 'POST',
                                headers: {"Content-Type": "application/json"},
                                       // , "Content-Type": "application/x-www-form-urlencoded"}
                               body: JSON.stringify(values)}

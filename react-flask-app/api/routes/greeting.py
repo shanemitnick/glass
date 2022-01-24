@@ -3,7 +3,7 @@ from flask import request
 from models.db_model import Users
 
 
-@app.route('/user/greeting', methods=['GET', 'POST'])
+@app.route('/api/greeting', methods=['GET', 'POST'])
 def greet_user():
 
     response = request.get_json()

@@ -6,7 +6,7 @@ from flask import current_app as app, request
 from routes.sports_records import get_mlb_records, get_nba_records, get_nfl_records, get_nhl_records
 from models.db_model import Users
 
-@app.route('/sports', methods=['GET', 'POST'])
+@app.route('/api/sports', methods=['GET', 'POST'])
 def get_sports_games():
     
     response = request.get_json()

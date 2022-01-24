@@ -1,32 +1,31 @@
 import React, { useEffect, useState } from "react";
-import '../../styles/calendarBlock.css';
-// import CalendarItem from "./calendarItem.js"
+import '../../styles/distanceBlock.css';
 
 function DistanceBlock() {
-  let [calendar, getCalendar] = useState({});
+  let [distance, getDistance] = useState({});
   let [gotData,  setGotData] = useState(false);
 
   useEffect(() => {
       if (!gotData) {
-      fetch('/calculate-distance', {method: 'POST',
+      fetch('/api/distance', {method: 'POST',
                                     headers: {"Content-Type": "application/json"},
                                     body: JSON.stringify({"origin": "480 Massachusetts Ave, Boston, MA",
                                                           "destination": "1 Federal Street, Boston, MA",
                                                           "travelMode": "driving",
-                                                        //   "startTime": "8:00",
+                                                        //   "startTime": "8:00", // only valid for 'driving' travel mode
                                                           "distanceUnit": "mi"})        
                         // , "Content-Type": "application/x-www-form-urlencoded"}
-                      }
+                             }
           ).then(res => res.json()
           ).then(data => {
-              getCalendar(data);
-              console.log(calendar);
+              getDistance(data);
+              console.log(data);
               setGotData(true);
           });
       }
   });
 
-  return (<div className="calendar-container"> 
+  return (<div className="distnace-block"> 
               {!gotData ?
                   <div> Loading </div> : 
                   <div> Loaded </div>

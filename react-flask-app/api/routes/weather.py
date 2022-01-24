@@ -7,14 +7,14 @@ from geopy.geocoders import Nominatim
 from models.db_model import Users, db
 from datetime import date, timedelta
 
-@app.route('/weather/forecast', methods=['GET', 'POST'])
+@app.route('/api/weather', methods=['GET', 'POST'])
 def get_all_forecast_data():
 
     api = '1919d00de9f9a872d7bb9e85a63a94ec'
     units = 'imperial'
 
-    r = request.get_json()
-    user = Users.find_by_user_id(r['user_id'])
+    response = request.get_json()
+    user = Users.find_by_user_id(response['user_id'])
     
     zipcode = user.zipcode
 

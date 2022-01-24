@@ -6,20 +6,14 @@ import '../../styles/stockTicker.css';
 function StockTicker() {
     const [stockInfo, setStockInfo] = useState({});
     var [gotData, setGotData] = useState(false);
-
-    // stockInfo = {test: 'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHH'}
     
     useEffect(() =>  {
         if (!gotData) {
-            fetch('/stocks', {method: 'POST',
-                               headers: {"Content-Type": "application/json"},
-                               // , "Content-Type": "application/x-www-form-urlencoded"}
-                               body: JSON.stringify({'user_id': 1})}
+            fetch('/api/stocks', {method: 'POST',
+                                  headers: {"Content-Type": "application/json"},
+                                  body: JSON.stringify({'user_id': 1})}
             ).then(res => res.json()).then(data => {
-                // setStockNames(data['stocks'])
-                // console.log(data)
                 setStockInfo(data);
-                console.log(Object.keys(stockInfo))
                 console.log(data)
                 setGotData(true);
             });
@@ -34,7 +28,6 @@ function StockTicker() {
                                 <div className='ticker-item'>
                                 {stock} {stockInfo[stock].last_price} <span style={{color: stockInfo[stock].color}}> {stockInfo[stock].percent_return_daily} </span>
                                 </div>
-
                          ))}
                     </div>
                 }
