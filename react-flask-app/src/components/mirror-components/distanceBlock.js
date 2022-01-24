@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import '../../styles/distanceBlock.css';
+
 
 function DistanceBlock() {
   let [distance, getDistance] = useState({});
@@ -13,7 +13,7 @@ function DistanceBlock() {
                                                           "destination": "1 Federal Street, Boston, MA",
                                                           "travelMode": "driving",
                                                         //   "startTime": "8:00", // only valid for 'driving' travel mode
-                                                          "distanceUnit": "mi"})        
+                                                          "distanceUnit": "mi"})
                         // , "Content-Type": "application/x-www-form-urlencoded"}
                              }
           ).then(res => res.json()
@@ -25,13 +25,12 @@ function DistanceBlock() {
       }
   });
 
-  return (<div className="distnace-block"> 
+  return (<div className="distnace-block">
               {!gotData ?
-                  <div> Loading </div> : 
+                  <div> Loading </div> :
                   <div> Loaded </div>
                   }
               </div>)
               }
 
 export default DistanceBlock
-
