@@ -16,11 +16,9 @@ ReactDOM.render(
   <Router>
     <Auth0ProviderWithHistory>
       <Switch>
-
         <Route path="/" exact component={App} />
         <Route path="/Mirror" exact component={Mirror} />
         <ProtectedRoute path="/profile" component={Test} />
-
       </Switch>
     </Auth0ProviderWithHistory>
   </Router>,
