@@ -50,8 +50,8 @@ const Mirror = () => {
                     <Col span={10} className='middle-col'>
                     </Col>
                     <Col span={7} className='right-col'>
-                        {/* <CalendarBlock /> */}
-                        <DistanceBlock />
+                        <CalendarBlock />
+
 
                     </Col>
                   </Row>
