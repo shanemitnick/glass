@@ -9,13 +9,14 @@
     font: Poppins;
     color: white;
     overflow: hidden;
-    margin: 10px; /*take this out*/
+
 }
 
 .league-containers{
     position: relative;
     display: flex;
-    justify-content: space-evenly;
+    flex-grow: 1;
+    justify-content: flex-star; /*changed from space-evenly */
     flex-direction: row;
     max-height: 100%;
     overflow: hidden;

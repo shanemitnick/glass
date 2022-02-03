@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 .time-container{
-    margin: 0px 12.5px 0px 12.5px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
