@@ -13,10 +13,10 @@ db = SQLAlchemy(app)
 # Initialize the Users table
 class Users(db.Model):
     __tablename__ = 'users'
-    
+
     # General User Info - contains info to be entered on registration and login
     user_id = db.Column(db.Integer, primary_key=True)
-    auth0_id = db.Column(db.String(100), index=True, nullable=False, unique=True)
+    auth0_id = db.Column(db.String(100), index=True, nullable=False, unique=False)
     username = db.Column(db.String(100), index=True, nullable=False, unique=True)
     password = db.Column(db.String(100), index=True, nullable=False)
     first_name = db.Column(db.String(100), nullable=False)
@@ -35,7 +35,7 @@ class Users(db.Model):
 
     # Favorite News Section
     news_section = db.Column(ChoiceType(nytimes_params['section']), nullable=False, default='world')
-    
+
     # Favorite Sports Teams
     favorite_teams = db.Column(db.PickleType(), nullable=True, default=None)
 
@@ -56,7 +56,7 @@ class Users(db.Model):
     @classmethod
     def find_by_username(self, username):
         return self.query.filter_by(username=username).first()
-   
+
     @classmethod
     def find_by_user_id(self, user_id):
         return self.query.filter_by(user_id=user_id).first()
@@ -67,14 +67,14 @@ class Users(db.Model):
         return user.news_section
 
 # class MirrorLayout(db.Model):
-    
+
 #     id = db.Column(db.Integer, primary_key=True)
 #     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
 
 #     top_right = db.Column(db.String(100), nullable=True, default='weather')
 #     top_center = db.Column(db.String(100), nullable=True, default='greeting')
 #     top_left = db.Column(db.String(100), nullable=True, default='time-date')
-    
+
 #     bottom_right = db.Column(db.String(100), nullable=True, default='news')
 #     bottom_center = db.Column(db.String(100), nullable=True, default=None)
 #     bottom_left = db.Column(db.String(100), nullable=True, default=None)
@@ -82,7 +82,7 @@ class Users(db.Model):
 #     ## Would it be better to have a key for every feature and the value is the position
 #     ## Or should I just have the positions as columns and the value is the feature
 
-    
+
 
 # class NewsPreferences(db.Model):
 #     __tablename__ = 'newspreferences'
@@ -100,7 +100,7 @@ class Users(db.Model):
 #         print(self.user_id, self.users.username)
 
 #     # @property
-#     # def section(self): 
+#     # def section(self):
 #     #     """ Returns the user's favorite section."""
 #     #     return self.section
 
