@@ -6,12 +6,12 @@ import '../../styles/stockTicker.css';
 function StockTicker() {
     const [stockInfo, setStockInfo] = useState({});
     var [gotData, setGotData] = useState(false);
-    
+
     useEffect(() =>  {
         if (!gotData) {
             fetch('/api/stocks', {method: 'POST',
                                   headers: {"Content-Type": "application/json"},
-                                  body: JSON.stringify({'user_id': 1})}
+                                  body: JSON.stringify()}
             ).then(res => res.json()).then(data => {
                 setStockInfo(data);
                 console.log(data)
@@ -34,5 +34,5 @@ function StockTicker() {
             </div>
             );
     }
-    
+
 export default StockTicker;

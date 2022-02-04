@@ -15,7 +15,7 @@ class WeatherBlock extends React.Component {
 
     fetch('/api/weather', {method: 'POST',
                           headers: {"Content-Type": "application/json"},
-                          body: JSON.stringify({'user_id': 1})}
+                          body: JSON.stringify({'user_id': this.props.userId})}
     ).then(res => res.json()).then(data => {
         this.setState({weather: data.current.weather[0].main});
         this.setState({temp: Math.round(data.current.temp)});
