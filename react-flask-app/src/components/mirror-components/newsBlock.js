@@ -38,7 +38,7 @@ return (
               </div>
 
               <div className='information-container'>
-                  <div className='title-container'> {newsStories[0].title} </div>
+                  <div className='title-container' id="scroll-text"> {newsStories[0].title} </div>
                   <div className='abstract-container'> {newsStories[0].abstract} </div>
               </div>
           </div>
@@ -50,7 +50,7 @@ return (
               </div>
 
               <div className='information-container'>
-                  <div className='title-container'> {newsStories[1].title} </div>
+                  <div className='title-container' id="scroll-text"> {newsStories[1].title} </div>
                   <div className='abstract-container'> {newsStories[1].abstract} </div>
               </div>
            </div>
