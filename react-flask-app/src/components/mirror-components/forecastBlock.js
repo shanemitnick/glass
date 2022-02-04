@@ -17,7 +17,7 @@ class ForecastBlock extends React.Component {
     fetch('api/weather', {method: 'POST',
                           headers: {"Content-Type": "application/json"},
                           // , "Content-Type": "application/x-www-form-urlencoded"}
-                          body: JSON.stringify({'user_id': 1})}
+                          body: JSON.stringify({'user_id': this.props.userId})}
 
     ).then(res => res.json()).then(data => {
         console.log(data);

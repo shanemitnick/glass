@@ -16,57 +16,56 @@ import DistanceBlock from '../components/mirror-components/distanceBlock';
 const Mirror = () => {
 
   return(
-              <div className="mirror-contatiner">
+          <div className="mirror-contatiner">
 
 
-                  <Row className='top-row'>
-                    <Col span={7} className='left-col'>
-                        <TimeBlock />
-                    </Col>
-                    <Col span={10} className='middle-col'>
-                        <GreetingBlock />
+              <Row className='top-row'>
+                <Col span={7} className='left-col'>
+                    <TimeBlock userId={1}/>
+                </Col>
+                <Col span={10} className='middle-col'>
+                    <GreetingBlock userId={1}/>
 
-                    </Col>
-                    <Col span={7} className='right-col'>
-                        <WeatherBlock />
-                    </Col>
-                  </Row>
+                </Col>
+                <Col span={7} className='right-col'>
+                    <WeatherBlock userId={1}/>
+                </Col>
+              </Row>
 
-                  <Row className='middle-row'>
-                    <Col span={7} className='left-col'>
-                        <SportsBlock />
-                    </Col>
-                    <Col span={10} className='middle-col'>
-                    </Col>
-                    <Col span={7} className='right-col'>
-                        <ForecastBlock />
-                    </Col>
-                  </Row>
+              <Row className='middle-row'>
+                <Col span={7} className='left-col'>
+                    <SportsBlock userId={1}/>
+                </Col>
+                <Col span={10} className='middle-col'>
+                </Col>
+                <Col span={7} className='right-col'>
+                    <ForecastBlock userId={1}/>
+                </Col>
+              </Row>
 
-                  <Row className='bottom-row'>
-                    <Col span={7} className='left-col'>
-                        <NewsBlock/>
-                    </Col>
-                    <Col span={10} className='middle-col'>
-                    </Col>
-                    <Col span={7} className='right-col'>
-                        <CalendarBlock />
-
-
-                    </Col>
-                  </Row>
-
-                  <Row className='ticker-row'>
-                    <Col className='ticker-col' span={24}>
-                        <StockTicker />
-                    </Col>
-                  </Row>
+              <Row className='bottom-row'>
+                <Col span={7} className='left-col'>
+                    <NewsBlock userId={1} />
+                </Col>
+                <Col span={10} className='middle-col'>
+                </Col>
+                <Col span={7} className='right-col'>
+                    <CalendarBlock userId={1}/>
 
 
-              </div>
+                </Col>
+              </Row>
+
+              <Row className='ticker-row'>
+                <Col className='ticker-col' span={24}>
+                    <StockTicker userId={1}/>
+                </Col>
+              </Row>
+
+
+          </div>
             );
     }
 
 
 export default withRouter(Mirror);
-

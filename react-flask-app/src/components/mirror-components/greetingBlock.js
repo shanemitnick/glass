@@ -17,7 +17,7 @@ class GreetingBlock extends React.Component {
 
     fetch('/api/greeting', {method: 'POST',
                              headers: {'Content-Type': 'application/json'},
-                             body: JSON.stringify({'user_id': 1})}
+                             body: JSON.stringify({'user_id': this.props.userId})}
     ).then(res => res.json()).then(data => {
       console.log(data);
       this.setState({first_name: data.first_name});
