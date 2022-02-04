@@ -21,36 +21,36 @@ const RyanMirror = () => {
 
                   <Row className='top-row'>
                     <Col span={7} className='left-col'>
-                        <TimeBlock userId={1}/>
+                        <TimeBlock userId={2}/>
                     </Col>
                     <Col span={10} className='middle-col'>
-                        <GreetingBlock userId={1}/>
+                        <GreetingBlock userId={2}/>
 
                     </Col>
                     <Col span={7} className='right-col'>
-                        <WeatherBlock userId={1}/>
+                        <WeatherBlock userId={2}/>
                     </Col>
                   </Row>
 
                   <Row className='middle-row'>
                     <Col span={7} className='left-col'>
-                        <SportsBlock userId={1}/>
+                        <SportsBlock userId={2}/>
                     </Col>
                     <Col span={10} className='middle-col'>
                     </Col>
                     <Col span={7} className='right-col'>
-                        <ForecastBlock userId={1}/>
+                        <ForecastBlock userId={2}/>
                     </Col>
                   </Row>
 
                   <Row className='bottom-row'>
                     <Col span={7} className='left-col'>
-                        <NewsBlock userId={1} />
+                        <NewsBlock userId={2} />
                     </Col>
                     <Col span={10} className='middle-col'>
                     </Col>
                     <Col span={7} className='right-col'>
-                        <CalendarBlock userId={1}/>
+                        <CalendarBlock userId={2}/>
 
 
                     </Col>
@@ -58,7 +58,7 @@ const RyanMirror = () => {
 
                   <Row className='ticker-row'>
                     <Col className='ticker-col' span={24}>
-                        <StockTicker userId={1}/>
+                        <StockTicker userId={2}/>
                     </Col>
                   </Row>
 
