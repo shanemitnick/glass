@@ -28,15 +28,28 @@ def create_app():
 
         # user1 = Users(
         #     username='User',
-        #     password='Password', 
-        #     first_name='First', 
-        #     last_name='Last', 
-        #     email='user@email.com', 
+        #     password='Password',
+        #     first_name='First',
+        #     last_name='Last',
+        #     email='user@email.com',
         #     zipcode='02118',
         #     auth0_id='xxxxxxxx')
-        # user1 = Users.find_by_username('User')
-
+        # # user1 = Users.find_by_username('User')
+        #
         # db.session.add(user1)
+
+        # user2 = Users(
+        #     username='Ryan',
+        #     password='Password',
+        #     first_name='Ryan',
+        #     last_name='Lewis',
+        #     email='ryan@email.com',
+        #     zipcode='96733',
+        #     auth0_id='xxxxRyan')
+        # db.session.add(user2)
+        # user2 = Users.find_by_username('Ryan')
+
+        # 
         # db.session.commit()
 
 
