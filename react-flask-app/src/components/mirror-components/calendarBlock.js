@@ -8,10 +8,10 @@ function CalendarBlock() {
 
   useEffect(() => {
       if (!gotData) {
-      fetch('/api/calendar', {method: 'GET',
-                        headers: {"Content-Type": "application/json"},
-                        // , "Content-Type": "application/x-www-form-urlencoded"}
-                      }
+      fetch('/api/google/get_calendar', {method: 'GET',
+                                         headers: {"Content-Type": "application/json"},
+                                        // , "Content-Type": "application/x-www-form-urlencoded"}
+                                           }
           ).then(res => res.json()
           ).then(data => {
               getCalendar(data);
