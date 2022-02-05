@@ -46,7 +46,7 @@ class Users(db.Model):
         return f"{self.first_name} {self.last_name}"
 
     @classmethod
-    def find_by_aut0_id(self, auth0_id):
+    def find_by_auth0_id(self, auth0_id):
         return self.query.filter_by(auth0_id=auth0_id).first()
 
     @classmethod

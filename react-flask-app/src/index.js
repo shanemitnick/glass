@@ -8,6 +8,7 @@ import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
 import App from "./pages/App.js";
 import Mirror from './pages/Mirror';
 import Test from "./pages/Test.js";
+import Registration from "./pages/Registration.js";
 
 import ProtectedRoute from './auth/protected-route';
 
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact component={App} />
         <Route path="/Mirror" exact component={Mirror} />
+        <Route path="/registration" component={Registration} />
         <ProtectedRoute path="/profile" component={Test} />
       </Switch>
     </Auth0ProviderWithHistory>
