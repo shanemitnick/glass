@@ -34,7 +34,8 @@ const Mirror = () => {
 
                   <Row className='middle-row'>
                     <Col span={7} className='left-col'>
-                        <SportsBlock />
+                        <CalendarBlock />
+
                     </Col>
                     <Col span={10} className='middle-col'>
                     </Col>
@@ -50,7 +51,7 @@ const Mirror = () => {
                     <Col span={10} className='middle-col'>
                     </Col>
                     <Col span={7} className='right-col'>
-                        <CalendarBlock />
+                        <SportsBlock />
 
 
                     </Col>

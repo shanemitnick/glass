@@ -27,7 +27,7 @@ function SportsBlock() {
                     <div> Loading </div> : 
                     <div className="league-containers">
                         {Object.keys(sportsGames).map((league) => (
-                            <div className="league_container">
+                            <div className="league-container">
                                 <div className='league-abbr' key={league}>
                                     { league }
                                 </div>

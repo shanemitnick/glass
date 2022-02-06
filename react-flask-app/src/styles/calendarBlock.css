@@ -1,11 +1,51 @@
-.calendar-container {
-  background-color: black;
-  width: 250px;
-  height: 350px;
-  margin: 50px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-  border-style: solid;
-  border-size: .5px;
-  border-radius: 15px;
-  border-color: white;
+.calendar-container{
+    color: white;
+    font: Poppins;
+    font-size: 20px;
+}
+
+.schedule-container{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+}
+
+.upcoming {
+    order: 1;
+    text-align: center;
+
+}
+
+.events{
+    order: 2;
+
+}
+
+.event-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+
+}
+
+.event-date{
+    order: 1;
+    text-align: left;
+
+}
+
+.event-name{
+    order: 2;
+    text-align: left;
+
+}
+
+.time{
+    order: 3;
+    text-align: right;
+
 }

@@ -31,11 +31,12 @@
   <component name="ChangeListManager">
     <list default="true" id="054398a1-b2ba-43cc-b2aa-a3e9bf9a33cf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/token.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/calendarBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/calendarBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/sportsBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/sportsBlock.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Mirror.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Mirror.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/calendarBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/calendarBlock.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/sportsBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/sportsBlock.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/stockTicker.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/stockTicker.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/timeBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/timeBlock.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/weatherBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/weatherBlock.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,11 +103,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637303322158">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1637303322158" />
   </component>
 </project>
