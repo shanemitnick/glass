@@ -56,7 +56,7 @@ def get_google_calendar():
                 token.write(creds.to_json())
 
         else:
-            return jsonify({'User Not Logged in to Google'})
+            return 'User Not Logged in to Google'
 
     service = build('calendar', 'v3', credentials=creds)
 

@@ -1,12 +1,17 @@
 from flask import Flask
 from flask_restful import Api
-
+from flask_cors import CORS
 
 application = Flask(__name__)
+CORS(application)
 
-application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///glass.db'
+application.config['CORS_HEADERS'] = 'Content-Type'
+
+application.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://glass:password@aan06weyciy13o.cj0xjpnfvfik.us-east-1.rds.amazonaws.com/ebdb'
 application.config['SECRET_KEY'] = 'Secret Key'
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+application.config['SQLALCHEMY_POOL_RECYCLE'] = 299
+application.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
 
 with application.app_context():
     api = Api(application)
@@ -24,6 +29,9 @@ with application.app_context():
     from routes.distance_calculator import calculate_distance
     from routes.registration import register
 
+    @application.route('/')
+    def hello_world():
+        return "welcome to glass"
 
 
 if __name__ == "__main__":
