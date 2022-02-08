@@ -12,7 +12,7 @@ def get_sports_games():
     response = request.get_json()
     user_id = response['user_id']
     user = Users.find_by_user_id(user_id)
-    favorite_teams = user.favorite_teams
+    favorite_teams = user.favorite_teams if user.favorite_teams is not None else []
 
     today = datetime.today()
     today = today.replace(hour=0, minute=0, second=0)
