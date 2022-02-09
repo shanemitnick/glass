@@ -36,6 +36,18 @@ const Test = () =>  {
 
   });
 
+  const googleLogIn = () => {
+    fetch('/api/google/get_credentials', {method: 'GET',
+                      headers: {"Content-Type": "application/json",
+                    'Accept': 'application/json'},
+                      // , "Content-Type": "application/x-www-form-urlencoded"}
+                    }
+        ).then(res => res.json()
+        ).then(data => {
+            console.log(data);
+
+        });
+  };
 
   const handleFormSubmit = (values: any) => {
     values['user_id'] = 1;
@@ -125,14 +137,14 @@ const Test = () =>  {
                             ))}
                             </OptGroup>
                           ))}
-                          
+
                         </Select>
 
                       </Form.Item>
 
 
                       <Form.Item label=" " name="gmail_login" >
-                        <Button >
+                        <Button onClick={this.googleLogIn}>
                           Log Into Google
                         </Button>
                       </Form.Item>
