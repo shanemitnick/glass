@@ -63,7 +63,7 @@
 
 .game-details {
     position: relative;
-    width: 100%;
+    width: 75%;
     display: flex;
     flex-direction: row;
 }
@@ -73,8 +73,8 @@
     display: inline-box;
     align-items: center;
     order: 1;
-    flex-grow: 1;
-    flex-shrink: 1;
+    flex-grow: 2;
+    flex-shrink: 2;
 }
 
 .teams-list{
@@ -119,19 +119,27 @@ svg{
 }
 
 .play-time{
+    display: flex;
+    flex-direction: column;
     position: relative;
     order: 2;
     flex-grow: 1;
     flex-shrink: 1;
 }
 
-.time{
-    text-align: right;
+.game-time{
+    text-indent: 10px;
+    order: 1;
+    display: inline-block;
+    text-align: left;
     font-size: 100%;
 }
 
-.gamedate{
-    text-align: right;
+.game-date{
+    text-indent: 10px;
+    order: 2;
+    display: inline-block;
+    text-align: left;
     font-size: 100%;
 }
 

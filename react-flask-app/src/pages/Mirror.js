@@ -29,6 +29,7 @@ const Mirror = () => {
                     </Col>
                     <Col span={7} className='right-col'>
                         <WeatherBlock />
+                        <ForecastBlock />
                     </Col>
                   </Row>
 
@@ -40,7 +41,7 @@ const Mirror = () => {
                     <Col span={10} className='middle-col'>
                     </Col>
                     <Col span={7} className='right-col'>
-                        <ForecastBlock />
+
                     </Col>
                   </Row>
 

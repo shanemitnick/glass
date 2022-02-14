@@ -55,8 +55,8 @@ function SportsBlock() {
                                                 </ul>
                                             </div>
                                             <div className="play-time">
-                                                <div className='time'> {sportsGames[league][game].time} </div>
-                                                <div className='gamedate'> {sportsGames[league][game].date} </div>
+                                                <div className='game-time'> {sportsGames[league][game].time} </div>
+                                                <div className='game-date'> {sportsGames[league][game].date} </div>
                                             </div>
                                         </div>
                                     </div>
