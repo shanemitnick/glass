@@ -18,6 +18,13 @@ function StockTicker() {
                 setGotData(true);
             });
         }
+
+      //refreshes the data in the component every 70,000 ms the same length of the css scroll animation
+      const intervalID = setInterval(() => {
+        setGotData(false);
+        }, 70000)
+        return () => clearInterval(intervalID);
+
     });
 
     return (<div className='stock-container'>

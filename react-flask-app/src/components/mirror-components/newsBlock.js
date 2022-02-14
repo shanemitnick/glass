@@ -24,6 +24,12 @@ function NewsBlock() {
         setGotData(true)
     });
   }
+  //refreshes the data in the component every 3,600,000 ms (aka 1 hour)
+      const intervalID = setInterval(() => {
+        setGotData(false);
+        }, 3600000)
+        return () => clearInterval(intervalID);
+
 });
 
 return (

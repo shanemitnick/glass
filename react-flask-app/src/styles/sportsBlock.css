@@ -95,7 +95,6 @@
     order: 1;
     flex-grow: 1;
     flex-shrink: 1;
-    display: inline-box;
     text-align: left;
 }
 
@@ -108,7 +107,6 @@ svg{
     order: 1;
     flex-grow: 1;
     flex-shrink: 1;
-    display: inline-box;
     text-align: left;
     overflow-inline: scroll;
 }
@@ -117,7 +115,6 @@ svg{
     order: 1;
     flex-grow: 1;
     flex-shrink: 1;
-    display: inline-box;
     text-align: right;
 }
 
@@ -129,13 +126,11 @@ svg{
 }
 
 .time{
-    display: inline-box;
     text-align: right;
     font-size: 100%;
 }
 
 .gamedate{
-    display: inline-box;
     text-align: right;
     font-size: 100%;
 }
