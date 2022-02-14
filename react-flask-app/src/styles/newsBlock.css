@@ -26,8 +26,8 @@
     margin-left: 0px;
     margin-bottom: 0px;
     display: flex;
-    max-width: 250px;
-    max-height: 250px;
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .information-container {
@@ -79,43 +79,3 @@
   margin-left: 15px;
 }
 
-
-
-
-#scroll-text {
-  text-align: right;
-
-  /* animation properties */
-  -moz-transform: translateX(-100%);
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-
-  -moz-animation: my-animation 15s linear infinite;
-  -webkit-animation: my-animation 15s linear infinite;
-  animation: my-animation 15s linear infinite;
-}
-
-/* for Firefox */
-@-moz-keyframes my-animation {
-  from { -moz-transform: translateX(0%); }
-  to { -moz-transform: translateX(100%); }
-}
-
-/* for Chrome */
-@-webkit-keyframes my-animation {
-  from { -webkit-transform: translateX(0%); }
-  to { -webkit-transform: translateX(100%); }
-}
-
-@keyframes my-animation {
-  from {
-    -moz-transform: translateX(0%);
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-  to {
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
-}
