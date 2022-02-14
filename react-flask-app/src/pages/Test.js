@@ -144,7 +144,7 @@ const Test = () =>  {
 
 
                       <Form.Item label=" " name="gmail_login" >
-                        <Button onClick={this.googleLogIn}>
+                        <Button onClick={googleLogIn}>
                           Log Into Google
                         </Button>
                       </Form.Item>

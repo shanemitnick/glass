@@ -3,8 +3,8 @@ import '../../styles/calendarBlock.css';
 // import CalendarItem from "./calendarItem.js"
 
 function CalendarBlock() {
-  let [calendar, getCalendar] = useState({});
-  let [gotData,  setGotData] = useState(false);
+  const [calendar, getCalendar] = useState({});
+  const [gotData,  setGotData] = useState(false);
 
   useEffect(() => {
       if (!gotData) {
@@ -19,9 +19,15 @@ function CalendarBlock() {
               setGotData(true);
           });
       }
+      //refreshes the data in the component every 3,600,000 ms (aka 1 hour)
+      const intervalID = setInterval(() => {
+        setGotData(false);
+        }, 3600000)
+        return () => clearInterval(intervalID);
+
   });
 
-  return (<div className="calendar-container"> 
+  return (<div className="calendar-container">
               {!gotData ?
                   <div> Loading </div> :
                   <div className='schedule-container'>
@@ -30,7 +36,7 @@ function CalendarBlock() {
                         <div className='events' key={event}>
                             <div className='event-details'>
                                 <div className='event-date'> {String(calendar.items[event].start.dateTime).slice(5,10)} </div>
-                                <div className='event-name'> {calendar.items[event].summary} </div>
+                                <div className='event-name'> {String(calendar.items[event].summary)} </div>
                                 <div className='time'> {String(calendar.items[event].start.dateTime).slice(11,16)} - {String(calendar.items[event].end.dateTime).slice(11, 16)} </div>
                             </div>
                         </div>
