@@ -13,7 +13,9 @@ class ForecastBlock extends React.Component {
   }
 
   componentDidMount() {
-
+    
+    
+    this.timer = setInterval(() => {
     fetch('api/weather', {method: 'POST',
                           headers: {"Content-Type": "application/json"},
                           // , "Content-Type": "application/x-www-form-urlencoded"}
@@ -33,8 +35,12 @@ class ForecastBlock extends React.Component {
         console.log(data);
     });
 
-    console.log(this.tempOne)
+    console.log(this.tempOne)}, 60000);
 
+  }
+  
+    componentWillUnmount() {
+      clearInterval(this.timer);
   }
     // need to fix this since it is just bad code but want to make sure basics work
 

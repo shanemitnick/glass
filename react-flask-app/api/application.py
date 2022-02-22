@@ -7,11 +7,11 @@ CORS(application)
 
 application.config['CORS_HEADERS'] = 'Content-Type'
 
-application.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://glass:password@aan06weyciy13o.cj0xjpnfvfik.us-east-1.rds.amazonaws.com/ebdb'
+application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///glass.db'
 application.config['SECRET_KEY'] = 'Secret Key'
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-application.config['SQLALCHEMY_POOL_RECYCLE'] = 299
-application.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
+application.config['SQLALCHEMY_POOL_RECYCLE'] = None
+application.config['SQLALCHEMY_POOL_TIMEOUT'] = None
 
 with application.app_context():
     api = Api(application)
@@ -24,9 +24,9 @@ with application.app_context():
     from routes.news import get_top_stories_by_category
     from routes.greeting import greet_user
     from routes.settings import show_and_update_settings
-    from routes.stocks import get_stock_prices
-    from routes.sports_games import get_sports_games
-    from routes.distance_calculator import calculate_distance
+    # from routes.stocks import get_stock_prices
+    #from routes.sports_games import get_sports_games
+    #from routes.distance_calculator import calculate_distance
     from routes.registration import register
 
     @application.route('/')

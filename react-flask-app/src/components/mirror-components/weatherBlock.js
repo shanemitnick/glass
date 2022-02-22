@@ -13,6 +13,7 @@ class WeatherBlock extends React.Component {
 
   componentDidMount() {
 
+    this.timer = setInterval(() => {
     fetch('/api/weather', {method: 'POST',
                           headers: {"Content-Type": "application/json"},
                           body: JSON.stringify({'user_id': 1})}
@@ -25,7 +26,12 @@ class WeatherBlock extends React.Component {
     });
 
     console.log(this.temp)
+    }, 60000);
 
+  }
+  
+  componentWillUnmount() {
+      clearInterval(this.timer);
   }
 
   getWeatherIcon() {

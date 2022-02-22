@@ -19,9 +19,12 @@ def get_all_forecast_data():
     zipcode = user.zipcode
 
     geolocator = Nominatim(user_agent="glass_user")
-    location = geolocator.geocode(zipcode)
+    location = geolocator.geocode(zipcode, country_codes='us')
     lat = location.latitude
     lon = location.longitude
+    
+    print(lat)
+    print(lon)
 
     url= f'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={api}&units={units}'
 
@@ -32,6 +35,9 @@ def get_all_forecast_data():
         info['day_of_week'] = (date.today() + timedelta(days=day)).strftime("%A")
         info['day_abbr'] = (date.today() + timedelta(days=day)).strftime("%a")
         info['month_day'] = (date.today() + timedelta(days=day)).strftime("%#m/#d")
+        
+    print(data['current'])
+    print(user.zipcode)
 
     return {'current': data['current'],
             'hourly': data['hourly'],
