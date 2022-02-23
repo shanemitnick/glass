@@ -10,14 +10,13 @@ from datetime import date, timedelta
 @app.route('/api/weather', methods=['GET', 'POST'])
 def get_all_forecast_data():
 
-    api = '1919d00de9f9a872d7bb9e85a63a94ec'
+    api = '4698d9f621f00a18a467abff9b8dde19'
     units = 'imperial'
 
     response = request.get_json()
     user = Users.find_by_user_id(response['user_id'])
     
     zipcode = user.zipcode
-
     geolocator = Nominatim(user_agent="glass_user")
     location = geolocator.geocode(zipcode, country_codes='us')
     lat = location.latitude

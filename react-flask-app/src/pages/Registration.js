@@ -28,14 +28,13 @@ const Registration = () =>  {
       });
 
   const handleFormSubmit = (values: any) => {
-    values['user_id'] = 1;
-
+ 
     console.log("FORM SUBMIT");
     console.log(values);
     fetch('/api/registration', {method: 'POST',
-                               headers: {"Content-Type": "application/json"},
+                                headers: {"Content-Type": "application/json"},
                                       // , "Content-Type": "application/x-www-form-urlencoded"}
-                              body: JSON.stringify(values)}
+                                body: JSON.stringify(values)}
 
     ).then(res => res.json()).then(returnedData => {
         setData(returnedData);
