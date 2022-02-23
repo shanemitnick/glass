@@ -35,7 +35,7 @@ class ForecastBlock extends React.Component {
         console.log(data);
     });
 
-    console.log(this.tempOne)}, 60000);
+    console.log(this.tempOne)}, 300000);
 
   }
   
