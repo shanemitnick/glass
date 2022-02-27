@@ -20,7 +20,7 @@ with application.app_context():
     db.init_app(application)
 
     from routes.weather import get_all_forecast_data
-    from routes.google_calendar import get_google_calendar, get_google_credentials
+    from routes.google import get_google_calendar, get_gmail, get_google_credentials
     from routes.news import get_top_stories_by_category
     from routes.greeting import greet_user
     from routes.settings import show_and_update_settings

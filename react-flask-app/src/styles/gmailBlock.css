@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.mail{
+    color: white;
+    font: Poppins;
+    font-size: 20px;
+}
+
+.mail-container{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.mail-header {
+    order: 1;
+    text-align: center;
+}
+
+.messages {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.message {
+    border-bottom: 1px solid white;
+    max-height: 110px;
+
+}
+
+.subject {
+    order: 1;
+    font-size: 16px;
+    display: inline-block;
+    text-align: left;
+    min-width: 60px;
+}
+
+.from{
+    order: 2;
+    font-size: 12px;
+    display: inline-block;
+    width: 100%;
+    align-content: top-left;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.summary{
+    order: 3;
+    font-size: 14px;
+    display: inline-block;
+    text-align: justfiy;
+    max-width: 525px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre-wrap;
+    /* min-height: 45px; */
+    max-height: 45px;
+}
