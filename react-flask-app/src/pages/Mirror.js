@@ -11,6 +11,7 @@ import StockTicker from '../components/mirror-components/stockTicker.js';
 import SportsBlock from '../components/mirror-components/sportsBlock.js';
 import CalendarBlock from '../components/mirror-components/calendarBlock.js';
 import DistanceBlock from '../components/mirror-components/distanceBlock';
+import GmailBlock from '../components/mirror-components/gmailBlock';
 
 
 const Mirror = () => {
@@ -53,6 +54,8 @@ const Mirror = () => {
                     </Col>
                     <Col span={7} className='right-col'>
                         {/* <SportsBlock /> */}
+                        <GmailBlock />
+
 
 
                     </Col>
