@@ -24,10 +24,10 @@ with application.app_context():
     from routes.news import get_top_stories_by_category
     from routes.greeting import greet_user
     from routes.settings import show_and_update_settings
-    # from routes.stocks import get_stock_prices
     #from routes.sports_games import get_sports_games
     #from routes.distance_calculator import calculate_distance
     from routes.registration import register
+    from routes.stocks import get_stock_prices
 
     @application.route('/')
     def hello_world():
@@ -35,5 +35,5 @@ with application.app_context():
 
 
 if __name__ == "__main__":
-    application.debug = False
+    application.debug = True
     application.run()
