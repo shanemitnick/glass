@@ -93,17 +93,15 @@ def get_gmail():
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
-                    # Store the credentials for the next request
+            # Store the credentials for the next request
             with open('token.json', 'w') as token:
                 token.write(creds.to_json())
 
         else:
             return 'User Not Logged in to Google'
 
-
     try:
         service = build('gmail', 'v1', credentials=creds)
-        # results = service.users().labels().list(userId='me').execute()
         results = service.users().messages().list(userId='me', includeSpamTrash='false', maxResults=100).execute()
         messages = results.get('messages', [])
 
@@ -111,10 +109,10 @@ def get_gmail():
             print('No mail found')
             return
         
-        exclude = ['CATEGORY_PROMOTIONS'] #, 'CATEGORY_UPDATES']
+        exclude = ['CATEGORY_PROMOTIONS', 'CATEGORY_SOCIAL'] #, 'CATEGORY_UPDATES']
         mail = defaultdict(dict)
         idx = 0
-        for msg in messages[:20]:
+        for msg in messages:
             try:
                 txt = service.users().messages().get(userId='me', id=msg['id']).execute()
                 if any(label in exclude for label in txt['labelIds']): # need to filter out spam, bc filer applied in first api call doesn't seem to work
@@ -129,10 +127,6 @@ def get_gmail():
                             d['value'] = d['value'].split(' <')[0]
                         mail[idx][d['name'].lower()] = d['value']
 
-                # decoded_summary = base64.b64decode(summary)
-                # print(decoded_summary)
-                # soup = BeautifulSoup(decoded_summary, 'lxml')
-                # print(soup.text)
                 mail[idx]['summary'] = summary
 
                 parts = payload.get('parts')[0]
@@ -147,7 +141,7 @@ def get_gmail():
 
             except:
                 pass
-        print(dict(mail))
+
         return jsonify(dict(mail))
         
     except HTTPError as e:

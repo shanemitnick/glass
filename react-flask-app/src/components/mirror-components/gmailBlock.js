@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import '../../styles/gmailBlock.css';
-// import CalendarItem from "./calendarItem.js"
 
 function GmailBlock() {
   const [mail, getGmail] = useState({});
@@ -22,7 +21,7 @@ function GmailBlock() {
       //refreshes the data in the component every 3,600,000 ms (aka 1 hour)
       const intervalID = setInterval(() => {
         setGotData(false);
-        }, 3600000)
+        }, 300000)
         return () => clearInterval(intervalID);
 
   });

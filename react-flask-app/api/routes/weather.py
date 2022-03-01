@@ -31,12 +31,6 @@ def get_all_forecast_data():
         info['day_of_week'] = (date.today() + timedelta(days=day)).strftime("%A")
         info['day_abbr'] = (date.today() + timedelta(days=day)).strftime("%a")
         info['month_day'] = (date.today() + timedelta(days=day)).strftime("%#m/#d")
-        
-    print({'current': data['current'],
-            'hourly': data['hourly'],
-            'daily': data['daily'], 
-            # 'alerts': data['alerts']
-            })
     
     return {'current': data['current'],
             'hourly': data['hourly'],

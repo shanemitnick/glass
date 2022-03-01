@@ -26,7 +26,7 @@ class WeatherBlock extends React.Component {
     });
 
     console.log(this.temp)
-    }, 100000);
+    }, 900000);
 
   }
   
