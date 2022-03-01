@@ -21,12 +21,12 @@ class WeatherBlock extends React.Component {
         this.setState({weather: data.current.weather[0].main});
         this.setState({temp: Math.round(data.current.temp)});
         this.setState({wind: data.current.wind_speed});
-        this.setState({description: data.current.weather[0].description})
+        this.setState({description: data.current.weather[0].description});
         console.log(data);
     });
 
     console.log(this.temp)
-    }, 60000);
+    }, 900000);
 
   }
   
