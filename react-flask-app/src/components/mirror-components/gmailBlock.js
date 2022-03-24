@@ -32,12 +32,12 @@ function GmailBlock() {
               {!gotData ?
                   <div> Loading </div> :
                   <div className='mail-container'>
-                  <div className='mail-header'> Email </div>
+                  <div className='mail-header'> Recent Emails </div>
                   <div className='messages'> 
                     {Object.keys(mail).map((message) => (
                         <div className='message' key={message}>
                           <div className='subject'> {mail[message].subject} </div>
-                          <div className='from'> {mail[message].from} </div>
+                          {/* <div className='from'> {mail[message].from} </div> */}
                           <div className='summary'> {mail[message].summary} </div>
                         </div>
                     ))}

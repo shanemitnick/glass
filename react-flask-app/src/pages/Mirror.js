@@ -48,13 +48,14 @@ const Mirror = () => {
 
                   <Row className='bottom-row'>
                     <Col span={7} className='left-col'>
-                        <NewsBlock/>
+                        <GmailBlock />
+
                     </Col>
                     <Col span={10} className='middle-col'>
                     </Col>
                     <Col span={7} className='right-col'>
                         {/* <SportsBlock /> */}
-                        <GmailBlock />
+                        <NewsBlock/>
 
 
 

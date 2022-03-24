@@ -34,13 +34,13 @@
   font-size: 1vmax;
 }
 
-.weather-temp { /*top right*/
+.weather-temp {
   order: 2;
   position: relative;
-  font-size: 1vwmax;
+  font-size: 125px;
   color: #FFFFFF;
   font-family: Poppins;
-
+  margin-left: 20px;
 }
 
 .description-container {
