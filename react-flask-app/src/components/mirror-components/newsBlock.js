@@ -7,28 +7,31 @@ import '../../styles/newsBlock.css';
 function NewsBlock() {
   const [newsStories, setNewsStories] = useState({});
   const [gotData, setGotData] = useState(false);
+  const [idx, setIdx] = useState(0)
 
   useEffect(() => {
     if (!gotData) {
       fetch('api/news', {method: 'POST',
-                               headers: {"Content-Type": "application/json"},
+                         headers: {"Content-Type": "application/json"},
                                       // , "Content-Type": "application/x-www-form-urlencoded"}
-                              body: JSON.stringify({'user_id': 1})}
+                         body: JSON.stringify({'user_id': 1})}
 
       ).then(res => res.json()).then(data => {
-        console.log(data)
-        console.log(data[0])
-        console.log(data['0'])
-
         setNewsStories(data)
         setGotData(true)
     });
+  } else {
+    // updates the index of the story we show every 30,000ms (aka 30 seconds)
+    const tick = () => setIdx(i => i + 2);
+    const id = setInterval(tick, 30000);
+    return () => clearInterval(id);
   }
+
   //refreshes the data in the component every 3,600,000 ms (aka 1 hour)
-      const intervalID = setInterval(() => {
-        setGotData(false);
-        }, 3600000)
-        return () => clearInterval(intervalID);
+    const intervalID = setInterval(() => {
+      setGotData(false);
+      }, 3600000)
+      return () => clearInterval(intervalID);
 
 });
 
@@ -39,25 +42,29 @@ return (
       <div className='news'>
           <div className="news-item">
               <div className='image-container'>
-                <img src={newsStories[0].multimedia[0].url}>
+                <img 
+                src={newsStories[idx % Object.keys(newsStories).length].multimedia[0].url}
+                alt={newsStories[idx % Object.keys(newsStories).length].multimedia[0].caption}>
                 </img>
               </div>
 
               <div className='information-container'>
-                  <div className='title-container' id="scroll-text"> {newsStories[0].title} </div>
-                  <div className='abstract-container'> {newsStories[0].abstract} </div>
+                  <div className='title-container' id="scroll-text"> {newsStories[idx % Object.keys(newsStories).length].title} </div>
+                  <div className='abstract-container'> {newsStories[idx % Object.keys(newsStories).length].abstract} </div>
               </div>
           </div>
 
           <div className="news-item">
               <div className='image-container'>
-                  <img src={newsStories[1].multimedia[0].url}>
+                  <img
+                   src={newsStories[(idx+1) % Object.keys(newsStories).length].multimedia[0].url}
+                   alt={newsStories[(idx+1) % Object.keys(newsStories).length].multimedia[0].caption}>
                   </img>
               </div>
 
               <div className='information-container'>
-                  <div className='title-container' id="scroll-text"> {newsStories[1].title} </div>
-                  <div className='abstract-container'> {newsStories[1].abstract} </div>
+                  <div className='title-container' id="scroll-text"> {newsStories[(idx+1) % Object.keys(newsStories).length].title} </div>
+                  <div className='abstract-container'> {newsStories[(idx+1) % Object.keys(newsStories).length].abstract} </div>
               </div>
            </div>
       </div>
