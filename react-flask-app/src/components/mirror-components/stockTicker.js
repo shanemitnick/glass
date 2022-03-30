@@ -14,7 +14,6 @@ function StockTicker() {
                                   body: JSON.stringify({'user_id': 1})}
             ).then(res => res.json()).then(data => {
                 setStockInfo(data);
-                console.log(data)
                 setGotData(true);
             });
         }

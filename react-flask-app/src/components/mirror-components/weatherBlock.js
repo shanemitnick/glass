@@ -62,7 +62,6 @@ function WeatherBlock() {
                            headers: {"Content-Type": "application/json"},
                            body: JSON.stringify({'user_id': 1})}
           ).then(res => res.json()).then(data => {
-            console.log(data)
             setWeather(data)
             setGotData(true)
           })

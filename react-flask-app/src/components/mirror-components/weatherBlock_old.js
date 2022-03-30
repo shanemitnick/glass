@@ -14,18 +14,15 @@ class WeatherBlock extends React.Component {
   componentDidMount() {
 
     this.timer = setInterval(() => {
-    fetch('/api/weather', {method: 'POST',
-                          headers: {"Content-Type": "application/json"},
-                          body: JSON.stringify({'user_id': 1})}
-    ).then(res => res.json()).then(data => {
-        this.setState({weather: data.current.weather[0].main});
-        this.setState({temp: Math.round(data.current.temp)});
-        this.setState({wind: data.current.wind_speed});
-        this.setState({description: data.current.weather[0].description});
-        console.log(data);
-    });
-
-    console.log(this.temp)
+      fetch('/api/weather', {method: 'POST',
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify({'user_id': 1})}
+      ).then(res => res.json()).then(data => {
+          this.setState({weather: data.current.weather[0].main});
+          this.setState({temp: Math.round(data.current.temp)});
+          this.setState({wind: data.current.wind_speed});
+          this.setState({description: data.current.weather[0].description});
+      });
     }, 900000);
 
   }

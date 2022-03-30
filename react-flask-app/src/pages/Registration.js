@@ -27,9 +27,7 @@ const Registration = () =>  {
       });
 
   const handleFormSubmit = (values: any) => {
- 
-    console.log("FORM SUBMIT");
-    console.log(values);
+
     fetch('/api/registration', {method: 'POST',
                                 headers: {"Content-Type": "application/json"},
                                       // , "Content-Type": "application/x-www-form-urlencoded"}
@@ -40,9 +38,6 @@ const Registration = () =>  {
     });
   };
 
-
-
-  console.log(data);
       return (
         <div>
         <NavBar />
@@ -52,38 +47,38 @@ const Registration = () =>  {
                   <div className='loginContainer'>
 
                     <Form {...layout} onFinish={handleFormSubmit}>
-                      <Form.Item label="First Name" name="first_name" >
+                      <Form.Item label="First Name" name="first_name" key="1">
                         <Input placeholder="" />
                       </Form.Item>
                       
-                      <Form.Item label="Last Name" name="last_name" >
+                      <Form.Item label="Last Name" name="last_name" key="2">
                         <Input placeholder="" />
                       </Form.Item>
 
-                      <Form.Item label="Gmail" name="gmail" >
+                      <Form.Item label="Gmail" name="gmail" key="3">
                         <Input placeholder="" />
                       </Form.Item>
 
-                      <Form.Item label="Zipcode" name="zipcode" >
+                      <Form.Item label="Zipcode" name="zipcode" key="4">
                         <Input placeholder="" />
                       </Form.Item>
 
-                      <Form.Item label="Username" name="username" >
+                      <Form.Item label="Username" name="username" key="5">
                         <Input placeholder=""/>
                       </Form.Item>
 
-                      <Form.Item label="Password" name="password" >
+                      <Form.Item label="Password" name="password" key="6">
                         <Input placeholder=""/>
                       </Form.Item>
 
-                      <Form.Item label=" " name="gmail_login" >
+                      <Form.Item label=" " name="gmail_login" key="7">
                         <Button >
                           Log Into Google
                         </Button>
                       </Form.Item>
 
                       <Form.Item>
-                        <Button type="primary" htmlType="submit">
+                        <Button type="primary" htmlType="submit" key="8">
                             Submit
                         </Button>
                       </Form.Item>

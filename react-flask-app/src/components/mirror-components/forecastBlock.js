@@ -21,7 +21,6 @@ class ForecastBlock extends React.Component {
                           body: JSON.stringify({'user_id': 1})}
 
     ).then(res => res.json()).then(data => {
-        console.log(data);
         this.setState({tempOne: Math.round(data.daily[1].temp.day)});
         this.setState({tempTwo: Math.round(data.daily[2].temp.day)});
         this.setState({tempThree: Math.round(data.daily[3].temp.day)});
@@ -31,10 +30,9 @@ class ForecastBlock extends React.Component {
         this.setState({dayOne: data.daily[1].day_of_week});
         this.setState({dayTwo: data.daily[2].day_of_week});
         this.setState({dayThree: data.daily[3].day_of_week});
-        console.log(data);
     });
 
-    console.log(this.tempOne)}, 300000);
+    }, 300000);
 
   }
   
