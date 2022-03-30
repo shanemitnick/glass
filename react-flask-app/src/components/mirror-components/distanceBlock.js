@@ -25,10 +25,10 @@ function DistanceBlock() {
       }
   });
 
-  return (<div className="distnace-block">
+  return (<div className="distance-block">
               {!gotData ?
                   <div> Loading </div> :
-                  <div> Loaded </div>
+                  <div> {distance} </div>
                   }
               </div>)
               }

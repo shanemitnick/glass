@@ -1,5 +1,4 @@
 import React from "react";
-import TimeBlock from './timeBlock';
 import '../../styles/forecastBlock.css';
 import 'boxicons';
 

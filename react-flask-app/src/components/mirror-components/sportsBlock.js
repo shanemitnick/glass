@@ -67,8 +67,6 @@ function SportsBlock() {
                         </div>
                         }
                     </div>)
-
-
  }
 
 export default SportsBlock

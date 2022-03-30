@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "../styles/profile-page.css";
 import { Form, Button, Input, Select } from "antd";
-import Profile from "../components/website-components/profile";
 import NavBar from "../components/website-components/navbar.js";
-import renderLogo from "../components/mirror-components/logoIconReference";
+
 
 const Registration = () =>  {
   const { OptGroup, Option } = Select;
@@ -35,7 +34,6 @@ const Registration = () =>  {
                                 headers: {"Content-Type": "application/json"},
                                       // , "Content-Type": "application/x-www-form-urlencoded"}
                                 body: JSON.stringify(values)}
-
     ).then(res => res.json()).then(returnedData => {
         setData(returnedData);
         setGotData(true);
