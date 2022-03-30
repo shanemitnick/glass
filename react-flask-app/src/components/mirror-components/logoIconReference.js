@@ -98,7 +98,7 @@ const renderLogo = (league, abbreviation, size) => {
                     return <NBAIcon.WAS size={size} />;
 
                 default:
-                break;
+                    return null;
             }
 
         case 'NFL':
@@ -205,7 +205,7 @@ const renderLogo = (league, abbreviation, size) => {
 
 
                 default:
-                break;
+                    return null;
             }
 
         // case 'NHL':

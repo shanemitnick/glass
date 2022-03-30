@@ -32,7 +32,7 @@ function StockTicker() {
                     <div> loading </div> :
                     <div className='ticker-bar'>
                          {Object.keys(stockInfo).map((stock) => (
-                                <div className='ticker-item'>
+                                <div key={stock} className='ticker-item'>
                                 {stock} {stockInfo[stock].last_price} <span style={{color: stockInfo[stock].color}}> {stockInfo[stock].percent_return_daily} </span>
                                 </div>
                          ))}

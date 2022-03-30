@@ -11,17 +11,11 @@ class GreetingBlock extends React.Component {
   }
 
   componentDidMount() {
-
-
-    console.log(this.state.first);
-
     fetch('/api/greeting', {method: 'POST',
                              headers: {'Content-Type': 'application/json'},
                              body: JSON.stringify({'user_id': 1})}
     ).then(res => res.json()).then(data => {
-      console.log(data);
       this.setState({first_name: data.first_name});
-
       this.interval = setInterval(() => this.setState({ date: new Date(),
                                                         greeting: this.getTimeOfDay()}), 1000);
     });
@@ -39,11 +33,13 @@ class GreetingBlock extends React.Component {
     const meridium = ((time.getHours() < 12)? 'AM' : 'PM');
 
     switch (meridium) {
+    default: return 'Welcome';   
     case 'AM': return 'Good Morning';
     case 'PM':
       switch (true) {
         case hours <= 4: return 'Good Afternoon';
         case hours > 4: return 'Good Evening';
+        default: return 'Welcome';      
       }
     }
 };
@@ -51,14 +47,13 @@ class GreetingBlock extends React.Component {
 
     render() {
         return (
-          <section class='message-container'>
-            <div class="message-frame">
-                <h1 class='message-greeting'> { this.state.greeting }, {this.state.first_name} </h1>
+          <section className='message-container'>
+            <div className="message-frame">
+                <h1 className='message-greeting'> { this.state.greeting }, {this.state.first_name} </h1>
             </div>
           </section>
         );
     }
-
 };
 
 export default GreetingBlock;

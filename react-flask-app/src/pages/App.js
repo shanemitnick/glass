@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import '../styles/App.css';
 import { Link } from "react-router-dom";
-import  NavBar  from "../components/website-components/navbar.js";
+// import  NavBar  from "../components/website-components/navbar.js";
 
 
 
