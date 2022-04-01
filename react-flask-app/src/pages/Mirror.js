@@ -9,9 +9,9 @@ import TimeBlock from '../components/mirror-components/timeBlock.js';
 import WeatherBlock from '../components/mirror-components/weatherBlock.js';
 import GreetingBlock from '../components/mirror-components/greetingBlock.js';
 import StockTicker from '../components/mirror-components/stockTicker.js';
-import SportsBlock from '../components/mirror-components/sportsBlock.js';
+// import SportsBlock from '../components/mirror-components/sportsBlock.js';
 import CalendarBlock from '../components/mirror-components/calendarBlock.js';
-import DistanceBlock from '../components/mirror-components/distanceBlock';
+// import DistanceBlock from '../components/mirror-components/distanceBlock';
 import GmailBlock from '../components/mirror-components/gmailBlock';
 // import SmartLightBlock from '../components/mirror-components/smartLightBlock';
 
@@ -57,7 +57,7 @@ const Mirror = () => {
                     </Col>
                     <Col span={7} className='right-col'>
                         {/* <SportsBlock /> */}
-                        {/* <NewsBlock/> */}
+                        <NewsBlock/>
 
                     </Col>
                   </Row>

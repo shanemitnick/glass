@@ -19,7 +19,6 @@ function DistanceBlock() {
           ).then(res => res.json()
           ).then(data => {
               getDistance(data);
-              console.log(data);
               setGotData(true);
           });
       }

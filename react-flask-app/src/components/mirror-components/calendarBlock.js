@@ -15,7 +15,6 @@ function CalendarBlock() {
           ).then(res => res.json()
           ).then(data => {
               getCalendar(data);
-              console.log(calendar);
               setGotData(true);
           });
       }

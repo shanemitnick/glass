@@ -14,9 +14,7 @@ function SportsBlock() {
                           body: JSON.stringify({'user_id': 1})}
             ).then(res => res.json()
             ).then(data => {
-                console.log(data)
                 setSportsGames(data);
-                console.log(sportsGames);
                 setGotData(true);
             });
         }

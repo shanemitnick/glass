@@ -14,7 +14,6 @@ function GmailBlock() {
           ).then(res => res.json()
           ).then(data => {
               getGmail(data);
-              console.log(mail);
               setGotData(true);
           });
       }
