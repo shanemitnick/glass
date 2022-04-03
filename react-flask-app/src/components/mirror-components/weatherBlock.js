@@ -62,7 +62,6 @@ function WeatherBlock() {
                            headers: {"Content-Type": "application/json"},
                            body: JSON.stringify({'user_id': 1})}
           ).then(res => res.json()).then(data => {
-            console.log(data)
             setWeather(data)
             setGotData(true)
           })
@@ -83,7 +82,7 @@ function WeatherBlock() {
         <div>
         
         <CurrentWeather props={weather.current} />
-        <DailyWeather props={weather.daily} />
+        {/* <DailyWeather props={weather.daily} /> */}
         <HourlyWeather props={weather.hourly} />
 
         </div>
@@ -102,12 +101,11 @@ export default WeatherBlock;
 
 function CurrentWeather(props) {
   const {wind, temp, weather} = props.props;
-
   return <div className='current-weather'>
 
     <div className='weather-icon'>
             <div className='icon-container'>
-              <box-icon size='150px' color='white' name={getWeatherIcon(weather[0].description)} ></box-icon>
+              <box-icon size='150px' color='white' name={getWeatherIcon(weather[0].main)} ></box-icon>
             </div>
 
             <div className='weather-temp'>
@@ -238,8 +236,7 @@ function HourlyWeather(props) {
               <box-icon size='100px' color='white' name={getWeatherIcon(hourFour.weather[0].main)} ></box-icon>
             </div>
             <div className='forecast-temp'>
-              <span> {Math.round(hourFour.temp)}° </span>
-            </div>
+              <span> {Math.round(hourFour.temp)}° </span>            </div>
             <div className='date'>
               {/* <span> {dayThree.day_of_week} </span> */}
               <span> {unixDtToHour(hourFour.dt)} </span>

@@ -1,4 +1,4 @@
-from models.valid_nytimes_inputs import nytimes_params
+from models.defaults import default_layout, nytimes_params
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_utils.types.choice import ChoiceType
@@ -25,13 +25,16 @@ class Users(db.Model):
     zipcode = db.Column(db.String(10), nullable=False, unique=False)
     date_joined = db.Column(db.DateTime, nullable=False, unique=False, default=datetime.utcnow())
 
+    # # Mirror Layout
+    # top_right = db.Column(db.String(100), nullable=True, default='weather')
+    # top_center = db.Column(db.String(100), nullable=True, default='greeting')
+    # top_left = db.Column(db.String(100), nullable=True, default='time-date')
+    # bottom_right = db.Column(db.String(100), nullable=True, default='news')
+    # bottom_center = db.Column(db.String(100), nullable=True, default=None)
+    # bottom_left = db.Column(db.String(100), nullable=True, default=None)
+
     # Mirror Layout
-    top_right = db.Column(db.String(100), nullable=True, default='weather')
-    top_center = db.Column(db.String(100), nullable=True, default='greeting')
-    top_left = db.Column(db.String(100), nullable=True, default='time-date')
-    bottom_right = db.Column(db.String(100), nullable=True, default='news')
-    bottom_center = db.Column(db.String(100), nullable=True, default=None)
-    bottom_left = db.Column(db.String(100), nullable=True, default=None)
+    mirror_layout = db.Column(db.JSON, default=default_layout)
 
     # Favorite News Section
     news_section = db.Column(ChoiceType(nytimes_params['section']), nullable=False, default='world')
