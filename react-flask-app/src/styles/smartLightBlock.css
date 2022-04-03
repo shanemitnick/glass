@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.smart-lights {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-context: space-evenly;
+    align-items: center;
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+.house {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 95%;
+    width: 95%;
+    /* bottom: 0px; */
+    /* margin-bottom: 10px; */
+}
+
+.room {
+    display: flex;
+    flex-direction: row;
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
+    height: 1000px;
+    width: 1000px;
+}
+
+.product {
+    /* height: 95%;
+    width: 95%; */
+    display: flex;
+    flex-direction: column;
+
+}
+
+.switch {
+    order: 1
+}
+
+.product-info {
+    order: 2;
+    color: white;
+    text-align: center
+}
+
+

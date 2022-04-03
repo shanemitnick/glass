@@ -28,6 +28,7 @@ with application.app_context():
     #from routes.distance_calculator import calculate_distance
     from routes.registration import register
     from routes.stocks import get_stock_prices
+    from routes.lifx import get_lifx_blueprint, get_lifx_blueprint, control_lights
 
     @application.route('/')
     def hello_world():
