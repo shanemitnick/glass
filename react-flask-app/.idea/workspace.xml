@@ -30,13 +30,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="054398a1-b2ba-43cc-b2aa-a3e9bf9a33cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/Glass.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Glass.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/token.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/calendarBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/calendarBlock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/sportsBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/sportsBlock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Mirror.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Mirror.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/calendarBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/calendarBlock.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/sportsBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/sportsBlock.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/token.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +44,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="217pTPvG4ONxc7D0iHViAfAcUz2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -56,10 +58,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages" />
+      <recent name="$PROJECT_DIR$/public/assets/img" />
       <recent name="$PROJECT_DIR$/src/styles" />
     </key>
   </component>
@@ -74,8 +82,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1637301986321</updated>
+      <workItem from="1648823795520" duration="2327000" />
+      <workItem from="1648840735964" duration="4184000" />
+      <workItem from="1649089730435" duration="666000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
@@ -102,6 +116,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
