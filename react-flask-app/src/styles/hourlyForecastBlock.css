@@ -26,10 +26,28 @@ margin: 0px 12.5px 0px 12.5px;
 text-align: center;
 }
 
+.forecast-temp-hourly{
+order: 2;
+font-size: 30px;
+color: #FFFFFF;
+font-family: Poppins;
+margin: 0px 12.5px 0px 12.5px;
+text-align: center;
+}
+
 .date{
 order: 3;
 /*working here to fix the sizing of the font, switch to vmax or vw */
 font-size: 25px;
+color: #FFFFFF;
+font-family: Poppins;
+margin: 0px 12.5px 0px 12.5px;
+text-align: center;
+}
+.hour{
+order: 3;
+/*working here to fix the sizing of the font, switch to vmax or vw */
+font-size: 20px;
 color: #FFFFFF;
 font-family: Poppins;
 margin: 0px 12.5px 0px 12.5px;
