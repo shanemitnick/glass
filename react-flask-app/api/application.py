@@ -18,6 +18,7 @@ with application.app_context():
 
     from models.db_model import db, Users #, NewsPreferences, MirrorLayout
     db.init_app(application)
+    # db.create_all()
 
     from routes.weather import get_all_forecast_data
     from routes.google import get_google_calendar, get_gmail, get_google_credentials
