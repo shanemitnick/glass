@@ -1,0 +1,24 @@
+{
+    "homes": {"0":
+        {
+            "homeName": "",
+            "id": "",
+            "home": {
+                "rooms": [
+                    {
+                        "roomName": "",
+                        "id": "",
+                        "room": [
+                            {
+                            "productName": "",
+                            "id": "",
+                            "power": "",
+                            "brightness": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
