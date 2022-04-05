@@ -29,6 +29,90 @@ function SmartLightBlock() {
 
 });
 
+
+const handleToggle = (id, isOn) => {
+  console.log("TOGGLE HANDLED BITCH");
+  const toggle = (isOn) ? 
+    'on':
+    'off'
+
+  fetch('/api/lifx/power', {method: 'POST',
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify({'id': id,
+                                                  'toggle': toggle,
+                                                  'level': 'product'})}
+  ).then(res => res.json()).then(data => {
+      // console.log(data)
+      // console.log(light)
+      // console.log(house)
+      const location = data.location
+      const room = data.room
+      const product = data.prod
+      const power = data.power
+
+     
+          // light.power = 'on' : 
+          // light.power = 'off'
+        //   stateChanger(prevHouse => ({...prevHouse, 
+        //                               prevHouse[data.location] : {
+        //                                 ...prevHouse[data.location],
+        //                                 'rooms': {
+        //                                   ...prevHouse[data.location]['rooms'],
+        //                                   prevHouse[data.location]['rooms'][data.room] : {
+        //                                     ...prevHouse[data.location]['rooms'][data.room],
+        //                                     'products' : { 
+        //                                       ...prevHouse[data.location]['rooms'][data.room]['products'],
+        //                                       prevHouse[data.location]['rooms'][data.room]['products'][data.prod] : {
+        //                                         ...prevHouse[data.location]['rooms'][data.room]['products'][data.prod],
+        //                                         prevHouse[data.location]['rooms'][data.room]['products'][data.prod]['power']: 'on'}
+        //                                     }
+        //                                   }
+
+        //                             }}})) :
+        //   stateChanger(prevHouse => ({...prevHouse, [house[data.location]['rooms'][data.room]['products'][data.prod].power]: 'off'}))
+        // }
+
+        setHome({...home, 
+          [location]: {
+          ...home[location], 
+          'rooms': {
+            ...home[location]['rooms'],
+            [room]: {
+              ...home[location]['rooms'][room],
+              'products': {
+                ...home[location]['rooms'][room]['products'],
+                [product]: {
+                  ...home[location]['rooms'][room]['products'][product],
+                  'power': power
+                }
+              }
+            }
+          }
+
+        }})
+        console.log(power)
+        // prevState[data.location]['rooms'][data.room]['products'][data.prod]['power'] = 'on';
+        const isOn = (power === 'on') ? 
+          true:
+          false
+        console.log(isOn)
+
+      console.log('Should be updated')
+      console.log(home)
+
+      // console.log(house)
+      // console.log(light) // Need to get this to reupdate after the house state gets updated
+
+      // home['homes'][data.location]['rooms'][data.room]['products'][data.prod].power = isOn
+      // console.log(home)
+      // setHome({...homes, data.location: {...homes[data.location],  
+      // }}
+      //   rooms: {...homes[data.rooms]}})
+  
+    // 'homes' <location> 'rooms' <room> 'products' <product> 'power'
+  });
+}
+
 // const handleToggle = (id, isOn) => {
 //   console.log("TOGGLE HANDLED BITCH");
 //   console.log(id)
@@ -58,7 +142,6 @@ function SmartLightBlock() {
 //   });
 // }
 
-
 return (<div>
             {!gotData ?
                 <div> Loading </div> : 
@@ -70,7 +153,7 @@ return (<div>
                          blueprint={home}
                          stateChanger={setHome}
                         //  light1={light1}
-                        //  handleToggle={handleToggle}
+                         handleToggle={handleToggle}
                          />
                     </div>)
                 )}
@@ -86,7 +169,7 @@ export default SmartLightBlock
 
 
 // Contains all the rooms in the house
-function SmartLightHome({home, blueprint, stateChanger}) {
+function SmartLightHome({home, blueprint, stateChanger, handleToggle}) {
   const homeName = home;
   const roomBlueprint = blueprint[home].rooms;
   // console.log()
@@ -96,7 +179,7 @@ function SmartLightHome({home, blueprint, stateChanger}) {
             <div> 
               {Object.keys(roomBlueprint).map((smartRoom) => (
                 <div className='house'>   
-                  <SmartLightRoom key={smartRoom} room={roomBlueprint[smartRoom].products} house={blueprint} stateChanger={stateChanger}
+                  <SmartLightRoom key={smartRoom} room={roomBlueprint[smartRoom].products} house={blueprint} stateChanger={stateChanger} handleToggle={handleToggle}
                   />
                 </div>
               ))}
@@ -106,14 +189,14 @@ function SmartLightHome({home, blueprint, stateChanger}) {
 
 
 // Contains all the products in the room
-function SmartLightRoom({room, house, stateChanger}) {
+function SmartLightRoom({room, house, stateChanger, handleToggle}) {
 
   return <div> 
       <div>
           {Object.keys(room).map((light) => (
               <div className='room' key={light}> 
                   <SmartLight light={room[light]} house={house} stateChanger={stateChanger}
-                  // handleToggle={handleToggle}
+                  handleToggle={handleToggle}
                   />
               </div>
           ))}
@@ -124,102 +207,18 @@ function SmartLightRoom({room, house, stateChanger}) {
 
 
 // Individual smart light
-function SmartLight({light, house, stateChanger}) {
-  // console.log(light)
+function SmartLight({light, house, stateChanger, handleToggle}) {
+
   // console.log(house)
-
-  const isOn = (light.power === 'on') ? 
-    true:
-    false
-
-  // console.log(isOn)
-
-  const handleToggle = (id, isOn) => {
-    console.log("TOGGLE HANDLED BITCH");
-    const toggle = (isOn) ? 
-      'on':
-      'off'
-
-    fetch('/api/lifx/power', {method: 'POST',
-                              headers: {"Content-Type": "application/json"},
-                              body: JSON.stringify({'id': id,
-                                                    'toggle': toggle,
-                                                    'level': 'product'})}
-    ).then(res => res.json()).then(data => {
-        // console.log(data)
-        // console.log(light)
-        // console.log(house)
-        const location = data.location
-        const room = data.room
-        const product = data.prod
-        const power = data.power
-
-       
-            // light.power = 'on' : 
-            // light.power = 'off'
-          //   stateChanger(prevHouse => ({...prevHouse, 
-          //                               prevHouse[data.location] : {
-          //                                 ...prevHouse[data.location],
-          //                                 'rooms': {
-          //                                   ...prevHouse[data.location]['rooms'],
-          //                                   prevHouse[data.location]['rooms'][data.room] : {
-          //                                     ...prevHouse[data.location]['rooms'][data.room],
-          //                                     'products' : { 
-          //                                       ...prevHouse[data.location]['rooms'][data.room]['products'],
-          //                                       prevHouse[data.location]['rooms'][data.room]['products'][data.prod] : {
-          //                                         ...prevHouse[data.location]['rooms'][data.room]['products'][data.prod],
-          //                                         prevHouse[data.location]['rooms'][data.room]['products'][data.prod]['power']: 'on'}
-          //                                     }
-          //                                   }
-
-          //                             }}})) :
-          //   stateChanger(prevHouse => ({...prevHouse, [house[data.location]['rooms'][data.room]['products'][data.prod].power]: 'off'}))
-          // }
-
-          stateChanger({...house, 
-            [location]: {
-            ...house[location], 
-            'rooms': {
-              ...house[location]['rooms'],
-              [room]: {
-                ...house[location]['rooms'][room],
-                'products': {
-                  ...house[location]['rooms'][room]['products'],
-                  [product]: {
-                    ...house[location]['rooms'][room]['products'][product],
-                    'power': [power] === 'on' ? 'off' : 'on'
-                  }
-                }
-              }
-            }
-
-          }})
-          // prevState[data.location]['rooms'][data.room]['products'][data.prod]['power'] = 'on';
-          const isOn = ([power] === 'on') ? 
-            true:
-            false
-
-        console.log('Should be updated')
-        console.log(house)
-        console.log(light) // Need to get this to reupdate after the house state gets updated
-  
-        // home['homes'][data.location]['rooms'][data.room]['products'][data.prod].power = isOn
-        // console.log(home)
-        // setHome({...homes, data.location: {...homes[data.location],  
-        // }}
-        //   rooms: {...homes[data.rooms]}})
-    
-      // 'homes' <location> 'rooms' <room> 'products' <product> 'power'
-    });
-  }
-  
+  console.log(light)
+  const isOn = (light.power === 'on')
 
   return (<div> 
             
               <div className='product'>
                 <div className='switch'>
                   {/* <button type="button" onClick={() => handleToggle(light.id, light.power)}></button> */}
-                  <Switch isOn={isOn} handleToggle={() => handleToggle(light.id, isOn)} onColor="#GGGGGG"/>
+                  <Switch isOn={isOn} handleToggle={() => handleToggle(light.id, isOn)} onColor="#FFFFFF"/>
                 </div>
                       
                 <div className='product-info'> 
