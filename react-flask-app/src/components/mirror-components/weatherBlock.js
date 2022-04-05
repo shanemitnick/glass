@@ -82,7 +82,7 @@ function WeatherBlock() {
         <div>
         
         <CurrentWeather props={weather.current} />
-        <DailyWeather props={weather.daily} />
+        {/* <DailyWeather props={weather.daily} /> */}
         <HourlyWeather props={weather.hourly} />
 
         </div>
@@ -106,7 +106,7 @@ function CurrentWeather(props) {
 
     <div className='weather-icon'>
             <div className='icon-container'>
-              <box-icon size='150px' color='white' name={getWeatherIcon(weather[0].description)} ></box-icon>
+              <box-icon size='150px' color='white' name={getWeatherIcon(weather[0].main)} ></box-icon>
             </div>
 
             <div className='weather-temp'>

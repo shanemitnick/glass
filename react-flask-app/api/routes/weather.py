@@ -18,7 +18,7 @@ def get_all_forecast_data():
     
     zipcode = user.zipcode
     geolocator = Nominatim(user_agent="glass_user")
-    location = geolocator.geocode(zipcode, country_codes='us')
+    location = geolocator.geocode(zipcode, country_codes='us', timeout=15)
     lat = location.latitude
     lon = location.longitude
     
