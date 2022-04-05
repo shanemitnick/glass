@@ -41,7 +41,8 @@
     text-align: left;
     min-width: 60px;
     font-weight: bold;
-}
+    white-space: nowrap;
+    }
 
 .from{
     order: 1;

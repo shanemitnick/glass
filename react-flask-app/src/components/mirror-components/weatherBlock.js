@@ -198,60 +198,60 @@ function HourlyWeather(props) {
     <div className='hourly-forecasts'>
         <div className='hour-one'>
             <div className='icon-container'>
-              <box-icon size='100px' color='white' name={getWeatherIcon(hourOne.weather[0].main)} ></box-icon>
+              <box-icon size='60px' color='white' name={getWeatherIcon(hourOne.weather[0].main)} ></box-icon>
             </div>
-            <div className='forecast-temp'>
+            <div className='forecast-temp-hourly'>
               <span> {Math.round(hourOne.temp)}° </span>
             </div>
-            <div className='date'>
+            <div className='hour'>
               {/* <span> {hourOne.day_of_week} </span> */}
               <span> {unixDtToHour(hourOne.dt)} </span>
             </div>
         </div>
         <div className='hour-two'>
             <div className='icon-container'>
-              <box-icon size='100px' color='white' name={getWeatherIcon(hourTwo.weather[0].main)} ></box-icon>
+              <box-icon size='60px' color='white' name={getWeatherIcon(hourTwo.weather[0].main)} ></box-icon>
             </div>
-            <div className='forecast-temp'>
+            <div className='forecast-temp-hourly'>
               <span> {Math.round(hourTwo.temp)}° </span>
             </div>
-            <div className='date'>
+            <div className='hour'>
               {/* <span> {hourOne.day_of_week} </span> */}
               <span> {unixDtToHour(hourTwo.dt)} </span>
             </div>
         </div>
         <div className='hour-three'>
             <div className='icon-container'>
-              <box-icon size='100px' color='white' name={getWeatherIcon(hourThree.weather[0].main)} ></box-icon>
+              <box-icon size='60px' color='white' name={getWeatherIcon(hourThree.weather[0].main)} ></box-icon>
             </div>
-            <div className='forecast-temp'>
+            <div className='forecast-temp-hourly'>
               <span> {Math.round(hourThree.temp)}° </span>
             </div>
-            <div className='date'>
+            <div className='hour'>
               {/* <span> {dayThree.day_of_week} </span> */}
               <span> {unixDtToHour(hourThree.dt)} </span>
             </div>
         </div>
         <div className='hour-four'>
             <div className='icon-container'>
-              <box-icon size='100px' color='white' name={getWeatherIcon(hourFour.weather[0].main)} ></box-icon>
+              <box-icon size='60px' color='white' name={getWeatherIcon(hourFour.weather[0].main)} ></box-icon>
             </div>
-            <div className='forecast-temp'>
+            <div className='forecast-temp-hourly'>
               <span> {Math.round(hourFour.temp)}° </span>
             </div>
-            <div className='date'>
+            <div className='hour'>
               {/* <span> {dayThree.day_of_week} </span> */}
               <span> {unixDtToHour(hourFour.dt)} </span>
             </div>
         </div>
         <div className='hour-five'>
             <div className='icon-container'>
-              <box-icon size='100px' color='white' name={getWeatherIcon(hourFive.weather[0].main)} ></box-icon>
+              <box-icon size='60px' color='white' name={getWeatherIcon(hourFive.weather[0].main)} ></box-icon>
             </div>
-            <div className='forecast-temp'>
+            <div className='forecast-temp-hourly'>
               <span> {Math.round(hourFive.temp)}° </span>
             </div>
-            <div className='date'>
+            <div className='hour'>
               {/* <span> {dayThree.day_of_week} </span> */}
               <span> {unixDtToHour(hourFive.dt)} </span>
             </div>
