@@ -18,10 +18,9 @@ import GmailBlock from '../components/mirror-components/gmailBlock';
 
 const Mirror = () => {
 
+    console.log(navigator.onLine);
   return(
               <div className="mirror-contatiner">
-
-
                   <Row className='top-row'>
                     <Col span={7} className='left-col'>
                         <TimeBlock />

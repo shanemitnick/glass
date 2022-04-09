@@ -12,6 +12,7 @@ import os
 from collections import defaultdict
 import base64
 from bs4 import BeautifulSoup
+import urllib.request
 
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly',
           'https://www.googleapis.com/auth/gmail.readonly']
@@ -68,9 +69,18 @@ def get_google_calendar():
         service = build('calendar', 'v3', credentials=creds)
 
         now = datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
-        events_result = service.events().list(calendarId='primary', timeMin=now,
-                                            maxResults=10, singleEvents=True,
-                                            orderBy='startTime').execute()
+        def connect(host='http://google.com'):
+            try:
+                urllib.request.urlopen(host) #Python 3.x
+                return True
+            except:
+                return False
+        if (connect()):
+            events_result = service.events().list(calendarId='primary', timeMin=now,
+                                                maxResults=10, singleEvents=True,
+                                                orderBy='startTime').execute()
+        else :
+            print("INternet has been disconnected")
 
         return events_result
     except HTTPError as e:

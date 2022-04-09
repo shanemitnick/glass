@@ -1,0 +1,368 @@
+Index: src/components/mirror-components/smartLightBlock.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { useState, useEffect } from \"react\";\nimport '../../styles/smartLightBlock.css';\n// import SmartLightHome from './smartLight.js'\nimport Switch from '../website-components/switch.js'\n\n\n\nfunction SmartLightBlock() {\n  const [home, setHome] = useState({});\n  // const [light1, setLight1] = useState();\n  const [gotData, setGotData] = useState(false);\n\n\n\n  useEffect(() => {\n \n    if (!gotData) {\n      fetch('/api/lifx/blueprint', {method: 'POST',\n                                   headers: {\"Content-Type\": \"application/json\"},\n                                      // , \"Content-Type\": \"application/x-www-form-urlencoded\"}\n                                   body: JSON.stringify({'user_id': 1})}\n\n      ).then(res => res.json()).then(data => {\n        setHome(data['homes'])\n        // setLight1(home['Apartment']['rooms'][data.room]['products'][data.prod].power)\n        setGotData(true)\n    });\n  }\n\n});\n\n// const handleToggle = (id, isOn) => {\n//   console.log(\"TOGGLE HANDLED BITCH\");\n//   console.log(id)\n//   console.log(isOn)\n//   fetch('/api/lifx/power', {method: 'POST',\n//                             headers: {\"Content-Type\": \"application/json\"},\n//                             body: JSON.stringify({'id': id,\n//                                                   'isOn': isOn,\n//                                                   'level': 'product'})}\n//   ).then(res => res.json()).then(data => {\n//       console.log(data.power)\n//       console.log(light1)\n//       {data.power === 'on' ? \n//           setLight1('off') : \n//           setLight1('on')\n//   }\n//       console.log(light1)\n\n//       // home['homes'][data.location]['rooms'][data.room]['products'][data.prod].power = isOn\n//       // console.log(home)\n//       // setHome({...homes, data.location: {...homes[data.location],  \n//       // }}\n//       //   rooms: {...homes[data.rooms]}})\n\n\n//     // 'homes' <location> 'rooms' <room> 'products' <product> 'power'\n//   });\n// }\n\n\nreturn (<div>\n            {!gotData ?\n                <div> Loading </div> : \n                <div className='smart-lights'>\n                {Object.keys(home).map((h) => (\n                    <div className='house' key={home}>\n                        <SmartLightHome\n                         home={h}\n                         blueprint={home}\n                         stateChanger={setHome}\n                        //  light1={light1}\n                        //  handleToggle={handleToggle}\n                         />\n                    </div>)\n                )}\n            </div>\n            }\n        </div>\n        \n);\n}\n\nexport default SmartLightBlock\n\n\n\n// Contains all the rooms in the house\nfunction SmartLightHome({home, blueprint, stateChanger}) {\n  const homeName = home;\n  const roomBlueprint = blueprint[home].rooms;\n  // console.log()\n\n  return (<div> \n      \n            <div> \n              {Object.keys(roomBlueprint).map((smartRoom) => (\n                <div className='house'>   \n                  <SmartLightRoom key={smartRoom} room={roomBlueprint[smartRoom].products} house={blueprint} stateChanger={stateChanger}\n                  />\n                </div>\n              ))}\n            </div>\n          </div>)\n}\n\n\n// Contains all the products in the room\nfunction SmartLightRoom({room, house, stateChanger}) {\n\n  return <div> \n      <div>\n          {Object.keys(room).map((light) => (\n              <div className='room' key={light}> \n                  <SmartLight light={room[light]} house={house} stateChanger={stateChanger}\n                  // handleToggle={handleToggle}\n                  />\n              </div>\n          ))}\n      </div>\n  </div>\n}\n\n\n\n// Individual smart light\nfunction SmartLight({light, house, stateChanger}) {\n  // console.log(light)\n  // console.log(house)\n\n  const isOn = (light.power === 'on') ? \n    true:\n    false\n\n  // console.log(isOn)\n\n  const handleToggle = (id, isOn) => {\n    console.log(\"TOGGLE HANDLED BITCH\");\n    const toggle = (isOn) ? \n      'on':\n      'off'\n\n    fetch('/api/lifx/power', {method: 'POST',\n                              headers: {\"Content-Type\": \"application/json\"},\n                              body: JSON.stringify({'id': id,\n                                                    'toggle': toggle,\n                                                    'level': 'product'})}\n    ).then(res => res.json()).then(data => {\n        // console.log(data)\n        // console.log(light)\n        // console.log(house)\n        const location = data.location\n        const room = data.room\n        const product = data.prod\n        const power = data.power\n\n       \n            // light.power = 'on' : \n            // light.power = 'off'\n          //   stateChanger(prevHouse => ({...prevHouse, \n          //                               prevHouse[data.location] : {\n          //                                 ...prevHouse[data.location],\n          //                                 'rooms': {\n          //                                   ...prevHouse[data.location]['rooms'],\n          //                                   prevHouse[data.location]['rooms'][data.room] : {\n          //                                     ...prevHouse[data.location]['rooms'][data.room],\n          //                                     'products' : { \n          //                                       ...prevHouse[data.location]['rooms'][data.room]['products'],\n          //                                       prevHouse[data.location]['rooms'][data.room]['products'][data.prod] : {\n          //                                         ...prevHouse[data.location]['rooms'][data.room]['products'][data.prod],\n          //                                         prevHouse[data.location]['rooms'][data.room]['products'][data.prod]['power']: 'on'}\n          //                                     }\n          //                                   }\n\n          //                             }}})) :\n          //   stateChanger(prevHouse => ({...prevHouse, [house[data.location]['rooms'][data.room]['products'][data.prod].power]: 'off'}))\n          // }\n\n          stateChanger({...house, \n            [location]: {\n            ...house[location], \n            'rooms': {\n              ...house[location]['rooms'],\n              [room]: {\n                ...house[location]['rooms'][room],\n                'products': {\n                  ...house[location]['rooms'][room]['products'],\n                  [product]: {\n                    ...house[location]['rooms'][room]['products'][product],\n                    'power': [power] === 'on' ? 'off' : 'on'\n                  }\n                }\n              }\n            }\n\n          }})\n          // prevState[data.location]['rooms'][data.room]['products'][data.prod]['power'] = 'on';\n          const isOn = ([power] === 'on') ? \n            true:\n            false\n\n        console.log('Should be updated')\n        console.log(house)\n        console.log(light) // Need to get this to reupdate after the house state gets updated\n  \n        // home['homes'][data.location]['rooms'][data.room]['products'][data.prod].power = isOn\n        // console.log(home)\n        // setHome({...homes, data.location: {...homes[data.location],  \n        // }}\n        //   rooms: {...homes[data.rooms]}})\n    \n      // 'homes' <location> 'rooms' <room> 'products' <product> 'power'\n    });\n  }\n  \n\n  return (<div> \n            \n              <div className='product'>\n                <div className='switch'>\n                  {/* <button type=\"button\" onClick={() => handleToggle(light.id, light.power)}></button> */}\n                  <Switch isOn={isOn} handleToggle={() => handleToggle(light.id, isOn)} onColor=\"#GGGGGG\"/>\n                </div>\n                      \n                <div className='product-info'> \n                lamp\n                \n                </div> \n               </div> \n          </div>)\n  }\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/mirror-components/smartLightBlock.js b/src/components/mirror-components/smartLightBlock.js
+--- a/src/components/mirror-components/smartLightBlock.js	(revision 125a93297112fea9dca4682e7000565be86eef49)
++++ b/src/components/mirror-components/smartLightBlock.js	(date 1649094593399)
+@@ -7,7 +7,7 @@
+ 
+ function SmartLightBlock() {
+   const [home, setHome] = useState({});
+-  // const [light1, setLight1] = useState();
++  const [light1, setLight1] = useState();
+   const [gotData, setGotData] = useState(false);
+ 
+ 
+@@ -29,34 +29,32 @@
+ 
+ });
+ 
+-// const handleToggle = (id, isOn) => {
+-//   console.log("TOGGLE HANDLED BITCH");
+-//   console.log(id)
+-//   console.log(isOn)
+-//   fetch('/api/lifx/power', {method: 'POST',
+-//                             headers: {"Content-Type": "application/json"},
+-//                             body: JSON.stringify({'id': id,
+-//                                                   'isOn': isOn,
+-//                                                   'level': 'product'})}
+-//   ).then(res => res.json()).then(data => {
+-//       console.log(data.power)
+-//       console.log(light1)
+-//       {data.power === 'on' ? 
+-//           setLight1('off') : 
+-//           setLight1('on')
+-//   }
+-//       console.log(light1)
++const handleToggle = (id, isOn) => {
++  console.log("TOGGLE HANDLED BITCH");
++  // fetch('/api/lifx/power', {method: 'POST',
++  //                           headers: {"Content-Type": "application/json"},
++  //                           body: JSON.stringify({'id': id,
++  //                                                 'isOn': isOn,
++  //                                                 'level': 'product'})}
++  // ).then(res => res.json()).then(data => {
++  //     if (data.power === 'on'){
++  //       setLight1('off')
++  //     } else {
++  //       setLight1('on')
++  //     }
++      
++  //     console.log(light1);
+ 
+-//       // home['homes'][data.location]['rooms'][data.room]['products'][data.prod].power = isOn
+-//       // console.log(home)
+-//       // setHome({...homes, data.location: {...homes[data.location],  
+-//       // }}
+-//       //   rooms: {...homes[data.rooms]}})
++  //     // home['homes'][data.location]['rooms'][data.room]['products'][data.prod].power = isOn
++  //     // console.log(home)
++  //     // setHome({...homes, data.location: {...homes[data.location],  
++  //     // }}
++  //     //   rooms: {...homes[data.rooms]}})
+ 
+ 
+-//     // 'homes' <location> 'rooms' <room> 'products' <product> 'power'
+-//   });
+-// }
++  //   // 'homes' <location> 'rooms' <room> 'products' <product> 'power'
++  // });
++}
+ 
+ 
+ return (<div>
+@@ -69,8 +67,7 @@
+                          home={h}
+                          blueprint={home}
+                          stateChanger={setHome}
+-                        //  light1={light1}
+-                        //  handleToggle={handleToggle}
++                         handleToggle={handleToggle}
+                          />
+                     </div>)
+                 )}
+@@ -86,7 +83,7 @@
+ 
+ 
+ // Contains all the rooms in the house
+-function SmartLightHome({home, blueprint, stateChanger}) {
++function SmartLightHome({home, blueprint, stateChanger, handleToggle}) {
+   const homeName = home;
+   const roomBlueprint = blueprint[home].rooms;
+   // console.log()
+@@ -96,7 +93,11 @@
+             <div> 
+               {Object.keys(roomBlueprint).map((smartRoom) => (
+                 <div className='house'>   
+-                  <SmartLightRoom key={smartRoom} room={roomBlueprint[smartRoom].products} house={blueprint} stateChanger={stateChanger}
++                  <SmartLightRoom key={smartRoom} 
++                                  room={roomBlueprint[smartRoom].products} 
++                                  house={blueprint} 
++                                  stateChanger={stateChanger}
++                                  handleToggle={handleToggle}
+                   />
+                 </div>
+               ))}
+@@ -106,14 +107,16 @@
+ 
+ 
+ // Contains all the products in the room
+-function SmartLightRoom({room, house, stateChanger}) {
++function SmartLightRoom({room, house, stateChanger, handleToggle}) {
+ 
+   return <div> 
+       <div>
+           {Object.keys(room).map((light) => (
+               <div className='room' key={light}> 
+-                  <SmartLight light={room[light]} house={house} stateChanger={stateChanger}
+-                  // handleToggle={handleToggle}
++                  <SmartLight light={room[light]} 
++                              house={house} 
++                              stateChanger={stateChanger}
++                              handleToggle={handleToggle}
+                   />
+               </div>
+           ))}
+@@ -124,7 +127,7 @@
+ 
+ 
+ // Individual smart light
+-function SmartLight({light, house, stateChanger}) {
++function SmartLight({light, house, stateChanger, handleToggle}) {
+   // console.log(light)
+   // console.log(house)
+ 
+@@ -134,84 +137,84 @@
+ 
+   // console.log(isOn)
+ 
+-  const handleToggle = (id, isOn) => {
+-    console.log("TOGGLE HANDLED BITCH");
+-    const toggle = (isOn) ? 
+-      'on':
+-      'off'
++  // const handleToggle = (id, isOn) => {
++  //   console.log("TOGGLE HANDLED BITCH");
++  //   const toggle = (isOn) ? 
++  //     'on':
++  //     'off'
++
++  //   fetch('/api/lifx/power', {method: 'POST',
++  //                             headers: {"Content-Type": "application/json"},
++  //                             body: JSON.stringify({'id': id,
++  //                                                   'toggle': toggle,
++  //                                                   'level': 'product'})}
++  //   ).then(res => res.json()).then(data => {
++  //       // console.log(data)
++  //       // console.log(light)
++  //       // console.log(house)
++  //       const location = data.location
++  //       const room = data.room
++  //       const product = data.prod
++  //       const power = data.power
+ 
+-    fetch('/api/lifx/power', {method: 'POST',
+-                              headers: {"Content-Type": "application/json"},
+-                              body: JSON.stringify({'id': id,
+-                                                    'toggle': toggle,
+-                                                    'level': 'product'})}
+-    ).then(res => res.json()).then(data => {
+-        // console.log(data)
+-        // console.log(light)
+-        // console.log(house)
+-        const location = data.location
+-        const room = data.room
+-        const product = data.prod
+-        const power = data.power
++       
++  //           // light.power = 'on' : 
++  //           // light.power = 'off'
++  //         //   stateChanger(prevHouse => ({...prevHouse, 
++  //         //                               prevHouse[data.location] : {
++  //         //                                 ...prevHouse[data.location],
++  //         //                                 'rooms': {
++  //         //                                   ...prevHouse[data.location]['rooms'],
++  //         //                                   prevHouse[data.location]['rooms'][data.room] : {
++  //         //                                     ...prevHouse[data.location]['rooms'][data.room],
++  //         //                                     'products' : { 
++  //         //                                       ...prevHouse[data.location]['rooms'][data.room]['products'],
++  //         //                                       prevHouse[data.location]['rooms'][data.room]['products'][data.prod] : {
++  //         //                                         ...prevHouse[data.location]['rooms'][data.room]['products'][data.prod],
++  //         //                                         prevHouse[data.location]['rooms'][data.room]['products'][data.prod]['power']: 'on'}
++  //         //                                     }
++  //         //                                   }
+ 
+-       
+-            // light.power = 'on' : 
+-            // light.power = 'off'
+-          //   stateChanger(prevHouse => ({...prevHouse, 
+-          //                               prevHouse[data.location] : {
+-          //                                 ...prevHouse[data.location],
+-          //                                 'rooms': {
+-          //                                   ...prevHouse[data.location]['rooms'],
+-          //                                   prevHouse[data.location]['rooms'][data.room] : {
+-          //                                     ...prevHouse[data.location]['rooms'][data.room],
+-          //                                     'products' : { 
+-          //                                       ...prevHouse[data.location]['rooms'][data.room]['products'],
+-          //                                       prevHouse[data.location]['rooms'][data.room]['products'][data.prod] : {
+-          //                                         ...prevHouse[data.location]['rooms'][data.room]['products'][data.prod],
+-          //                                         prevHouse[data.location]['rooms'][data.room]['products'][data.prod]['power']: 'on'}
+-          //                                     }
+-          //                                   }
+-
+-          //                             }}})) :
+-          //   stateChanger(prevHouse => ({...prevHouse, [house[data.location]['rooms'][data.room]['products'][data.prod].power]: 'off'}))
+-          // }
+-
+-          stateChanger({...house, 
+-            [location]: {
+-            ...house[location], 
+-            'rooms': {
+-              ...house[location]['rooms'],
+-              [room]: {
+-                ...house[location]['rooms'][room],
+-                'products': {
+-                  ...house[location]['rooms'][room]['products'],
+-                  [product]: {
+-                    ...house[location]['rooms'][room]['products'][product],
+-                    'power': [power] === 'on' ? 'off' : 'on'
+-                  }
+-                }
+-              }
+-            }
++  //         //                             }}})) :
++  //         //   stateChanger(prevHouse => ({...prevHouse, [house[data.location]['rooms'][data.room]['products'][data.prod].power]: 'off'}))
++  //         // }
++
++  //         stateChanger({...house, 
++  //           [location]: {
++  //           ...house[location], 
++  //           'rooms': {
++  //             ...house[location]['rooms'],
++  //             [room]: {
++  //               ...house[location]['rooms'][room],
++  //               'products': {
++  //                 ...house[location]['rooms'][room]['products'],
++  //                 [product]: {
++  //                   ...house[location]['rooms'][room]['products'][product],
++  //                   'power': [power] === 'on' ? 'off' : 'on'
++  //                 }
++  //               }
++  //             }
++  //           }
+ 
+-          }})
+-          // prevState[data.location]['rooms'][data.room]['products'][data.prod]['power'] = 'on';
+-          const isOn = ([power] === 'on') ? 
+-            true:
+-            false
++  //         }})
++  //         // prevState[data.location]['rooms'][data.room]['products'][data.prod]['power'] = 'on';
++  //         const isOn = ([power] === 'on') ? 
++  //           true:
++  //           false
+ 
+-        console.log('Should be updated')
+-        console.log(house)
+-        console.log(light) // Need to get this to reupdate after the house state gets updated
++  //       console.log('Should be updated')
++  //       console.log(house)
++  //       console.log(light) // Need to get this to reupdate after the house state gets updated
+   
+-        // home['homes'][data.location]['rooms'][data.room]['products'][data.prod].power = isOn
+-        // console.log(home)
+-        // setHome({...homes, data.location: {...homes[data.location],  
+-        // }}
+-        //   rooms: {...homes[data.rooms]}})
++  //       // home['homes'][data.location]['rooms'][data.room]['products'][data.prod].power = isOn
++  //       // console.log(home)
++  //       // setHome({...homes, data.location: {...homes[data.location],  
++  //       // }}
++  //       //   rooms: {...homes[data.rooms]}})
+     
+-      // 'homes' <location> 'rooms' <room> 'products' <product> 'power'
+-    });
+-  }
++  //     // 'homes' <location> 'rooms' <room> 'products' <product> 'power'
++  //   });
++  // }
+   
+ 
+   return (<div> 
+@@ -219,7 +222,7 @@
+               <div className='product'>
+                 <div className='switch'>
+                   {/* <button type="button" onClick={() => handleToggle(light.id, light.power)}></button> */}
+-                  <Switch isOn={isOn} handleToggle={() => handleToggle(light.id, isOn)} onColor="#GGGGGG"/>
++                  <Switch isOn={isOn} handleToggle={handleToggle}/>
+                 </div>
+                       
+                 <div className='product-info'> 
+Index: api/routes/token.json
+===================================================================
+diff --git a/api/routes/token.json b/api/routes/token.json
+deleted file mode 100644
+--- a/api/routes/token.json	(revision 125a93297112fea9dca4682e7000565be86eef49)
++++ /dev/null	(revision 125a93297112fea9dca4682e7000565be86eef49)
+@@ -1,1 +0,0 @@
+-{"token": "ya29.A0ARrdaM-J3cPLrVscqIfI-EKlW8kKxjWst3Zo8RjZLv4AivrMyyywT58yQTxhvIWmNXimi1w-CYm6n0ujTF6Wwi2PCGvj8zqfn2nHDYFS3Xj1npuibHZioOlurc09Y85bqY2BJJN04q7KgV4Anf2g1p_oJKXMmg", "refresh_token": "1//0dxA_Pac_obu9CgYIARAAGA0SNwF-L9IrSNB7KXjbHzxnN5_Xcn6aCGx12gDQo_vY1ESfDDrKgHtYu-hzdOBrCoLY4JP4cIgVdUM", "token_uri": "https://oauth2.googleapis.com/token", "client_id": "442607078588-piga36g15idov4fntc1lshapl8r72b7t.apps.googleusercontent.com", "client_secret": "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", "scopes": ["https://www.googleapis.com/auth/calendar.readonly"], "expiry": "2022-02-23T00:18:55.922151Z"}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"BRANCH:origin/OC-FrontEnd(Post-React)\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </select>\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"054398a1-b2ba-43cc-b2aa-a3e9bf9a33cf\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/api/routes/token.json\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/components/mirror-components/calendarBlock.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/mirror-components/calendarBlock.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/components/mirror-components/sportsBlock.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/mirror-components/sportsBlock.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/pages/Mirror.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/pages/Mirror.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/styles/calendarBlock.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/styles/calendarBlock.css\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/styles/sportsBlock.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/styles/sportsBlock.css\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\n  </component>\n  <component name=\"ProjectId\" id=\"217pTPvG4ONxc7D0iHViAfAcUz2\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/styles\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"SvnConfiguration\">\n    <configuration />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"054398a1-b2ba-43cc-b2aa-a3e9bf9a33cf\" name=\"Default Changelist\" comment=\"\" />\n      <created>1637301986321</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1637301986321</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"UnknownFeatures\">\n    <option featureType=\"com.intellij.fileTypeFactory\" implementationName=\"*.js\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"origin/OC-FrontEnd(Post-React)\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 125a93297112fea9dca4682e7000565be86eef49)
++++ b/.idea/workspace.xml	(date 1649106381647)
+@@ -32,11 +32,7 @@
+     <list default="true" id="054398a1-b2ba-43cc-b2aa-a3e9bf9a33cf" name="Default Changelist" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/api/routes/token.json" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/calendarBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/calendarBlock.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/sportsBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/sportsBlock.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/pages/Mirror.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Mirror.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/styles/calendarBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/calendarBlock.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/styles/sportsBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/sportsBlock.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/mirror-components/smartLightBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mirror-components/smartLightBlock.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -56,7 +52,9 @@
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
++    <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
++    <property name="nodejs_package_manager_path" value="npm" />
+   </component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+@@ -74,9 +72,13 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1637301986321</updated>
++      <workItem from="1649093214493" duration="572000" />
+     </task>
+     <servers />
+   </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
+   <component name="UnknownFeatures">
+     <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
+   </component>
+@@ -102,6 +104,5 @@
+         </entry>
+       </map>
+     </option>
+-    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+ </project>
+\ No newline at end of file
