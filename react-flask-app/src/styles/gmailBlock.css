@@ -4,7 +4,6 @@
     color: white;
     font: Poppins;
     font-size: 20px;
-    overflow: hidden;
 }
 
 .mail-container{
@@ -23,7 +22,12 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    overflow: hidden;
+    height: 300px; /* owen fix this */
+    overflow-y: scroll;
+}
+
+.messages::-webkit-scrollbar {
+    display: none;
 }
 
 .message {

@@ -33,6 +33,7 @@ function CalendarBlock() {
                   <div> Loading </div> :
                   <div className='schedule-container'>
                   <div className='upcoming'> Upcoming Events </div>
+                  <div className='cal-object'>
                     {Object.keys(calendar.items).map((event) => (
                         <div className='events' key={event}>
                             <div className='event-details'>
@@ -74,6 +75,8 @@ function CalendarBlock() {
                         </div>
                     ))}
                   </div>
+                  </div>
+
               }
            </div>)
  }
