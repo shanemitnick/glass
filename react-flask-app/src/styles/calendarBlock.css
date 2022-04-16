@@ -17,8 +17,20 @@
     text-align: center;
 }
 
-.events{
+.cal-object{
     order: 2;
+    display: flex;
+    flex-direction: column;
+    height: 250px; /* owen fix this */
+    overflow-y: scroll;
+}
+
+.cal-object::-webkit-scrollbar {
+    display: none;
+}
+
+.events{
+    order:1;
 }
 
 .event-details{
