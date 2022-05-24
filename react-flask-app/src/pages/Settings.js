@@ -53,7 +53,7 @@ const Settings = () =>  {
           {!gotData ?
             <h1> loading </h1> :
             <div> 
-            <button type="button" onClick={handleClick}> Switch </button>
+            <button type="button" onClick={handleClick}> More Settings </button>
 
               {active === "USER" ? (
                 <UserProfile props={data} />
@@ -90,10 +90,9 @@ const googleLogIn = () => {
 const UserProfile = (props) => {
   const { OptGroup, Option } = Select;
 
-  console.log(props)
   const data = props.props
   console.log(data)
-  console.log(data.user)
+
   const teams = require("../reference/sports_teams.json")
 
   const [form] = Form.useForm();
