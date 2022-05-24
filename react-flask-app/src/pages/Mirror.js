@@ -13,7 +13,7 @@ import SportsBlock from '../components/mirror-components/sportsBlock.js';
 import CalendarBlock from '../components/mirror-components/calendarBlock.js';
 import DistanceBlock from '../components/mirror-components/distanceBlock';
 import GmailBlock from '../components/mirror-components/gmailBlock';
-import SmartLightBlock from '../components/mirror-components/smartLightBlock';
+import SmartLightBlock from '../components/mirror-components/LIFX/smartLightBlock';
 
 
 const Mirror = () => {

@@ -12,6 +12,7 @@ application.config['SECRET_KEY'] = 'Secret Key'
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 application.config['SQLALCHEMY_POOL_RECYCLE'] = None
 application.config['SQLALCHEMY_POOL_TIMEOUT'] = None
+application.debug = True
 
 with application.app_context():
     api = Api(application)
@@ -37,5 +38,5 @@ with application.app_context():
 
 
 if __name__ == "__main__":
-    application.debug = False
+    application.debug = True
     application.run()

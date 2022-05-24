@@ -116,7 +116,7 @@ class LIFX:
         """ Builds a dictionary representation of each home regestered to the account. """
 
         products = self.status()
-        print(products)
+
         for product in products:
             # pprint.pprint(product)
 
@@ -131,17 +131,17 @@ class LIFX:
             room_id = room['id']
             room_name = room['name']
 
-            if room_id not in self.house['homes'][location_name]['rooms']:
+            if room_name not in self.house['homes'][location_name]['rooms']:
                 self.house['homes'][location_name]['rooms'] = {room_name: {'id': room_id, 'products': {}}}
 
-
-            room_products = self.house['homes'][location_name]['rooms'][room_name]['products']
-            room_products[product['label']] = {'brightness': product['brightness'],
-                                            'power': product['power'],
-                                            # 'name': product['label'],
-                                            'id': product['id'],
-                                            'product_type': product['product']['identifier']
-                                            }
+            self.house['homes'][location_name]['rooms'][room_name]['products'][product['label']] = {'brightness': product['brightness'],
+                                                                                                    'power': product['power'],
+                                                                                                    'label': product['label'],
+                                                                                                    'id': product['id'],
+                                                                                                    'product_type': product['product']['identifier']
+                                                                                                    }
+            print(product['label'])
+            pprint(self.house)
 
 
     def build_home2(self):
@@ -253,7 +253,7 @@ def get_lifx_blueprint():
 @app.route('/api/lifx/blueprint2', methods=['POST', 'GET', 'PUT'])
 def get_lifx_blueprint2():
     lifx = LIFX(TOKEN)
-    pprint(lifx.house2)
+    # pprint(lifx.house2)
     return lifx.house2
 
 @app.route('/api/lifx/power', methods=['POST', 'GET', 'PUT'])
@@ -262,21 +262,23 @@ def control_lights():
 
 
     r = request.get_json()
+    print(r)
     print(r['toggle'])
-    if r['toggle'].lower() == 'on':
-        turn = 'off'
-    else:
-        turn = 'on'   
+    # if r['toggle'].lower() == 'on':
+    #     turn = 'off'
+    # else:
+    #     turn = 'on'   
        
     for location in lifx.house['homes'].keys():
         for room in lifx.house['homes'][location]['rooms'].keys():
             for prod in lifx.house['homes'][location]['rooms'][room]['products'].keys():
                 if lifx.house['homes'][location]['rooms'][room]['products'][prod]['id'] == r['id']:
+                    print(lifx.house['homes'][location]['rooms'][room]['products'][prod])
                     break
 
-    lifx.toggle_power2(toggle=turn, level=r['level'], id=r['id'])
+    lifx.toggle_power2(toggle=r['toggle'], level=r['level'], id=r['id'])
     # lifx.toggle_power3(level=r['level'], id=r['id'])
-    return jsonify({'power': turn, 'location': location, 'room': room, 'prod': prod})
+    return jsonify({'power': r['toggle'], 'location': location, 'room': room, 'prod': prod})
 
 # lifx = LIFX(TOKEN)
 
