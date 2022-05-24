@@ -12,12 +12,14 @@ application.config['SECRET_KEY'] = 'Secret Key'
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 application.config['SQLALCHEMY_POOL_RECYCLE'] = None
 application.config['SQLALCHEMY_POOL_TIMEOUT'] = None
+application.debug = True
 
 with application.app_context():
     api = Api(application)
 
     from models.db_model import db, Users #, NewsPreferences, MirrorLayout
     db.init_app(application)
+    # db.create_all()
 
     from routes.weather import get_all_forecast_data
     from routes.google import get_google_calendar, get_gmail, get_google_credentials
@@ -28,6 +30,7 @@ with application.app_context():
     #from routes.distance_calculator import calculate_distance
     from routes.registration import register
     from routes.stocks import get_stock_prices
+    from routes.lifx import get_lifx_blueprint, get_lifx_blueprint, control_lights
 
     @application.route('/')
     def hello_world():
@@ -35,5 +38,5 @@ with application.app_context():
 
 
 if __name__ == "__main__":
-    application.debug = False
+    application.debug = True
     application.run()

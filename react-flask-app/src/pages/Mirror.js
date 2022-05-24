@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {withRouter} from 'react-router-dom';
 import { Row, Col } from 'antd';
 import '../styles/Mirror.css';
@@ -13,16 +13,29 @@ import StockTicker from '../components/mirror-components/stockTicker.js';
 import CalendarBlock from '../components/mirror-components/calendarBlock.js';
 // import DistanceBlock from '../components/mirror-components/distanceBlock';
 import GmailBlock from '../components/mirror-components/gmailBlock';
-// import SmartLightBlock from '../components/mirror-components/smartLightBlock';
+import SmartLightBlock from '../components/mirror-components/LIFX/smartLightBlock';
 
 
 const Mirror = () => {
+    const [mirrorLayout, setMirrorLayout] = useState({})
+    const [gotData, setGotData] = useState(false)
 
-  return(
-              <div className="mirror-contatiner">
-
-
-                  <Row className='top-row'>
+  // useEffect(() => {
+  //   fetch('api/settings', {method: 'POST',
+  //                          headers: {"Content-Type": "application/json"},
+  //                          body: JSON.stringify({'user_id': 1})}
+  //         ).then(res => res.json()).then(data => {
+  //           console.log(data)
+  //           setMirrorLayout(data.mirror)
+  //           setGotData(true)
+  //           })
+  //   });
+  
+  return(<div> 
+          {/* {!gotData ? */}
+          {/* // <div>Black Screen</div> : */}
+          <div className="mirror-contatiner">
+                <Row className='top-row'>
                     <Col span={7} className='left-col'>
                         <TimeBlock />
                     </Col>
@@ -41,7 +54,7 @@ const Mirror = () => {
                     </Col>
 
                     <Col span={10} className='middle-col'>
-                        {/* <SmartLightBlock /> */}
+                        <SmartLightBlock />
                     </Col>
 
                     <Col span={7} className='right-col'>
@@ -61,7 +74,7 @@ const Mirror = () => {
 
                     </Col>
                   </Row>
-
+                  
                   <Row className='ticker-row'>
                     <Col className='ticker-col' span={24}>
                         <StockTicker />
@@ -69,8 +82,10 @@ const Mirror = () => {
                   </Row>
 
 
-              </div>
-            );
+            </div>
+            {/* } */}
+        </div>
+        );
     }
 
 

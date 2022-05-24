@@ -18,6 +18,7 @@ SCOPES = ['https://www.googleapis.com/auth/calendar.readonly',
 
 @app.route('/api/google/get_credentials', methods=['GET', 'POST'])
 def get_google_credentials():
+
     try:
         os.chdir(os.getcwd() + '/routes')
     except FileNotFoundError:
@@ -37,6 +38,7 @@ def get_google_credentials():
         # Store the credentials for the next request
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
+            print('writing')
 
     return jsonify({'Credentials Stored Locally.'})
 
@@ -112,9 +114,11 @@ def get_gmail():
         exclude = ['CATEGORY_PROMOTIONS', 'CATEGORY_SOCIAL'] #, 'CATEGORY_UPDATES']
         mail = defaultdict(dict)
         idx = 0
-        for msg in messages:
+        count = 0
+
+        while (len(mail.keys()) <= 10) and (count < len(messages)-1):
             try:
-                txt = service.users().messages().get(userId='me', id=msg['id']).execute()
+                txt = service.users().messages().get(userId='me', id=messages[count]['id']).execute()
                 if any(label in exclude for label in txt['labelIds']): # need to filter out spam, bc filer applied in first api call doesn't seem to work
                     raise ValueError
                 
@@ -138,9 +142,42 @@ def get_gmail():
                 body = soup.body.p.text # Need to access the <p> tags of the <body> and access the text property in order to jsonify
                 mail[idx]['body'] = body
                 idx += 1
+                count += 1
 
             except:
+                count += 1
                 pass
+
+        # for msg in messages[:50]:
+        #     try:
+        #         txt = service.users().messages().get(userId='me', id=msg['id']).execute()
+        #         if any(label in exclude for label in txt['labelIds']): # need to filter out spam, bc filer applied in first api call doesn't seem to work
+        #             raise ValueError
+                
+        #         summary = txt['snippet']
+        #         payload = txt['payload']
+        #         headers = payload['headers']
+        #         for d in headers:
+        #             if d['name'] in ['From', 'Subject', 'Date']:
+        #                 if d['name'] == 'From':
+        #                     d['value'] = d['value'].split(' <')[0]
+        #                 mail[idx][d['name'].lower()] = d['value']
+
+        #         mail[idx]['summary'] = summary
+
+        #         parts = payload.get('parts')[0]
+        #         data = parts['body']['data']
+        #         data = data.replace('-', '+').replace('_', '/')
+        #         decoded_data = base64.b64decode(data)
+                
+        #         soup = BeautifulSoup(decoded_data, 'lxml')
+        #         body = soup.body.p.text # Need to access the <p> tags of the <body> and access the text property in order to jsonify
+        #         mail[idx]['body'] = body
+        #         idx += 1
+        #         count += 1
+        #     except:
+        #         count += 1
+        #         pass
 
         return jsonify(dict(mail))
         

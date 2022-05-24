@@ -1,3 +1,21 @@
+default_layout = {
+    'top-left': 'date-time',
+    'top_center': 'greeting',
+    'top_right': 'weather',
+    
+    'middle_left': 'calendar',
+    'middle_center': None,
+    'middle_right': None,
+    
+    'bottom_left': 'email',
+    'bottom_center': None,
+    'bottom_right': 'news',
+    
+    'stock_ticker': True
+
+}
+
+
 nytimes_params = {
     "section": [
         ("all topics", "all topics"),
@@ -29,3 +47,6 @@ nytimes_params = {
         ("world", "world")
     ]
 }
+
+
+

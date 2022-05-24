@@ -10,7 +10,7 @@ import { PLASMIC } from './plasmic-init';
 
 import App from "./pages/App.js";
 import Mirror from './pages/Mirror';
-import Test from "./pages/Test.js";
+import Settings from "./pages/Settings.js";
 import Registration from "./pages/Registration.js";
 
 import ProtectedRoute from './auth/protected-route';
@@ -24,7 +24,7 @@ ReactDOM.render(
         <Route path="/Mirror" exact component={Mirror} />
         <Route path="/registration" component={Registration} />
         <Route path="/plasmic-host" render={() => <PlasmicCanvasHost />} />
-        <ProtectedRoute path="/profile" component={Test} />
+        <ProtectedRoute path="/profile" component={Settings} />
       </Switch>
     </Auth0ProviderWithHistory>
   </Router>,
